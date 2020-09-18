@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li class="one">涛仔科信最帅</li>
+			<li class="two">521你是光棍</li>
+			<li class="three">情人节你是光棍</li>
+			<li>
+				<span>七夕你还是光棍</span>
+			</li>
+			<li></li>
+		</ul>
+	</body>
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		// 含有某文本的元素
+		// $('li:contains(光棍)').css('color', 'pink');
+		// 含有某种标签(选择器)的元素
+		// $('li:has(span)').css('color', 'green');
+		// 不含有元素或者文本的(空标签)
+		// $('li:empty').css({height: '100px', backgroundColor: 'yellow'});
+		// 含有元素或者文本的(非空标签)
+		// $('li:parent').css('background-color', 'gray');
+		
+		
+		// 含有某个属性的元素 $('el[属性名]')
+		// $('li[class]').css('color', 'pink');
+		// 属性等于x的元素 $('el[属性名=属性值]')
+		// $('li[class=one]').css('background-color', 'yellow');
+		// 属性以x开头的元素
+		// $('li[class^=t]').css('background-color', 'gray');
+		
+		// 属性以x结尾的元素
+		// $('li[class$=e]').css('font-size', '20px');
+		
+		// 属性包含x的元素
+		$('li[class*=o]').css('background-color', 'yellow');
+		
+		// 属性不等于x的
+		$('li[class!=one]').css('color', 'pink');
+		
+		// 属性过滤器可以写多个
+		$('li[class^=o][class$=e]').css('background-color', 'green');
+		
+	</script>
+</html>

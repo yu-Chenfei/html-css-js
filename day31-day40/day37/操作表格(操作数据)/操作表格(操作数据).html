@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			td,th{
+				width: 80px;
+				text-align: center;
+			}
+			table{
+				margin-top: 10px;
+			}
+			div{
+				border: 3px solid #696969;
+				padding: 40px;
+				width: 250px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="addBtn" type="button">添加</button>
+		<!-- 表格 -->
+		<table border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th>书名</th>
+					<th>作者</th>
+					<th>价格</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		<!-- 弹出框 -->
+		<div>
+			<span>书名：</span>
+			<input type="text">
+			<br>
+			<span>作者：</span>
+			<input type="text">
+			<br>
+			<span>价格：</span>
+			<input type="text">
+			<br>
+			<button class="ensure" type="button">确定</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 这是一条数据
+		var bookData = [{id: 1 ,name: '文化苦旅', author: '余秋雨', price: 90}, {id: 2 ,name: '从你的全世界路过', author: '张嘉佳', price: 190}];
+		// 获取元素
+		var myTbody = document.getElementsByTagName('tbody')[0];
+		var addBtn = document.getElementsByClassName('addBtn')[0];
+		var ensure = document.getElementsByClassName('ensure')[0];
+		var inps = document.getElementsByTagName('input');
+		var show = document.getElementsByTagName('div')[0];
+		
+		// 定义一个变量 判断是添加还是编辑
+		var isAdd = true;
+		// 定义一个全局变量 用来保存编辑时的id
+		var editId = '';
+		
+		// 写一个渲染数据(渲染DOM的函数)
+		function createTrFun(){
+			// 每次先清空tbody
+			myTbody.innerHTML = '';
+			// 有几条数据就创建几个tr标签
+			// 循环遍历数据
+			for(var i = 0;i < bookData.length;i++){
+				// 每次循环都创建一个tr标签
+				var newTr = document.createElement('tr');
+				
+				// 每次循环设置创建的tr的内容
+				newTr.innerHTML = '<td>'+ bookData[i].name +'</td><td>'+ bookData[i].author +'</td><td>'+ bookData[i].price +'</td><td><span onclick="delFun('+bookData[i].id+')">删除 </span><span onclick="editFun('+bookData[i].id+')"> 编辑</span></td>';
+				
+				// 把创建好的tr标签放到tbody里
+				myTbody.appendChild(newTr);
+			}
+		}
+		// 调用函数
+		createTrFun();
+		
+		// 点击添加按钮(给添加按钮绑定点击事件)
+		addBtn.onclick = function(){
+			// div显示(弹出框显示)	
+			show.style.display = 'block';	
+			// 让isAdd等于true
+			isAdd = true;
+		}
+		// 点击确定按钮
+		ensure.onclick = function(){
+			// 判断是添加还是编辑
+			if(isAdd){
+				// 添加
+				// 把新增的数据放在数组里
+				var addBook = {id: 3,name: inps[0].value, author:  inps[1].value,  price: inps[2].value};
+				bookData.push(addBook);
+				// 重新调用渲染tr的函数
+				createTrFun();	
+			}else{
+				// 编辑
+				for(var i = 0;i < bookData.length;i++){
+					if(bookData[i].id == editId){
+						// 判断编辑的数据
+						bookData.splice(i, 1, {id: editId, name: inps[0].value,author:  inps[1].value,price:  inps[2].value});
+					}	
+				}
+				// 重新调用渲染数据函数
+				createTrFun();
+			}
+			
+			// 弹出div隐藏
+			show.style.display = 'none';
+		}
+		
+		// 删除数据的函数
+		function delFun(id){
+			console.log(id);
+			// 拿到要删除数据的id 根据id删除数据
+			for(var i = 0;i < bookData.length;i++){
+				if(bookData[i].id == id){
+					bookData.splice(i, 1);
+				}
+			}
+			// 重新调用渲染数据的函数
+			createTrFun();
+		}
+		
+		// 编辑数据的函数
+		function editFun(id){
+			editId = id;
+			// 弹出框显示
+			show.style.display = 'block';
+			// isAdd变成false
+			isAdd = false;
+			// 找到id对应的书名 作者 价格
+			for(var i = 0;i < bookData.length;i++){
+				if(bookData[i].id == id){
+					inps[0].value = bookData[i].name;
+					inps[1].value = bookData[i].author;
+					inps[2].value = bookData[i].price;
+				}
+			}
+		}
+		
+	</script>
+</html>

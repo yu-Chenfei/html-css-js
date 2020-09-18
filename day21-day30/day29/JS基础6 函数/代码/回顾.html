@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>哈哈哈</li>
+			<li>嘿嘿嘿</li>
+			<li>呵呵呵</li>
+		</ul>
+		
+		<span>111</span>
+		<span>222</span>
+		<span>333</span>
+	</body>
+	<script type="text/javascript">
+		// this关键字：在事件中this指向执行事件的元素(比如点击事件中 点谁this就代表谁)
+		// 自定义属性：设置非系统自带属性(一般用来保存值)
+		// 问题：循环绑定事件的时候 在事件中不能使用循环的变量(比如 i) 因为事件执行的时候 循环已经走完 i始终是最后一个值
+		// 解决：改变自己样式的时候 可以使用this
+		// 改变其他元素样式的时候 使用自定义属性 把索引存起来 在使用this.属性名 拿出来用
+		var lis = document.getElementsByTagName('li');
+		var spans = document.getElementsByTagName('span');
+		
+		for(var i = 0;i < lis.length;i++){
+			lis[i].index = i;
+			lis[i].onclick = function(){
+				this.style.color = 'red';
+				
+				spans[this.index].style.backgroundColor = 'yellowgreen';
+			}
+		}
+		
+		
+		
+	</script>
+</html>

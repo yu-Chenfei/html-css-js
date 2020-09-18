@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+		<style type="text/css">
+			.swiper-container {
+			    width: 100%;
+			    /* height: 500px; */
+			}
+			.swiper-container img{
+				width: 100%;
+			}
+			.imgDiv>div{
+				float: left;
+				width: 25%;
+			}
+			.imgDiv div img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide">
+						<img src="img/ani1.png" >
+					</div>
+			        <div class="swiper-slide">
+						<img src="img/ani2.png" >
+					</div>
+			        <div class="swiper-slide">
+						<img src="img/ani3.png" >
+					</div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			    
+			    <!-- 如果需要导航按钮 -->
+			    <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div>
+			</div>
+			
+			<div class="imgDiv">
+				<div>
+					<div>
+						<img src="img/rd1.jpg" >
+					</div>
+					<div>
+						<img src="img/rd2.jpg" >
+					</div>
+					<div>
+						<img src="img/rd3.jpg" >
+					</div>
+					<div>
+						<img src="img/rd4.jpg" >
+					</div>
+					<div>
+						<img src="img/rd17.jpg" >
+					</div>
+					<div>
+						<img src="img/rd24.jpg" >
+					</div>
+				</div>
+				<div>
+					<img src="img/rd5.jpg" >
+					<img src="img/rd6.jpg" >
+					<img src="img/rd7.jpg" >
+					<img src="img/rd8.jpg" >
+					<img src="img/rd19.jpg" >
+					<img src="img/rd20.jpg" >
+				</div>
+				<div>
+					<img src="img/rd9.jpg" >
+					<img src="img/rd10.jpg" >
+					<img src="img/rd11.jpg" >
+					<img src="img/rd12.jpg" >
+					<img src="img/rd21.jpg" >
+					<img src="img/rd22.jpg" >
+				</div>
+				<div>
+					<img src="img/rd13.jpg" >
+					<img src="img/rd14.jpg" >
+					<img src="img/rd15.jpg" >
+					<img src="img/rd16.jpg" >
+					<img src="img/rd23.jpg" >
+					<img src="img/rd18.jpg" >
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script type="text/javascript">
+		var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'horizontal', // 垂直切换选项
+		    loop: true, // 循环模式选项
+			autoplay:true,//自动播放
+		    
+		    // 如果需要分页器
+		    pagination: {
+		      el: '.swiper-pagination',
+			  clickable :true, // 分页器是否可以点击
+		    },
+		    
+		    // 如果需要前进后退按钮
+		    navigation: {
+		      nextEl: '.swiper-button-next',
+		      prevEl: '.swiper-button-prev',
+		    }
+		  })   
+	</script>
+</html>

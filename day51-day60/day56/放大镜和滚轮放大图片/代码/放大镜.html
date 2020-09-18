@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#min_wrap{
+				width: 350px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				border: 1px solid gray;
+			}
+			#max_wrap{
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 360px;
+				top: 0;
+				border: 1px solid gray;
+				overflow: hidden;
+			}
+			#slider{
+				width: 175px;
+				height: 175px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background-color: aqua;
+				opacity: 0.7;
+				display: none;
+			}
+			#max_img{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="min_wrap">
+			<img src="images/min.jpg" >
+			<div id="slider"></div>
+		</div>
+		<div id="max_wrap">
+			<img id="max_img" src="images/max.jpg" >
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var minWrap = document.querySelector('#min_wrap');
+		var maxWrap = document.querySelector('#max_wrap');
+		var slider = document.querySelector('#slider');
+		var maxImg = document.querySelector('#max_img');
+		
+		// 鼠标移入minWrap让slider显示
+		minWrap.onmousemove = function(event){
+			// 滑块显示
+			slider.style.display = 'block';
+			
+			// 事件对象兼容
+			var event = event || window.event;
+			// 获取坐标
+			var _x = event.clientX - minWrap.offsetLeft;
+			var _y = event.clientY - minWrap.offsetTop;
+			
+			// 让鼠标对准滑块的中心点
+			var x = _x - slider.offsetWidth / 2;
+			var y = _y - slider.offsetHeight / 2;
+			
+			// 控制滑块的范围
+			if(x >= minWrap.clientWidth - slider.offsetWidth){
+				x = minWrap.clientWidth - slider.offsetWidth
+			}else if(x <= 0){
+				x = 0;
+			}
+			
+			if(y >= minWrap.clientHeight - slider.offsetHeight){
+				y = minWrap.clientHeight - slider.offsetHeight
+			}else if(y <= 0){
+				y = 0;
+			}
+			
+			// 确定slider位置
+			slider.style.left = x + 'px';
+			slider.style.top = y + 'px';
+					
+		    // 求出slider移动的比例
+			var scaleX = x / (minWrap.clientWidth - slider.offsetWidth);
+			var scaleY = y / (minWrap.clientHeight - slider.offsetHeight);
+			
+			// 求出最大照片的偏移量
+			maxWrap.scrollLeft = scaleX * (maxImg.offsetWidth - maxWrap.clientWidth);
+			maxWrap.scrollTop = scaleY * (maxImg.offsetHeight - maxWrap.clientHeight);
+		}
+		
+		// 鼠标移出slider隐藏
+		minWrap.onmouseleave = function(){
+			// 滑块隐藏
+			slider.style.display = 'none';
+		}
+	</script>
+</html>

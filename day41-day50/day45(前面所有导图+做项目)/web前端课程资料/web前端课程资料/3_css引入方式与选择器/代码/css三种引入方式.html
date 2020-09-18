@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--
+		 在head中写link标签引入外部css文件
+		 link的href属性中写文件的相对路径
+		 
+		 在项目中最常使用的方式(样式和内容分离)
+		 -->	
+		<style type="text/css">
+			/* 内部引入方式 */
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: purple;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="1.css"/>
+		<!-- 外部样式 内部样式没有优先级区别 文档后边会覆盖前面的 -->
+	</head>
+	<body>
+		<!-- 行间样式：
+		不能统一设置样式
+		不好维护
+		最不常用
+		优先级最高
+		-->
+		<!-- <div style="width: 100px;height: 100px;background-color: yellow;"></div>
+		<div style="width: 100px;height: 100px;background-color: yellow;"></div> -->
+		
+		<div>1</div>
+		<div>2</div>
+	</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<!-- 盒模型：ie盒模型和正常盒模型的区别 -->
+		<!-- 
+		margin：外边距 用法：调整元素位置和元素直接距离
+		位置相对于父元素的边缘或者相邻元素
+		问题1：第一个子元素的margin-top会传递给父元素
+		解决1：给父元素overflow：hidden 或者 使用padding-top代替
+		
+		问题2：上下两个元素同时设置margin-bottom和margin-top取最大值
+		-->
+		<!-- 
+		padding：内边距 内容区域距离元素边缘的大小
+		一般代替margin使用
+		 -->
+		<!-- 
+		border：边框 设置边框或者一条线
+		border-style：solid dotted dashed
+		border-color
+		border-width
+		 --> 
+		<!-- 
+		盒模型补充：两个值 第一个是上下 第二个是左右 
+				   四个值 上右下左
+				   一个值 四个方向值相同
+		-->
+		
+		<!-- 
+		浮动：float：left/right 语法：让块属性元素排一行时使用浮动
+		浮动遇到父元素边缘或者相邻浮动元素会停下来
+		
+		问题：当父元素没有高度 高度由子元素撑开 一旦子元素浮动 就会脱离父元素
+		父元素就会失去高度 进而影响后面元素布局
+		解决：1 给父元素设置overflow：hidden；
+		2 在父元素里面的最后加一个拥有clear：both属性的块元素
+		
+		附带效果：1 文字环绕效果 2 可以让行属性元素支持设置宽高
+		
+		补充：让行属性元素支持设置宽高一般 display：inline-block
+		display：inline-block的问题
+		1 文本下对齐
+		2 对齐的元素会一起移动
+		3 代码换行会有空格
+		-->
+		 
+		<!-- 
+		定位：固定定位：fixed 相对于浏览器可视窗口(滚动页面元素不动)
+		
+		相对定位relative：相对于之前的位置定位 之前的位置不会被其他元素占用
+		绝对定位absolute：相对于拥有定位的父元素或祖先元素 如果都没有定位相对于body
+		
+		相对定位和绝对定位配合使用(一个元素盖在其他元素上面)
+		盖在上面的元素使用绝对定位 它的父元素设置相对定位限制它的位置
+		 --> 
+		 
+		 <!-- 
+		 居中问题
+		 块属性：
+		 水平居中-给自己设置margin:0 auto;
+		 垂直居中-没有快捷方法
+		 
+		 其他属性：
+		 水平居中：父元素设置 text-align：center
+		 垂直居中(单行)：父元素设置line-height：父元素高度;
+		  -->
+		  
+		  
+		  <!-- 
+		  雪碧图
+		  为了性能考虑 如果项目中有多个图标 那么就把这些图标放在一个图片上
+		  设置背景图片显示它 使用background-position调整位置显示不同的图标
+		   -->
+		   
+		   <!-- 
+		   @import和link引入css区别：
+		   1 link引入页面打开就加载 @import内容加载完再加载
+		   2 @import无法使用js控制 link本质是一个标签可以使用js控制
+		   3 @import只能引入css link还可以引入其他
+		   4 @import有兼容问题
+			-->
+	</body>
+</html>

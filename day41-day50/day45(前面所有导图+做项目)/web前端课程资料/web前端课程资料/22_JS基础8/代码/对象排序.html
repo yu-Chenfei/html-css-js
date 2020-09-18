@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 需要排序的数组
+		var cityArray = [{name: '新德里', country: '印度'} ,{name: '北京', country: '中国'},{name: '巴黎', country: '法国'},{name: '东京', country: '日本'}];
+		// 顺序参照数组
+		var compareArray = ['北京', '东京', '巴黎', '新德里'];
+		
+		// 相当于按索引从小到大排序
+		cityArray.sort(compare);			
+		// 比较函数
+		function compare(value1, value2){
+			// 每次拿出两项进行比较
+			var num1 = compareArray.indexOf(value1.name);
+			var num2 = compareArray.indexOf(value2.name);
+			// 从小到大排序
+			return num1 - num2;
+		}
+		console.log(cityArray);
+		
+		
+	</script>
+</html>

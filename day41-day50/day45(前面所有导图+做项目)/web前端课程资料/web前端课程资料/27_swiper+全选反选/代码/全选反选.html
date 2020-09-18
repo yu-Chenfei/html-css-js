@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			全选<input id="allCheck" type="checkbox"> 
+		</div>
+		<div>
+			<input class="checkInp" type="checkbox"> 西红柿鸡蛋
+		</div>
+		<div>
+			<input class="checkInp" type="checkbox"> 酸辣土豆丝
+		</div>
+		<div>
+			<input class="checkInp" type="checkbox"> 宫保鸡丁
+		</div>
+		<div>
+			<input class="checkInp" type="checkbox"> 鱼香肉丝
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var allCheck = document.getElementById('allCheck');
+		var checkInps = document.getElementsByClassName('checkInp');
+		// 定义一个变量 记录单选框被选中的个数
+		var count = 0;
+		
+		// 全选按钮绑定点击事件
+		allCheck.onclick = function(){
+			// 如果是勾选
+			if(this.checked){
+				// 循环让所有单选按钮都被选中
+				for(var i = 0;i < checkInps.length;i++){
+					checkInps[i].checked = true;
+				}
+				count = checkInps.length;
+			}else{
+				// 如果是取消选中
+				// 循环让所有单选按钮都被取消选中
+				for(var i = 0;i < checkInps.length;i++){
+					checkInps[i].checked = false;	
+				}
+				count = 0;	
+			}
+		}
+		
+		
+		for(var i = 0;i < checkInps.length;i++){
+			checkInps[i].onclick = function(){
+				if(this.checked){
+					// 选中单选按钮
+					count++;
+					// 如果count等于单选框的个数就自动选中全选框
+					if(count == checkInps.length){
+						allCheck.checked = true;
+					}		
+				}else{
+					// 取消选中单选按钮
+					count--;
+					allCheck.checked = false;
+				}
+			}
+		}
+		
+	</script>
+</html>

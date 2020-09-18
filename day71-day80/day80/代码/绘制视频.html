@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas style="border: 2px solid darkred;" id="can" width="600" height="400">
+			您的浏览器不支持画布
+		</canvas>
+		<video style="display: none;" src="HTML5的前世今生.mp4"></video>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		var video = document.getElementsByTagName('video')[0];
+		// 获取绘制的上下文
+		var context = can.getContext('2d');
+		var timer = null;
+		
+		// 绘制的函数
+		function drawVideoFun(){
+			// 判断视频是否播放结束
+			if(!video.ended){
+				// 清除上一次画布
+				context.clearRect(0,0,600,400);
+				// 绘制视频
+				context.drawImage(video,0,0,600,400);
+			}else{
+				clearInterval(timer);
+			}
+		}
+		
+		// 给canvas绑定点击事件
+		can.onclick = function(){
+			// 播放视频
+			video.play();
+			// 使用定时器绘制
+			timer = setInterval(drawVideoFun,10);
+		}
+	</script>
+</html>

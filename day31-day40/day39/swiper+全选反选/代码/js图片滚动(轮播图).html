@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#show{
+				border: 3px solid dimgray;
+				width: 300px;
+				height: 270px;
+				position: relative;
+				/* overflow: hidden; */
+			}
+			#scroll{
+				width: 1200px;
+				height: 270px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#scroll img{
+				width: 300px;
+				height: 270px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="show">
+			<div id="scroll">
+				<img src="img/1.jpg" alt="">
+				<img src="img/2.jpg" alt="">
+				<img src="img/3.jpg" alt="">
+				<img src="img/1.jpg" alt="">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var scroll = document.getElementById('scroll');
+		
+		// 写一个走一张的方法
+		function animateFun(_offset){
+			// 定义一个初始值(改变定位后的left值)
+			var _left = 0;
+			// 使用定时器改变这个初始值
+			var timer = setInterval(function(){
+				_left--;
+				// 判断走到最后一张 让他回到第一张
+				if(_offset == -900){
+					_offset = 0;
+				}
+				// 再把改变后的值 赋值给需要改变的属性
+				scroll.style.left = _offset + _left + 'px';
+				// 判断走的距离(走一张就停)
+				if(_left == -300){
+					
+					// 清除定时器
+					clearInterval(timer);
+				}
+			},10);
+		}
+		
+		animateFun();
+		
+		// 定义一个函数(播放每一张图片的)
+		function move(){
+			// 定义一个定时器 每隔一段时间调用走一张图片的方法
+			setInterval(function(){
+				// 每次获取scroll的offsetLeft 作为开始位置
+				var _offset = scroll.offsetLeft;
+				
+				animateFun(_offset);   
+			},4000);
+		}
+		
+		move();
+	</script>
+</html>

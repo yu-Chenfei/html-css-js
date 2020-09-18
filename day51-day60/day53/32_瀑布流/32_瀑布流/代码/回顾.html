@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<button type="button">我是一个按钮</button>
+		</div>
+		
+		<a href="http://www.baidu.com">乔文广イト野外です腹肌</a>
+	</body>
+	<script type="text/javascript">
+		// 事件冒泡：当一个元素接受某个动作(可以激发事件的动作)的时候，这个动作会一直向上传递，直到body
+		// 如果父元素或者祖先元素有绑定事件，就会被依次触发。
+		
+		// UI事件：load(window/image) resize scroll
+		// 鼠标事件：click dblclick contextmenu mouseover mouseout mouseenter(没有冒泡) mouseleave(没有冒泡)
+		// mousedown mouseup mousemove
+		
+		// 键盘事件：keydown keyup keypress(不包括alt、shift等系统按钮)
+		
+		// 表单事件：focus blur change input submit
+		
+		// 事件对象：event
+		var btn = document.querySelector('button');
+		var box = document.querySelector('.box');
+		var myLink = document.querySelector('a');
+		
+		box.onclick = function(event){
+			var event = event || window.event;
+			// 获取接受动作的元素
+			var target = event.target || event.srcElement;
+			console.log(target);// button->子元素触发的事件
+			
+			console.log(this);// box
+		}
+		
+		btn.onclick = function(event){
+			// 事件对象兼容
+			var event = event || window.event;	
+			// 获取事件类型
+			// console.log(event.type);
+			// 获取接受动作的元素
+			// var target = event.target || event.srcElement;
+			// console.log(target);
+			
+			// 阻止事件冒泡
+			if(event.stopPropagation){
+				event.stopPropagation();
+			}else{
+				event.cancelBubble = true;
+			}
+			
+			console.log(555);
+		}
+		
+		myLink.onclick = function(event){
+			// 事件对象兼容
+			var event = event || window.event;	
+			
+			// 阻止系统默认
+			if(event.preventDefault){
+				event.preventDefault();
+			}else{
+				event.returnValue = false;
+			}
+			console.log(777);
+		}
+	</script>
+</html>

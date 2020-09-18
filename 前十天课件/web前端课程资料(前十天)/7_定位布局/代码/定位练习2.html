@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.mov{
+				border: #FF1493 solid 5px;
+				width: 200px;
+				height: 160px;
+				position: relative;
+			}
+			.mov img{
+				width: 200px;
+				height: 160px;
+				vertical-align: middle;
+			}
+			.mov .b_div{
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.5);
+				color: white;
+				font-size: 20px;
+				text-align: center;
+				line-height: 160px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 1s linear; 
+			}
+			
+			.b_div:hover{
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mov">
+			<img src="1.jpg" >
+			<div class="b_div">
+				塔谈村吴彦祖
+			</div>
+		</div>
+	</body>
+</html>

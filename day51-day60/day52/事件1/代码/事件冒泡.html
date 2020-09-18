@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 100px;
+			}
+		</style>
+	</head>
+	<body onclick="alert('body也被触发了')">
+		<div style="background-color: blue;">
+			<div style="background-color: red;">
+				<div style="background-color: yellow;"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 1.和绑定哪种事件没有关系 2.和哪种标签没关系
+		// 事件冒泡：事件从事件目标(target)开始，往上冒泡直到页面的最上一级标签
+		// 事件委托：把原本需要绑定的事件绑定给父元素，让父元素负责事件监听 好处是减少事件绑定，提高性能
+		// 事件监听：为同一个对象的同一个事件绑定多个事件处理程序
+		// 事件捕获：事件由父元素传到子元素的传递过程
+		var divs = document.getElementsByTagName('div');
+		
+		for(var i = 0;i < divs.length;i++){
+			divs[i].onclick = function(){
+				alert(this.style.backgroundColor);
+			}
+			
+			// 事件捕获
+			// divs[i].addEventListener('click',function(){
+			// 	alert(this.style.backgroundColor);
+			// },true);
+		}
+	</script>
+</html>

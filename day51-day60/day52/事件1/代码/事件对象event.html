@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div onclick="alert('外层div')">
+			<div id="box">
+				按钮
+			</div>
+		</div>
+		
+		<a href="http://www.baidu.com">百度网</a>
+	</body>
+	<script type="text/javascript">
+		// 所有事件里都有一个event事件对象
+		var box = document.getElementById('box');
+		var myA = document.getElementsByTagName('a')[0];
+		
+		box.onclick = function(event){
+			// event在IE下有兼容问题->兼容写法
+			var event = event || window.event;
+			
+			// 阻止事件冒泡
+			if(event.stopPropagation){
+				event.stopPropagation();
+			}else{
+				event.cancelBubble = true;
+			}
+			
+			// 获取事件类型: event.type
+			console.log(event.type);
+			
+			// 获取触发事件的元素(动作执行的元素)
+			var _target = event.target || event.srcElement;
+			console.log(_target);
+		}
+		
+		box.oncontextmenu = function(event){
+			var event = event || window.event;		
+			// 阻止系统默认
+			if(event.preventDefault){
+				event.preventDefault()
+			}else{
+				event.returnValue = false;
+			}		
+			console.log('点击右键了');
+		}
+		
+		myA.onclick = function(event){
+			var event = event || window.event;
+			// 阻止系统默认
+			if(event.preventDefault){
+				event.preventDefault()
+			}else{
+				event.returnValue = false;
+			}	
+			alert(555);
+		}
+		
+		
+		
+	</script>
+</html>

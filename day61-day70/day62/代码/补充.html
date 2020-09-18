@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<span>按钮1</span>
+		<span>按钮2</span>
+		<span>按钮3</span>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 给三个按钮绑定点击事件
+		// 原生js：使用for循环绑定事件
+		$('span').on('click', function(){
+			// 原生js：this是执行事件元素
+			// jquery中使用$(this)
+			
+			// index()方法可以获取当前元素的索引
+			var index = $(this).index();
+			console.log(index);
+		});
+		
+		
+		// jq tab切换
+	</script>
+</html>

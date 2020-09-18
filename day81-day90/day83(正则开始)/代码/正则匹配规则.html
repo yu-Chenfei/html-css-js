@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 字面量字符：字符代表它字面上的含义
+		var str = 'aabbccdd';
+		var re = /(aa)/;
+		console.log(re.test(str)); // true
+		
+		// 元字符
+		// 点符号：匹配除回车、换行、行分隔符、段分隔符以外的所有字符
+		var str = 'a1c';
+		var re = /a.c/;
+		console.log(re.test(str)); // true
+		
+		// 位置字符： ^以某个字符开头 $以某个字符结尾
+		var str = 'aaabbb';
+		var re1 = /^(aaa)/;
+		console.log(re1.test(str)); // true
+		
+		var re2 = /(bbb)$/
+		console.log(re2.test(str)); // true
+		
+		var re3 = /^aaabbb$/;
+		console.log(re3.test(str)); // true
+		
+		// 竖线符号: 代表或者
+		var str = '22556633';
+		var re = /22|33/g;
+		console.log(re.test(str)); // true
+		console.log(str.match(re)); // [22, 33]
+		
+		// 匹配带有特殊字符的字符串，比如
+		// 特殊字符表示字面意思 没有特殊功能的情况下需要使用\进行转义
+		var str = 'aa|bb';
+		var re = /aa\|bb/g;
+		console.log(str.match(re));
+		
+		// 重复类: {n}等于n {n,}大于等于n {n,m}n到m
+		// +代表1到多个  {1,}
+		// ?代表0到1个  {0,1}
+		// *代表0到多个  {0,}
+		var str = 'ioioaaabc';
+		var re1 = /a{3}/;
+		console.log(re1.test(str)); // true
+		
+		var re2 = /a{2,}/;
+		console.log(re2.test(str)); // true
+		
+		var re3 = /ioioa{1,2}bc/;
+		console.log(re3.test(str)); // false
+		
+		var re4 = /a{1,2}/;
+		console.log(re4.test(str)); // true
+	</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li class="one">不吃烤串</li>
+				<li>不吃火锅</li>
+				<li class="three">不吃烤肉</li>
+				<li class="four">
+					<span>不去喝酒</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 除了某个选择器元素 not('选择器')
+		// $('li').not('.one').css('color', 'red');
+		
+		// 寻找拥有定位的祖先元素 一直到html标签
+		// var oneParent = $('.one').offsetParent();
+		// console.log(oneParent);
+		
+		// 获取父元素 parent()
+		// $('span').parent().css('background-color', 'yellow');
+		
+		// 获取祖先元素 可以用选择器筛选 parents()
+		// $('span').parents('li').css('font-size', '20px');
+		
+		// 获取祖先元素 直到匹配到某一个为止
+		// parentsUntil('选择器') 不包括当前选择器
+		// var spanParents = $('span').parentsUntil('div');
+		// console.log(spanParents);
+		
+		// 上一个同辈元素 prev()
+		// $('.four').prev().css('color', 'red');
+		
+		// 前面所有的同辈元素
+		// prevAll('选择器') 可以加选择器进行筛选
+		// $('.four').prevAll('.one').css('color', 'red');
+		
+		// prevUntil('选择器') 选择器前面的同级元素 
+		// 直到某选择器为止 不包括这个选择器
+		// $('.four').prevUntil('.one').css('color', 'red');
+		
+		// 获取所有同级元素 siblings()
+		// 可以加选择器作为参数进行筛选 siblings('选择器')
+		// $('.three').siblings().css('color', 'red');
+		
+		// slice(开始索引, 结束索引) 不包括结束索引位置
+		$('li').slice(0, 3).css('color', 'red');
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* css2 */
+			/* 属性等于XX */
+			li[title=three]{
+				color: red;
+			}
+			
+			/* css3 */
+			/* 属性以XX开头 */
+			li[title^=o]{
+				color: green;
+			}
+			
+			/* 属性以XX结尾 */
+			li[title$=r]{
+				color: yellow;
+			}
+			
+			/* 属性值包含XX */
+			li[title*=o]{
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li title="one">锄禾日当午</li>
+			<li title="two">低头思故乡</li>
+			<li title="three">举头望明月</li>
+			<li title="four">对影成三人</li>
+		</ul>
+	</body>
+</html>

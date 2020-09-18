@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.main{
+				width: 500px;
+				height: 700px;
+				background-color: lightgray;
+				margin: 20px auto;
+				overflow: hidden;
+				position: relative;
+			}
+			.main .show{
+				width: 400px;
+				height: 400px;
+				margin: 100px auto;
+			}
+			.time{
+				position: absolute;
+				top: 20px;
+				left: 10px;
+			}
+			.score{
+				position: absolute;
+				top: 20px;
+				right: 10px;
+			}
+			.start{
+				text-align: center;
+			}
+			.show img{
+				margin-left: 10px;
+				margin-top: 10px;
+			}
+			.show .poster{
+				margin: 0;
+				width: 100%;
+				height: 100%;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<h3 class="time">时间还有：60秒</h3>
+			<h3 class="score">分数为：0</h3>
+			<div class="show">
+				<img class="poster" src="img/1.png" >
+			</div>
+			<h2 class="start">开始</h2>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var start = document.querySelector('.start');
+		var show = document.querySelector('.show');
+		var scoreH3 = document.querySelector('.score');
+		var timeH3 = document.querySelector('.time');
+		// 定义变量记录数量
+		var imgNum = 2;
+		// 定义变量记录分数
+		var score = 0;
+		// 定义初始时间
+		var initTime = 60;
+		// 定义一个变量 判断游戏是否结束
+		var isEnd = false;
+		
+		// 点击start(开始按钮)
+		start.onclick = function(){
+			// 计时开始
+			var timer = setInterval(function(){
+				initTime--;
+				// 时间到了清除定时器
+				if(initTime == 0){
+					clearInterval(timer);
+					isEnd = true;
+				}
+
+				timeH3.innerHTML = '时间还有：' + initTime + '秒';
+
+			},1000);
+			// 添加图片
+			createImageFun();
+			// 开始按钮隐藏
+			this.style.display = 'none';
+		}
+		
+		// 添加图片的方法
+		function createImageFun(){
+			// 清空show
+			show.innerHTML = '';
+			// 计算图片的数量
+			var count = imgNum * imgNum;
+			// 计算图片的宽度
+			var imgWidth = (show.clientWidth - 10 * imgNum) / imgNum;
+			
+			// 循环创建图片
+			for(var i = 0;i < count;i++){
+				// 创建图片
+				var img = document.createElement('img');
+				// 设置图片宽度
+				img.style.width = imgWidth + 'px';
+
+				// 设置图片路径
+				img.src = 'img/1.png';
+				// 把图片放在show里
+				show.appendChild(img);
+			}
+			// 随机一个索引
+			var index = parseInt(Math.random() * count);
+			// 其中随机索引的img更改图片地址
+			show.children[index].src = 'img/2.png';
+			
+			// 给当前索引的图片添加点击事件
+			show.children[index].onclick = function(){
+				// 如果游戏结束不允许点击
+				if(isEnd){
+					alert('游戏结束');
+					return false;
+				}
+				// 每次图片横向和纵向加1
+				imgNum++;
+				// 调用创建图片函数
+				createImageFun();
+				// 分数增加
+				score++;
+				// 分数展示到页面
+				scoreH3.innerHTML = '分数为：' + score;
+			}
+		}
+	</script>
+</html>

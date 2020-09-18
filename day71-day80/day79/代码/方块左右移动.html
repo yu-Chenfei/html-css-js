@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		// 定义一个变量保存坐标
+		var x = 0;
+		// 定义变量作为移动的速度
+		var speed = 1;
+		
+		// 绘制矩形的函数
+		function drawRect(){
+			// 开始绘制
+			context.beginPath();
+			// 绘制矩形
+			context.rect(0,0,100,100);
+			// 设置填充样式
+			context.fillStyle = 'hotpink';
+			// 填充
+			context.fill();
+		}
+		// 绘制初始矩形
+		drawRect();
+		
+		// 设置定时器
+		var timer = setInterval(function(){
+			// 坐标每次加speed
+			x+=speed;
+			// 清除画布
+			context.clearRect(0,0,600,400);
+			// 判断x到某个值更改方向
+			if(x > 500 || x < 0){
+				speed*=-1;
+			}
+			// 移动坐标
+			context.translate(speed, 0);
+			// 调用绘制函数
+			drawRect();
+		},1);
+	</script>
+</html>

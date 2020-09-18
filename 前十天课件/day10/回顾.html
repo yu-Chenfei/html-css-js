@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.mov{
+				width: 200px;
+				height: 220px;
+				border: 5px solid firebrick;
+				position: relative;
+			}
+			.mov img{
+				width: 200px;
+				height: 220px;
+			}
+			.mov .black_div{
+				width: 200px;
+				height: 220px;
+				background-color: rgba(0,0,0,0.5);
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity .5s linear;
+			}
+			.mov .black_div:hover{
+				opacity: 1;
+			}
+			.mov .black_div p{
+				color: white;
+				text-align: center;
+				margin: 0;
+			}
+			.mov .black_div .f_p{
+				font-size: 20px;
+				margin-top: 70px;
+				margin-bottom: 10px;
+			}
+			.mov .black_div .s_p{
+				font-size: 12px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mov">
+			<img src="1.jpg" >
+			<div class="black_div">
+				<p class="f_p">想见你</p>
+				<p class="s_p">如果不曾相逢 也许心绪永远不会沉重</p>
+			</div>
+		</div>
+	</body>
+</html>

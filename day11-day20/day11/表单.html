@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			textarea{
+				resize: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- action: 后台地址(后台接口) -->
+		<!-- 
+		method:请求方式 get/post
+		区别：1 get请求是明文(值展示在网址上) post请求不会
+			 2 get请求相对来说 比post更快捷 post传递的东西更大(传文件)
+		 -->
+		 
+		<form action="http://www.baidu.com" method="post">
+			<!-- 表单元素的name属性：给后台传值的描述(键、key) -->
+			<!-- value属性是表单元素的值 -->
+			<!-- placeholder 输入提示 -->
+			<!-- 
+			label一般和表单元素配合使用 label标签的for属性中写表单元素的id
+			点击label标签 该表单元素就可获取到焦点
+			 -->
+			
+			<label for="user">账号：</label>
+			<!-- 文本输入框 input->text -->
+			<!-- <input type="text" name="username" value="塔谈吴彦祖"/> -->
+			<input id="user" type="text" name="username" placeholder="请输入用户名"/>
+			<span>密码：</span>
+			<!-- 文本输入框 input->password -->
+			<input type="password" name="userpass" placeholder="请输入密码"/>
+			
+			<!-- 单选框 input->radio -->
+			男：<input type="radio" name="sex"/>
+			女：<input checked type="radio" name="sex"/>
+			
+			<!-- 多选框 input->checkbox -->
+			<div>选择你的女神：</div>
+			<input checked type="checkbox"> <span>小泽文广</span>
+			<input type="checkbox"> <span>苍井佳杰</span>
+			<input type="checkbox"> <span>胜祥玛利亚</span>
+			<!-- 单选框和多选框默认选择 给属性checked -->
+			
+			
+			<!-- 
+			下拉选择框 select>option
+			设置selected属性 默认被选择
+			 -->
+			<div>选择你的年龄</div>
+			<select>
+				<option>--请选择--</option>
+				<option>0-100岁</option>
+				<option selected>100岁以上</option>
+			</select>
+			
+			<!-- 可输入区域 textarea -->
+			<div>
+				鑫哥帅吗？请留言
+			</div>
+			<!-- rows="行数" cols="列数" -->
+			<textarea rows="5" cols="20">
+				
+			</textarea>
+			
+			<!-- 文件上传：input->file -->
+			<div>请上传你的靓照</div>
+			<input type="file"/>
+			
+			<!-- 按钮 button input->button -->
+			<button type="button">我是一个按钮</button>
+			<input type="button" value="小按钮"/>
+			
+			<!-- 重置按钮 input->reset -->
+			<input type="reset">
+			
+			<!-- br 强制换行 -->
+			<br>
+			<!-- 提交按钮 input->submit -->
+			<input type="submit"/>
+		</form>
+	</body>
+</html>

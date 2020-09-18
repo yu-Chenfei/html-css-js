@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 父元素不设置高度 高度由子元素撑开 一旦子元素浮动
+			就会脱离父元素 父元素就会失去高度 进而影响后面元素布局
+			 */
+			
+			/* 解决方案
+			1 给父元素设置 overflow:hidden
+			2 动态向父元素后面添加一个带有clear:both的块属性元素
+			 */
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				float: left;
+			}
+			.father{
+				background-color: yellow;
+				/* border: #8B0000 3px solid; */
+				/* overflow: hidden; */
+			}
+			.uncle_wang{
+				width: 300px;
+				height: 300px;
+				background-color: green;
+			}
+			
+			.father:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+			<!-- <div style="clear: both;"></div> -->
+		</div>
+		
+		<div class="uncle_wang"></div>
+	</body>
+</html>

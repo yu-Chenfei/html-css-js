@@ -1,0 +1,30 @@
+.content{
+	width: 1000px;
+	margin: 0 auto;
+}
+.content>div{
+	overflow: hidden;
+}
+.content>div>div{
+	float: left;
+    width: 40%;
+	box-sizing: border-box;
+	padding-left: 20px;
+}
+.content>div>.big{
+	width: 60%;
+}
+.content>div>div>img{
+	width: 100%;
+}
+.content .mid .left{
+	text-align: right;
+	padding-right: 20px;
+	border: 0;
+}
+.content .mid .right{
+	border-left: 10px solid gray;
+}
+.content .left{
+	border-right: 10px solid gray;
+}

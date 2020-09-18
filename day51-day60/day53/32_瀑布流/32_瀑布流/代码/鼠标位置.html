@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+	</body>
+	<script type="text/javascript">
+		document.documentElement.onclick = function(event){
+			var event = event || window.event;
+			// 在浏览器可视窗口的水平和垂直坐标
+			console.log(event.clientX);
+			console.log(event.clientY);
+			
+			// 整个页面(文档)的水平和垂直坐标
+			console.log(event.pageX);
+			console.log(event.pageY);
+			
+			// 相对于屏幕的水平和垂直坐标
+			console.log(event.screenX);
+			console.log(event.screenY);
+		}
+	</script>
+</html>

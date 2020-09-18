@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <canvas id="can1" width="600" height="400"></canvas>
+  <canvas id="can2" width="600" height="400"></canvas>
+</body>
+<script type="text/javascript">
+  // 获取元素
+  var can1 = document.getElementById('can1');
+  // 获取上下文
+  var context1 = can1.getContext('2d');
+
+  // 获取元素
+  var can2 = document.getElementById('can2');
+  // 获取上下文
+  var context2 = can2.getContext('2d');
+
+
+  var image = new Image();
+
+  image.onload = function () {
+    context1.drawImage(image, 0, 0, 600, 400);
+    // 取像素点 返回值是像素点
+    // 四个参数：前两个是取的开始位置 后两个是取的大小    
+    var imageData = context1.getImageData(0, 0, 600, 400);
+    // imageData对象里的data属性是所有像素点的rgba值组成的数组
+    console.log(imageData);
+
+    // 把所有像素点放置到另一个画布上 后两个参数是开始放置位置坐标
+    context2.putImageData(imageData, 0, 0);
+  }
+
+  image.src = '1.jpg';
+</script>
+
+</html>

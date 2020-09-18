@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var str = 'http://www.baidu.com?name=dong&age=18&like=book';
+		
+		function getFun(key){
+			// 获取?位置的索引
+			var index = str.indexOf('?');
+			// 截取?后面内容
+			var data = str.slice(index + 1);
+			// console.log(data);// name=dong&age=18&like=book
+			// 把数据字符串转化为数组形式(方便取值)
+			var dataArray = data.split('&');
+			// console.log(dataArray);// ["name=dong", "age=18", "like=book"]
+			// 使用for循环遍历数组 拿出数组的每一项
+			for(var i = 0;i < dataArray.length;i++){
+				// console.log(dataArray[i]);// 1.name=dong 2.age=18 3.like=book
+				// 每次循环把当前拿到的值 分割成数组
+				var newArray = dataArray[i].split('=');
+				// console.log(newArray);// 1.["name", "dong"] 2.["age", "18"] 3.["like", "book"]
+				// 每次循环判断 分割完的数组第一项是不是我们想要的key
+				// 如果是 则拿到第二项也就是它的value
+				if(newArray[0] == key){
+	                // 把值作为返回值 
+					return newArray[1];
+					break;
+				}
+			}
+		}
+		
+		var x1 = getFun('like');
+		var x2 = getFun('name');
+		var x3 = getFun('age');
+		
+		console.log(x1);// book
+		console.log(x2);// dong
+		console.log(x3);// 18
+		
+	</script>
+</html>

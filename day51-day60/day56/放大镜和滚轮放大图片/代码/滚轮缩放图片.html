@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				margin: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/img01.jpg" >
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var myImage = document.querySelector('img');
+		// 定义变量保存向上或者向下的值
+		var down =false;
+		var newWidth = 0;
+		// 定义两个变量用于接收放大缩放比例
+		var scaleX = '';
+		var scaleY = '';
+		// 判断火狐或者非火狐
+		if(navigator.userAgent.indexOf('Firefox') != -1){
+			myImage.addEventListener('DOMMouseScroll', wheelFun, false);
+		}else{
+			myImage.onmousewheel = wheelFun;
+		}
+		
+		function wheelFun(event){
+			// 事件对象兼容
+			var event = event || window.event;
+			if(event.wheelDelta){
+				// 非火狐
+				if(event.wheelDelta > 0){
+					// 向上
+					down = false;
+				}else if(event.wheelDelta < 0){
+					// 向下
+					down = true;
+				}
+				
+			}else if(event.detail){
+				// 火狐
+				if(event.detail < 0){
+					// 向上
+					down = false;
+				}else if(event.detail > 0){
+					// 向下
+					down = true;
+				}
+			}
+			
+			scaleImage(event ,down);
+		}
+		
+		// 图片缩放函数
+		function scaleImage(event ,down){
+			// 定义变量保存宽高和偏移量的初始值
+			var oldWidth = myImage.offsetWidth;
+			var oldHeight = myImage.offsetHeight;
+			
+			var oldLeft = myImage.offsetLeft;
+			var oldTop = myImage.offsetTop;
+			
+			// 计算鼠标在图片上的比例
+			scaleX = (event.clientX - oldLeft) / oldWidth;
+			scaleY = (event.clientY - oldTop) / oldHeight;
+			
+			// 判断滚轮 确定放大还是缩小
+			if(down){
+				newWidth = oldWidth + 10;
+				if(newWidth > 1000){
+					newWidth = 1000;
+				}
+			}else{
+				newWidth = oldWidth - 10;
+				if(newWidth < 300){
+					newWidth = 300;
+				}
+			}
+			// 缩放宽度让高度自己按比例缩放
+			myImage.style.width = newWidth + 'px';
+			
+			// 求左边和上面变化的值
+			var _left = oldLeft - (scaleX * (myImage.offsetWidth - oldWidth));
+			var _top = oldTop - (scaleY * (myImage.offsetHeight - oldHeight));
+			
+			// 改变图片的位置
+			myImage.style.marginLeft = _left + 'px';
+			myImage.style.marginTop = _top + 'px';
+		}
+		
+	</script>
+</html>

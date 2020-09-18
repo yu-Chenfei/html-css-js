@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="800" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		// 定义一个锁
+		var lock = true;
+		
+		// 背景类
+		function Background(row, col, space){
+			// 属性：行数，列数，行与列间隔大小
+			this.row = row;
+			this.col = col;
+			this.space = space;
+			
+			// 绘制背景的方法
+			this.draw = function(){
+				// 循环绘制行
+				for(var i = 0;i <= this.row;i++){
+					// 绘制组成行的线
+					// 开始绘制
+					context.beginPath();
+					// 绘制起点
+					context.moveTo(0, i*this.space);
+					// 绘制下一个点
+					context.lineTo(this.col*this.space, i*this.space);
+					// 绘制样式
+					context.strokeStyle = 'gary';
+					// 绘制
+					context.stroke();
+				}
+				
+				// 循环绘制列
+				for(var i = 0;i <= this.col;i++){
+					// 绘制组成行的线
+					// 开始绘制
+					context.beginPath();
+					// 绘制起点
+					context.moveTo(i*this.space, 0);
+					// 绘制下一个点
+					context.lineTo(i*this.space, this.row*this.space);
+					// 绘制样式
+					context.strokeStyle = 'gary';
+					// 绘制
+					context.stroke();
+				}
+			}	
+		}
+		
+		// Snake类
+		function Snake(){
+			// 初始的运动方向
+			this.direction = 'right';
+			// 初始的坐标数组
+			this.snakeArray = [{x:0, y:0},{x:background.space, y:0},{x:background.space*2, y:0},{x:background.space*3, y:0}];
+			// 绘制蛇的方法
+			this.draw = function(){
+				for(var i = 0;i < this.snakeArray.length;i++){
+					// 开始绘制
+					context.beginPath();
+					// 绘制矩形
+					context.rect(this.snakeArray[i].x,this.snakeArray[i].y,background.space,background.space);
+					// 设置填充样式
+					context.fillStyle = 'pink';
+					// 蛇头改变颜色
+					if(i == this.snakeArray.length - 1){
+						context.fillStyle = 'plum';
+					}
+					// 填充
+					context.fill();
+				}
+			}
+			
+			// 蛇移动的方法
+			this.move = function(){
+				// 判断蛇移动的方向
+				// 蛇移动：在移动的方向添加一个块 在蛇尾删除一个块
+				// 上一次蛇头的坐标
+				var prevX = this.snakeArray[this.snakeArray.length - 1].x;
+				var prevY = this.snakeArray[this.snakeArray.length - 1].y;
+				// 根据蛇走的方向 向数组添加坐标
+				switch (this.direction){
+					case 'right':
+						this.snakeArray.push({x: prevX + background.space,y:prevY});
+						break;
+					case 'left':
+						this.snakeArray.push({x: prevX - background.space,y:prevY});
+						break;
+					case 'top':
+						this.snakeArray.push({x: prevX,y:prevY - background.space});
+						break;
+					case 'bottom':
+						this.snakeArray.push({x: prevX,y:prevY + background.space});
+						break;			
+					default:
+						break;
+				}
+				// 在蛇尾删除一个块
+				this.snakeArray.shift();
+				// 重新调用绘制的方法
+				this.draw();
+			}
+			
+			// 蛇变长的方法
+			this.add = function(){
+				// 因为蛇不断移动 增加后马上就被删除 所以坐标位置随意
+				this.snakeArray.unshift({x:0, y:0});
+			}
+		}
+		
+		// 食物类
+		function Food(){
+			// 初始坐标
+			this.x = Math.floor(Math.random() * background.col) * background.space;
+			this.y = Math.floor(Math.random() * background.row) * background.space;
+			
+			// 绘制食物的方法
+			this.draw = function(){
+				// 开始绘制
+				context.beginPath();
+				// 绘制矩形
+				context.rect(this.x,this.y,background.space,background.space);
+				// 为食物填充颜色
+				context.fillStyle = 'darkgoldenrod';
+				// 填充
+				context.fill();
+			}
+			
+			// 食物换位置的方法
+			this.change = function(){
+				this.x = Math.floor(Math.random() * background.col) * background.space;
+				this.y = Math.floor(Math.random() * background.row) * background.space;
+			}
+		}
+		
+		// 规则类
+		function Rule(){
+			// 判断是否吃到食物
+			this.isEatFood = function(){
+				// 蛇头坐标
+				var snakeHeadX = snake.snakeArray[snake.snakeArray.length - 1].x;
+				var snakeHeadY = snake.snakeArray[snake.snakeArray.length - 1].y;
+				
+				// 判断是否碰到食物
+				if(snakeHeadX == food.x && snakeHeadY == food.y){
+					// 吃到食物
+					// 蛇增加一块
+					snake.add();
+					// 食物变换位置
+					food.change();
+				}	
+			}
+			// 判断是否游戏结束
+			this.isGameOver = function(){
+				// 蛇头坐标
+				var snakeHeadX = snake.snakeArray[snake.snakeArray.length - 1].x;
+				var snakeHeadY = snake.snakeArray[snake.snakeArray.length - 1].y;
+				// 定义一个变量判断是否游戏结束
+				var isOver = false;
+				// 判断撞到墙
+				if(snakeHeadX < 0 || snakeHeadY < 0 || snakeHeadX > (background.col - 1) * background.space || snakeHeadY > (background.row - 1) * background.space){
+					isOver = true;
+				}
+				// 循环判断是否撞到自己死亡
+				for(var i = 0;i < snake.snakeArray.length - 1;i++){
+					// 判断是否撞到自己身体
+					if(snakeHeadX == snake.snakeArray[i].x && snakeHeadY == snake.snakeArray[i].y){
+						isOver = true;
+					}
+				}
+				
+				// 游戏结束
+				if(isOver){
+					clearInterval(timer);
+					alert('游戏结束');
+				}
+			}
+		}
+		
+		// 键盘操作
+		document.onkeydown = function(event){
+			// event兼容
+			var event = event || window.event;
+			// 判断keyCode确定点击的键盘按钮
+			if(event.keyCode == 37 && snake.direction != 'left'  && snake.direction != 'right' && lock){
+				// 向左移动
+				snake.direction = 'left';
+				
+			}else if(event.keyCode == 38 && snake.direction != 'top'  && snake.direction != 'bottom' && lock){
+				// 向上移动
+				snake.direction = 'top';
+				
+			}else if(event.keyCode == 39 && snake.direction != 'left'  && snake.direction != 'right' && lock){
+				// 向右移动
+				snake.direction = 'right';
+				
+			}else if(event.keyCode == 40 && snake.direction != 'top'  && snake.direction != 'bottom' && lock){
+				// 向下移动
+				snake.direction = 'bottom';
+				
+			}
+			lock = false;
+		}
+		
+		
+		// 实例化背景类
+		var background = new Background(30,40,20);
+		background.draw();
+		// 实例化Snake类
+		var snake = new Snake();
+		snake.draw();
+		// 实例化食物类
+		var food = new Food();
+		food.draw();
+		// 实例化规则类
+		var rule = new Rule();
+		
+		// 定义定时器
+		var timer = setInterval(function(){
+			lock = true;
+			// 清除画布
+			context.clearRect(0,0,can.width,can.height);
+			// 重新绘制背景
+			background.draw();
+			// 调用蛇移动的方法
+			snake.move();
+			// 调用绘制食物的方法
+			food.draw();
+			// 调用是否吃到食物的方法
+			rule.isEatFood();
+			// 调用判断是否游戏结束的方法
+			rule.isGameOver();
+		},100);
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 数据转化成字符串 变量.toString() String(变量)
+		var num = 10;
+		// var str = num.toString();
+		// var str = String(num);
+		// var str = num + '';
+		
+		// console.log(str);
+		
+		
+		// 数据转化成数字类型(Number)
+		// Number(变量)
+		var str = '100';
+		// var num = Number(str);
+		var num = str * 1;
+		
+		// 转化不成数字就会转化成NaN(not a number)
+		var str1 = 'abc';
+		var num1 = Number(str1);
+		
+		console.log(num1);//NaN
+		// NaN本身是数字类型
+		console.log(typeof(num1));//number
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#can{border: 5px solid black;}
+		</style>
+	</head>
+	<body>
+		<!-- canvas标签(画布)：h5新标签 -->
+		<canvas width="600" height="400" id="can"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取canvas标签(获取元素)
+		var can = document.getElementById('can');
+		// 获取操作画布的上下文
+		var context = can.getContext('2d');
+		// 绘制直线
+		// 需要两个点
+		// 1.绘制起点: 两个参数 起点的x和y坐标
+		context.moveTo(0,0);
+		// 2.绘制下一个点: 两个参数 下一个点的x和y坐标
+		context.lineTo(100,200);
+		
+		// 设置绘制样式
+		context.strokeStyle = 'red';
+		// 设置线宽
+		context.lineWidth = 4;
+		
+		// 3.绘制
+		context.stroke();
+		
+	</script>
+</html>

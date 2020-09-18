@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="300" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取上下文
+		var context = can.getContext('2d');
+		// 定义变量记录滚动的距离
+		var count = 0;
+		
+		// 创建图片对象
+		var image = new Image();
+		// 监听图片是否加载完毕
+		image.onload = function(){
+			// 绘制图片
+			context.drawImage(image,0,0,300,500);
+			move();
+		}
+		// 加载图片
+		image.src = 'background.png';
+		
+		function move(){
+			// 距离每次加1
+			count++;
+			// 第二张图滚动到尽头 再把坐标回到初始位置
+			if(count == 500){
+				context.translate(0,-500);
+				count = 0;
+			}
+			// 每次清除画布
+			context.clearRect(0,0,300,500);
+			// 移动坐标
+			context.translate(0,1);
+			// 绘制图片
+			context.drawImage(image,0,0,300,500);
+			context.drawImage(image,0,-500,300,500);
+			
+			// 使用帧动画
+			window.requestAnimationFrame(move);
+		}
+		
+		
+	</script>
+</html>

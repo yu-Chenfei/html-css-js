@@ -1,0 +1,83 @@
+*{margin: 0;padding: 0;}
+html,body,.main{height: 100%;}
+.bcimage(@url){
+	background-image: url(@url);
+	background-size: 100% 100%;
+}
+.main{
+	.bcimage('../img/bg.jpg');
+	overflow: hidden;
+	h2{
+		position: absolute;
+		top: 5%;
+		color: white;
+		text-align: center;
+		width: 100%;
+	}
+	.show{
+		.bcimage('../img/kuang_bg.png');
+		width: 90%;
+		margin-left: 5%;
+		height: 60%;
+		margin-top: 25%;
+		overflow: hidden;
+		&>div{
+			width: 90%;
+			margin-left: 5%;
+			height: 85%;
+			margin-top: 15%;
+			div{
+				text-align: center;
+				float: left;
+				.bcimage('../img/person_kuang.png');
+				img{
+					width: 60%;
+					margin-top: 10%;
+				}
+			}
+		}
+	}
+	
+	.black_div{
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.7);
+		position: fixed;
+		left: 0;
+		top: 0;
+		display: none;
+		.level_up{
+			position: relative;
+			margin-top: 30%;
+			img{
+				width: 70%;
+				margin-left: 15%;
+			}
+			span{
+				position: absolute;
+				top: 5%;
+				left: 20%;
+				color: rgb(58,153,182);
+			}
+			div{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				top: 20%;
+				left: 50%;
+				transform: translateX(-50%);
+				background-image: url(../img/CSSatyr.png);
+				background-size: 500% 200%;
+			}
+			p{
+				position: absolute;
+				bottom: 20%;
+				left: 0;
+				color: white;
+				width: 50%;
+				margin-left: 25%;
+				text-align: center;
+			}
+		}
+	}
+}

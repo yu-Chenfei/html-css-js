@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="nav.css"/>
+	<style type="text/css">
+		h3,p{
+			padding: 0;
+			margin: 0;
+			margin-top: 10px;
+		}
+		.content{
+			padding-bottom: 50px;
+		}
+		.content div{
+			width: 800px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.content .left{
+			width: 440px;
+			height: 140px;
+			float: left;
+			border-right: 10px solid gray;
+			background-size: 100% 100%;
+		}
+		.content .right{
+			width: 330px;
+			float: left;
+			padding: 0 10px;
+		}
+		
+		.content .content_mid .right{
+			text-align: right;
+		}
+		
+		.content .content_mid .left{
+			border-right: 0;
+			border-left: 10px solid gray;
+		}
+		
+		.content .content_top .left{
+			background-image: url(img/home_pic_one.png);
+		}
+		.content .content_mid .left{
+			background-image: url(img/home_pic_two.jpg);
+		}
+		.content .content_bottom .left{
+			background-image: url(img/homes_pic_three.jpg);
+		}
+		
+		.content .content_top:hover .left{
+			border-color: yellowgreen;
+			background-image: url(img/home_pic_one_h.png);
+		}
+		.content .content_mid:hover .left{
+			border-color: yellowgreen;
+			background-image: url(img/home_pic_two_h.png);
+		}
+		.content .content_bottom:hover .left{
+			border-color: yellowgreen;
+			background-image: url(img/homes_pic_three_h.jpg);
+		}
+	</style>
+ </head>
+ <body>
+ 	<div>
+		<div class="nav">
+			<a href="">Contact</a>
+			<a href="">Bim</a>
+			<a href="">3D Animation</a>
+			<a href="">Rendering</a>
+			<a href="about.html">About</a>
+			<a class="first_a" href="home.html">Home</a>
+		</div>
+		<div class="content">
+			<div class="content_top">
+				<div class="left">
+					<!-- <img src="img/home_pic_one.png" > -->
+				</div>
+				<div class="right">
+					<h3>RENDERINGS</h3>
+					<p>Masterplan Public Building commercial</p>
+					<p>Masterplan Public Building commercial</p>
+				</div>
+			</div>
+			<div class="content_mid">
+				
+				<div class="right">
+					<h3>RENDERINGS</h3>
+					<p>Masterplan Public Building commercial</p>
+					<p>Masterplan Public Building commercial</p>
+				</div>
+				<div class="left">
+					<!-- <img src="img/home_pic_two.jpg" > -->
+				</div>
+			</div>
+			<div class="content_bottom">
+				<div class="left">
+					<!-- <img src="img/homes_pic_three.jpg" > -->
+				</div>
+				<div class="right">
+					<h3>RENDERINGS</h3>
+					<p>Masterplan Public Building commercial</p>
+					<p>Masterplan Public Building commercial</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				<img src="img/mail.jpg" >
+			</div>
+			<div>
+				<img src="img/facebook.jpg" >
+				<img src="img/linkedln.jpg" >
+				<img src="img/twitter.jpg" >
+				<img src="img/youtube.jpg" >
+			</div>
+		</div>
+	</div>
+ </body>
+ <script type="text/javascript">
+ 	// 获取元素
+	var footerImgs = document.querySelectorAll('.footer img');
+	
+	// 定义一个数组存放修改后图片路径
+	var _footerImgsSrc = ['img/mail_h.jpg','img/facebook_h.jpg','img/linkedln_h.jpg','img/twitter_h.jpg','img/youtube_h.jpg'];
+	var footerImgsSrc = ['img/mail.jpg','img/facebook.jpg','img/linkedln.jpg','img/twitter.jpg','img/youtube.jpg'];
+	
+	// 循环给footerImgs绑定鼠标移入移出事件
+	// 点击-onclick 鼠标移入-onmouseover 鼠标移出-onmouseout
+	for(var i = 0;i < footerImgs.length;i++){
+		// 自定义属性保存i值
+		footerImgs[i].index = i;
+		
+		footerImgs[i].onmouseover = function(){
+			// 拿出数组里相应索引值 赋值给图片的src属性
+			this.src = _footerImgsSrc[this.index];
+			
+			// 拼字符串方法
+			// var index = this.src.lastIndexOf('.');
+			// var prevSrc = this.src.slice(0, index); 
+			// this.src = prevSrc + '_h.jpg';	
+		}
+		
+		footerImgs[i].onmouseout = function(){
+			// 拿出数组里相应索引值 赋值给图片的src属性
+			this.src = footerImgsSrc[this.index];
+		}
+	}
+ </script>
+</html>
+
+
+
+
+
+
+

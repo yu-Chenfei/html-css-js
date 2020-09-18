@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 字符类
+		// 只要有[]括号内有任意一项 都会匹配成功
+		var str = 'abcccdef';
+		var re = /[ab]/;
+		console.log(re.test(str));
+		
+		// 脱字符^：[]括号内使用^匹配除了[]括号内有任意一项
+		var str = 'aayys123fdfd';
+		var re = /[^123]/g;
+		console.log(str.match(re));
+		
+		// 连字符-：在[]里可以匹配0-9 或者 a-z
+		// 匹配数字
+		var str = '12434fsdf30975';
+		var re = /[0-9][0-9]/g;
+		console.log(str.match(re));
+		
+		// 匹配字母
+		// i代表不区分大小写
+		var str = 'yydsfsAfYTR';
+		var re = /[a-z]/gi;
+		console.log(str.match(re));
+		
+		// 匹配汉字
+		var str = '212qw董玉鑫最帅fsfs';
+		var re = /[\u4e00-\u9fa5]+/;
+		console.log(str.match(re));
+		
+		// 修饰符：g全局匹配 i不区分大小写 m可以匹配换行
+		var str = 'hello\n';
+		var re1 = /hello$/;
+		var re2 = /hello$/m;
+		console.log(re1.test(str)); // false
+		console.log(re2.test(str)); // true
+		
+		// 预定义模式
+		// \d匹配数字 \D匹配除了数字之外的字符
+		console.log(/\d/.test('3455666')); // true
+		console.log(/\D/.test('3455666')); // false
+		// \w匹配数字字母下划线 \W匹配除了数字字母下划线之外的字符
+		console.log(/\w/.test('34re_rerw3443')); // true
+		console.log(/\W/.test('34re_rerw3443')); // false
+		
+		// \b匹配是否是独立的单词 \B和\b相反
+		console.log(/\bhello/.test('hello world'));
+		console.log(/\Bhello/.test('hello world'));
+	</script>
+</html>

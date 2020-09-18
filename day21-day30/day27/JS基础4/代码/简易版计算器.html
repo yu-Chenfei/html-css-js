@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"/>
+		<select>
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+		</select>
+		<input type="text"/>
+		<button type="button">计算</button>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var btn = document.getElementsByTagName('button')[0];
+		var num1 = document.getElementsByTagName('input')[0];
+		var num2 = document.getElementsByTagName('input')[1];
+		var oper = document.getElementsByTagName('select')[0];
+		
+		// 绑定点击事件
+		btn.onclick = function(){
+			// 判断输入数字不能为空并且必须是number类型
+			if(num1.value == '' || num2.value == ''){
+				alert('啥都没写计算个锤子');
+				// 后面代码都不执行
+				return;
+			}else if(Number(num1.value) + '' == 'NaN' || Number(num2.value) + '' == 'NaN'){
+				alert('不是数字咋计算');
+				// 后面代码都不执行
+				return;
+			}
+			// 使用value属性获取表单元素的值(默认是字符串类型)
+			// 获取到两个参与计算的数字值 并转化为number类型
+			var x = Number(num1.value);
+			var y = Number(num2.value);
+			// 获取到运算符的值
+			// select>option元素 获取value正常获取到的是value属性的值
+			// 如果没有value属性 获取到的是文本
+			switch (oper.value){
+				case '+':
+					alert(x + y);
+					break;
+				case '-':
+					alert(x - y);
+					break;
+				case '*':
+					alert(x * y);
+					break;
+				case '/':
+					alert(x / y);
+					break;	
+				default:
+					break;
+			}
+		}
+	</script>
+</html>

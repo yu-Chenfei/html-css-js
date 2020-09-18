@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<form action="http://www.baidu.com" method="post">
+			<input type="text"/>
+			<input type="submit"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+		// ui事件
+		// onload事件：某个元素(window,img)加载完成时触发的事件
+		window.onload = function(){
+			// 整个页面内容(DOM)加载完毕后触发
+			console.log('页面加载完成');
+		}
+		
+		// 窗口缩放时触发
+		window.onresize = function(){
+			console.log('窗口缩放了');
+		}
+		
+		// 带滚动条的元素被滚动时触发
+		document.body.onscroll = function(){
+			console.log('滚动了');
+		}
+		
+		// 整个页面的scrollTop(兼容写法)
+		// var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+		
+		// 表单事件
+		var inp = document.getElementsByTagName('input')[0];
+		var myForm = document.getElementsByTagName('form')[0];
+		
+		// 获取焦点时触发
+		inp.onfocus = function(){
+			this.style.backgroundColor = 'pink';
+		}	
+		// 失去焦点触发
+		inp.onblur = function(){
+			this.style.backgroundColor = 'yellow';
+		}
+		// 内容改变 并失去焦点时触发
+		inp.onchange = function(){
+			// console.log(this.value);
+		}
+		// 内容改变实时触发
+		inp.oninput = function(){
+			console.log(this.value);
+		}
+		
+		// 表单提交时触发
+		myForm.onsubmit = function(){
+			alert(666);
+		}
+	</script>
+</html>

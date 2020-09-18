@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// typeof(值) 判断一个值 数据类型的方法
+		
+		// Number 数字类型
+		var num = 10;
+		// 可以参与计算
+		console.log(num + 3);
+		
+		// String 字符串类型(使用引号)
+		var str = '大郎~该吃药了';
+		var x = '10';
+		// 任何类型和字符串类型相加 会拼在一起 变成字符串
+		console.log(x + 3);
+		
+		// Boolean 布尔值：false true 一般用于判断
+		var bool = false;
+		
+		// undefined：未定义(一般不会有意的定义个undefined类型)
+		var y;
+		
+		// Object 对象
+		// 1.null 空值、空对象(定义一个变量暂时不想赋值)
+		// null和undefined的区别：
+		// null开辟了内存但是没存值 undefined没有开辟内存(错误写法)
+		var z = null;
+		
+		// 2.array 数组：数组中的每一项最好是同一数据类型
+		var students = ['徐豪','刘胜祥','李佳杰','李伟','王钰茹'];
+		var numArray = [666,999,888];
+		// 数组取值：数组名[索引] 索引从0开始代表第一个值 以此类推
+		console.log(students[4]);
+		
+		// 3.object 对象: {key1: value1, key2: value2.......}
+		var obj = {name: '塔谈村吴彦祖', age: 18, like: ['看书','吃饭']};
+        // 对象取值：对象名.key(键) 
+		console.log(obj.like[1]);
+		console.log(obj.age);
+	
+		console.log(obj);
+		
+		console.log(typeof(obj));
+	
+	</script>
+</html>

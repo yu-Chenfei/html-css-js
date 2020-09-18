@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.big{
+				width: 300px;
+				height: 400px;
+				background-color: yellowgreen;
+				overflow: hidden;
+				/* position: relative; */
+			}
+			
+			.small{
+				/* 宽高设置百分比 相对于父元素的宽高 */
+				width: 20%;
+				height: 20%;
+				background-color: brown;
+				/* margin和padding设置百分比 相对于父元素的宽度 */
+				
+				/* padding: 20%;
+				margin: 20%; */
+				
+			   
+			   /* 一旦定位以后 元素的所有百分比都相对于它定位的参照元素 */
+			   position: absolute;
+			   /* 相对于参照元素的宽高 */
+			   top: 0%;
+			   left: 0%;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big">
+			<div class="small"></div>
+		</div>
+	</body>
+</html>

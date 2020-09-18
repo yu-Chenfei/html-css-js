@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var data = [{book: '白夜行', price: '$120'}, {book: '七龙珠', price: '$110'}, {book: '海贼王', price: '$150'}];
+		
+		for(var i = 0;i < data.length;i++){
+			// 创建一个tr标签
+			// 把tr放在tbody里
+			$('tbody').append('<tr><td>'+data[i].book+'</td><td>'+data[i].price+'</td></tr>');
+		}
+		
+	</script>
+</html>

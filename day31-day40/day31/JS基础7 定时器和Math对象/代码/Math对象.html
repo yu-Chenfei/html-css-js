@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// Math对象
+		// 取绝对值
+		var num1 = Math.abs(-10);
+		// console.log(num1);
+		
+		// 取几个数之间的最小值
+		var num2 = Math.min(10,11,4,20);
+		// console.log(num2);
+		
+		// 取几个数之间的最大值
+		var num3 = Math.max(10,11,4,20);
+		// console.log(num3);
+		
+		// 180度
+		console.log(Math.PI);
+		
+		// 取整
+		// 四舍五入
+		var num4 = Math.round(0.4);
+		// console.log(num4);
+		// 向上取整
+		var num5 = Math.ceil(1.1);
+		// console.log(num5);
+		// 向下取整
+		var num6 = Math.floor(1.8);
+		// console.log(num6);
+		
+		// 取随机数(0-1之间 不包括1)
+		var num7 = Math.random();
+		// console.log(num7);
+		
+		// 向下取整 parseInt
+		var num8 = parseInt(2.8);
+		// console.log(num8);
+		
+		// 取10-20之间的随机整数：Math.random() * (max - min + 1)  + min
+		// Math.floor(Math.random() * 11) + 10;
+		
+		// 5-10
+		
+		// 封装一个叫randFun的函数，有两个参数(最小值，最大值)
+		// 函数的返回值是两个值之间的随机整数
+		function randFun(min, max){
+			// 返回值
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		
+		var x = randFun(5, 10);
+		// console.log(x);
+	</script>
+</html>

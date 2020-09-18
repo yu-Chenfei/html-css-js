@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox">
+		<ul>
+			<li>one</li>
+			<li class="two">two</li>
+			<li class="three">three</li>
+		</ul>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 绑定事件
+		// 1. 元素.事件名(callback);
+		// $('.one').click(function(){
+		// 	console.log('快开学吧');
+		// });
+		
+		// 2. 元素.on('事件名', callback); 常用绑定事件的方式
+		// 优点：
+		// 1.可以实现自定义事件 
+		// 2.可以实现事件委托 
+		// 3.有完善的移除事件功能 
+		// 4.可以传参
+		// 5.可以绑定多个事件
+		// $('.one').on('click', function(){
+		// 	console.log('233');
+		// });
+		
+		// 事件委托：父元素.on('事件名', '子选择器', callback);
+		// $('ul').on('click', '.one', function(){
+			//  $(this) 是触发事件的子元素
+		// 	console.log(666);
+		// });
+		
+		// $('li').eq(0).addClass('one');
+		
+		// 绑定多个事件
+		// $('.two').on('click mouseover', function(){
+		// 	console.log(233);
+		// });	
+		// $(document).on('mousewheel DOMMouseScroll', function(){});
+		
+		// 可以传值 作为了解
+		// $('ul').on('click', ['hello'], function(event){
+		// 	console.log(event.data);
+		// });
+		
+		// 事件移除
+		// $('ul').off('click');
+		
+		// 元素.one('事件名', callback); 事件只可以触发一次
+		// $('.two').one('click', function(){
+		// 	console.log(666);
+		// });
+		
+		// hover事件 
+		// $('ul').hover(function(){
+		// 	// 移入执行的函数
+		// 	$(this).css('background', 'yellow');
+		// },function(){
+		// 	// 移出执行的函数
+		// 	$(this).css('background', 'pink');
+		// });
+		
+		
+		// 使用js触发事件(执行动作)
+		// $('ul').on('click', function(){
+		// 	console.log('事件触发了');
+		// });
+		
+		$('ul').on('myEvent', function(event, x, y){
+			console.log('自定义事件被触发');
+			console.log(x);
+			console.log(y);
+		});
+		
+		// 元素.事件名()
+		// $('ul').click();
+		
+		// trigger('事件名')
+		// trigger可以触发自定义事件并传递参数
+		// $('ul').trigger('click');
+		
+		$('ul').trigger('myEvent', [1, 2]);
+		
+		// 浏览器的默认行为会被执行
+		$('input[type=checkbox]').trigger('click');
+		
+		// 在jq中事件对象event不需要做兼容
+		// 获取事件类型
+		// 获取事件目标
+		// 阻止默认
+		// 阻止冒泡
+		// 获取keyCode
+		// 获取鼠标坐标
+	</script>
+</html>

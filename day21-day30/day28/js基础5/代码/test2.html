@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				/* 更改鼠标效果(变成小手) */
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>美少女战士</li>
+			<li>飞天小女警</li>
+			<li>猫眼三姐妹</li>
+			<li>巴拉巴拉小魔仙</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var lis = document.getElementsByTagName('li');
+		
+		// 葛云飞 徐豪 陈嘉豪 王钰茹
+		var nameArray = ['葛云飞','徐豪','陈嘉豪','王钰茹']
+		
+		// 每个li都有点击事件 而且li都在一个数组里 所有循环绑定点击事件
+		for(var i = 0;i < lis.length;i++){
+			// 使用元素的属性(最好是自定义属性) 保存每次的i值 保存在每个元素上
+			lis[i].index = i;
+			// 绑定事件
+			lis[i].onclick = function(){
+				// 因为每次点击的时候 循环已经走完 所以i=4
+				//console.log(i);// 4
+				// nameArray[i] // i = 4 无法使用
+				
+				// 把每次在元素上保存的i拿出来使用
+				// 在事件中this代表每次点的元素(每次执行事件的元素) this.属性名 就拿出来了在元素上保存的值
+				alert(nameArray[this.index]);
+			}
+		}
+	
+	</script>
+</html>

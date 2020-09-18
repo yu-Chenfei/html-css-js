@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 设置cookie的方法
+		function setCookie(key, value, day){
+			// 获取当前的时间对象
+			var nowDate = new Date();
+			// 把当前的时间对象变成几天(day)后
+			nowDate.setDate(nowDate.getDate() + day + 1);
+			// 设置cookie
+			document.cookie = key+'='+value+';expires='+ nowDate.toUTCString();
+		}
+		
+		setCookie('name','dong',3);
+		setCookie('age','18',3);
+		setCookie('like','book',3);
+		
+		// 删除cookie
+		function removeCookie(key){
+			setCookie(key, '', -1);
+		}
+		
+		// removeCookie('name');
+		
+		// 获取cookie
+		function getCookie(key){
+			// 获取所有cookie
+			var myCookie = document.cookie;
+
+			// 把cookie字符串分割成数组
+			var cookieArray = myCookie.split('; ');
+			
+			// 遍历数组取出每一项
+			for(var i = 0;i < cookieArray.length;i++){
+				// 每循环一次使用=分割每组字符串
+				var cookieItem = cookieArray[i].split('=');
+				
+				// 判断如果cookieItem的第一项是我们要拿的key那么第二项就是value
+				if(cookieItem[0] == key){
+					return cookieItem[1];
+				}
+			}
+		}
+		
+		var x = getCookie('name');
+		console.log(x);
+	</script>
+</html>

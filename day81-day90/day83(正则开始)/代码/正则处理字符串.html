@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<span>手机号：</span>
+		<input type="text">
+	</body>
+	<script type="text/javascript">
+		// 正则的作用：
+		// 1.处理字符串
+		// 2.进行表单验证
+		
+		// 取出字符串中所有数字
+		var str = '22asdsd12errr45fffd59';
+		// 使用正则表达式
+		var arr = str.match(/\d+/g);
+		console.log(arr);
+		
+	</script>
+</html>

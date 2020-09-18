@@ -1,0 +1,26 @@
+  body{text-align: center;}
+ .show_3D{width: 100%;height: 50%;position: relative;background: rgb(27,27,27);}
+ .show_3D .show_3D_img{width: 1000px;height: 100%;}
+ .show_3D .stop{position: absolute;top: 45%;left: 47%;}
+ .list{width: 1000px;height: 25%;display: inline-block;}
+ .list li{width: 32%;float: left;margin-left: 1%;margin-top: 2%;text-align: center;position: relative;}
+ .list li p{margin-top: 5%;color: gray;font-size: 15px;}
+ .list li .b_img{width: 100%;border-radius: 5px;}
+ .list li .play{position: absolute;width: 8%;height: 12%;top: 42%;left: 46%;}
+ .list li .play img{width: 100%;height: 100%;}
+ .list li .play .play_h{display: none;}
+ .title{width: 100%;height: 6%;padding-top:2%;position: absolute;bottom: 0;background: black;opacity: 0.7;font-size: 24px;color: gray;text-align: center;}
+ 
+@media only screen and (min-width: 100px) and (max-width:1000px) {
+	.show_3D .show_3D_img{width:100%;}
+	 .list{width: 98%;margin-left: 1%;}
+	 .show_3D .stop{position: absolute;width: 6%;height: 10%;top: 45%;left: 47%;}
+}
+@media only screen and (min-width:500px ) and (max-width:800px) {
+     .title{font-size: 18px;}
+     .list li p{font-size: 12px;}
+}
+@media only screen and (min-width:100px ) and (max-width:500px) {
+     .title{font-size: 14px;}
+     .list li p{font-size: 10px;}
+}

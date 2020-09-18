@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas style="border: 2px solid dimgray;" id="can" width="500" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		// 开始绘制
+		context.beginPath();
+		// 绘制矩形：四个参数 前两个是左上角的xy坐标 后两个参数是宽高
+		context.rect(100,100,200,100);
+		
+		// 绘制样式
+		// context.strokeStyle = 'darkred';
+		// 绘制
+		// context.stroke();
+		
+		// 填充样式
+		context.fillStyle = 'yellowgreen';
+		// 填充
+		context.fill();
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 判断语句的条件一定是布尔值：注意如果有值就是true(0,'',null除外)
+		// if语句：if(条件){ 符合条件执行的代码 }
+		// if-else语句：if(条件){符合条件执行的代码}else{不符合条件执行的代码}
+		// if-else if-else：else if可以有多个判断多个条件(有一个条件符合就不再向下执行)	
+		// switch case语句：多个条件判断
+		var num = 10;
+		
+		switch(num){
+			case 10:
+				console.log('第一个判断');
+				break;
+			case 20:
+				console.log('第二个判断');
+				break;
+			case 30:
+				console.log('第三个判断');
+				break;	
+			default:
+				console.log('条件都不符合执行');
+				break;
+		}
+		
+		// 三元运算符(三目运算符)：相当于if-else
+		// 条件 ? 代码1 : 代码2 条件为真执行代码1 否则执行代码2
+		num > 20 ? console.log(111) : console.log(222);
+		
+		
+	</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			th,td{
+				width: 80px;
+				text-align: center;
+			}
+			.editDiv{
+				border: 3px solid dimgray;
+				position: fixed;
+				top: 100px;
+				left: 100px;
+				background-color: aliceblue;
+				padding: 50px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			书名：<input class="addInp" type="text"/>
+		</div>
+		<div>
+			作者：<input class="addInp" type="text"/>
+		</div>
+		<div>
+			价格：<input class="addInp" type="text"/>
+		</div>
+		<div>
+			<button class="add" type="button">添加</button>
+		</div>
+		<table border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th>书名</th>
+					<th>作者</th>
+					<th>价格</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<div class="editDiv">
+			<div>
+				书名：<input class="editInp" type="text"/>
+			</div>
+			<div>
+				作者：<input class="editInp" type="text"/>
+			</div>
+			<div>
+				价格：<input class="editInp" type="text"/>
+			</div>
+			<div>
+				<button class="edit" type="button">编辑</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var myTbody = document.getElementsByTagName('tbody')[0];
+		var add = document.getElementsByClassName('add')[0];
+		var addInps = document.getElementsByClassName('addInp');
+		var editDiv = document.getElementsByClassName('editDiv')[0];
+		var editInps = document.getElementsByClassName('editInp');
+		var edit = document.getElementsByClassName('edit')[0];
+		
+		// 数据
+		var data = [{name: '白夜行', author: '东野圭吾', price: '￥20'} ,{name: '水浒传', author: '施耐庵', price: '￥190'} ,{name: '金瓶梅', author: '兰陵笑笑生', price: '￥200'}];
+		
+		// for循环遍历数组
+		for(var i = 0;i < data.length;i++){
+			// 每次生成一个tr标签
+			var newTr = document.createElement('tr');
+			
+			// 设置tr里面的内容
+			newTr.innerHTML = '<td>'+data[i].name+'</td><td>'+data[i].author+'</td><td>'+data[i].price+'</td><td><span class="del">删除 </span><span class="ed"> 编辑</span></td>';
+			
+			// 把创建好的tr标签放在tbody里面
+			myTbody.appendChild(newTr);
+		}
+		
+		// 给添加按钮绑定点击事件
+		add.onclick = function(){
+			// 创建一个tr
+			var newTr = document.createElement('tr');
+			// 设置tr里面的内容
+			newTr.innerHTML = '<td>'+addInps[0].value+'</td><td>'+addInps[1].value+'</td><td>￥'+addInps[2].value+'</td><td><span class="del">删除 </span><span class="ed"> 编辑</span></td>';
+			// 把创建好的tr标签放在tbody里面
+			myTbody.appendChild(newTr);
+			
+			// 每次添加后重新获取元素并绑定事件
+			delBtn = document.getElementsByClassName('del');
+			// 调用绑定删除事件的函数
+			delEventFun();
+			//  调用绑定编辑事件的函数
+			editEventFun();
+		}
+		
+		// 获取删除按钮
+		var delBtn = document.getElementsByClassName('del'); // 三个
+		
+		// 写一个函数用来循环添加点击事件(三个)
+		function delEventFun(){
+			for(var i = 0;i < delBtn.length;i++){
+				delBtn[i].onclick = function(){
+					// 获取当前span所在的tr
+					var delTr = this.parentNode.parentNode;
+					// 删除当前tr
+					myTbody.removeChild(delTr);
+				}
+			}
+		}
+		delEventFun();
+		
+		var editTr = '';
+		// 给编辑按钮绑定事件的方法
+		function editEventFun(){
+			// 获取所有编辑按钮
+			var editBtn = document.getElementsByClassName('ed');
+			// 给所有编辑按钮绑定点击事件
+			for(var i = 0;i < editBtn.length;i++){
+				editBtn[i].onclick = function(){
+					// 让编辑框显示
+					editDiv.style.display = 'block';
+					// 获取当前的tr
+					editTr = this.parentNode.parentNode;
+					// 获取当前tr的所有td
+					var tds = editTr.children;
+					// 把td内容分别展示在编辑框的input上
+					editInps[0].value = tds[0].innerText;
+					editInps[1].value = tds[1].innerText;
+					editInps[2].value = tds[2].innerText;
+				}
+			}
+		}
+		editEventFun();
+		
+		// 给编辑按钮绑定事件
+		edit.onclick = function(){
+			// 获取所有输入框的内容
+			var bookName = editInps[0].value;
+			var author = editInps[1].value;
+			var price = editInps[2].value;
+			// 把内容复制给需要修改的tr中的td
+			editTr.children[0].innerText = bookName;
+			editTr.children[1].innerText = author;
+			editTr.children[2].innerText = price;
+			
+			// 关闭编辑窗口
+			editDiv.style.display = 'none';
+		}
+		
+		
+		
+	</script>
+</html>

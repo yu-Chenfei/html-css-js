@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: firebrick;
+			}
+			.block{
+				display: block;
+			}
+			.none{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<span id="btn">显示、隐藏</span>
+		<div class="block" id="box"></div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var btn = document.getElementById('btn');
+		var box = document.getElementById('box');
+		
+		// 给btn添加点击事件
+		btn.onclick = function(){
+			if(box.className == 'block'){
+				box.className = 'none';
+			}else{
+				box.className = 'block';
+			}
+		}
+	</script>
+</html>

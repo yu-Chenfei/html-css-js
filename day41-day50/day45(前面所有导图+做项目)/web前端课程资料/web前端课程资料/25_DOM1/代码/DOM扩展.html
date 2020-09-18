@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul class="list">
+			<li onclick="test()">小心肝</li>
+			<li class="one">文广小宝贝</li>
+			<li class="three">徐豪小老弟</li>
+			<li class="two">张雪小胖子</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		function test(){
+			console.log('你巴拉我');
+		}
+		
+		
+		// 获取元素
+		var list = document.getElementsByClassName('list')[0];
+		var one = document.getElementsByClassName('one')[0];
+		
+		// 获取子元素个数
+		console.log(list.childElementCount);
+		// 获取所有子元素组成的数组
+		console.log(list.children);
+		// 获取第一个子元素
+		list.firstElementChild.style.color = 'darkred';
+		// 获取最后一个子元素
+		list.lastElementChild.style.color = 'seagreen';
+		
+		// 获取上一个相邻的元素
+		one.previousElementSibling.style.backgroundColor = 'yellow';
+		
+		// 获取下一个相邻的元素
+		one.nextElementSibling.style.backgroundColor = 'pink';
+		
+		// 获取、设置所有子节点
+		console.log(list.innerHTML);
+		
+		one.innerHTML = '<p style="color: purple;">李伟我大哥</p>';
+		
+		//  获取、设置所有文本
+		console.log(list.innerText);
+		
+		// 获取、设置所有子节点(包括自己)
+		console.log(list.outerHTML);
+		
+	
+	</script>
+</html>

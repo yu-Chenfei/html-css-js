@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>灵魂画手</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var myDiv = document.getElementsByTagName('div')[0];
+		// 鼠标事件
+		// 单击事件
+		myDiv.onclick = function(){
+			//
+		}
+		// 双击事件
+		myDiv.ondblclick = function(){
+			console.log('点了两次');
+		}
+		// 鼠标移入
+		// myDiv.onmouseover = function(){
+		// 	console.log('你摸我了');
+		// }
+		// 鼠标移出
+		// myDiv.onmouseout = function(){
+		// 	console.log('你不摸我了');
+		// }
+		
+		// onmouseenter和onmouseleave不支持事件冒泡
+		// 鼠标移入
+		myDiv.onmouseenter = function(){
+			// console.log('你摸我了');
+		}
+		// 鼠标移出
+		myDiv.onmouseleave = function(){
+			// console.log('你不摸我了');
+		}
+		
+		// 鼠标按下
+		myDiv.onmousedown = function(){
+			console.log('按下');
+		}
+		// 鼠标抬起
+		myDiv.onmouseup = function(){
+			console.log('抬起');
+		}
+		
+		// 鼠标在元素上移动
+		myDiv.onmousemove = function(){
+			console.log('移动了');
+		}
+		
+		// 点击鼠标右键触发
+		myDiv.oncontextmenu = function(){
+			console.log('点了右键');
+		}
+		
+		// 键盘事件
+		// 键盘按下
+		// document.documentElement.onkeydown = function(){
+		// 	console.log('键盘按下');
+		// }
+		
+		// 键盘抬起
+		document.documentElement.onkeyup = function(){
+			console.log('键盘抬起');
+		}
+		
+		// 键盘按下：onkeypress不支持系统按键(比如：shift alt ctrl)
+		document.documentElement.onkeypress = function(){
+			console.log('键盘按下');
+		}
+	</script>
+</html>

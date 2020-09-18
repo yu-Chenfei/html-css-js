@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="btn">点击发送请求</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var btn = document.getElementById('btn');
+		
+		// 点击btn后发送ajax请求
+		btn.onclick = function(){
+			// 实例化ajax对象(XMLHttpRequest对象)
+			var xmlHttp = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+			
+			// 接收数据
+			// 监听readystate是否到4
+			xmlHttp.onreadystatechange = function(){
+				// xmlHttp.status: 网络请求的状态码
+				// 200请求成功 404未找到页面 401未验证(未登录、没有给后台传递token)
+				// 500服务器错误 301和302重定向 304文件未修改
+				if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+					// xmlHttp.responseText 后台传过来的值(响应的文本)
+					console.log(xmlHttp.responseText);
+				}
+			}
+			
+			// 发送请求
+			// xmlHttp实例下有两个方法
+			// open 三个参数：1请求方式 2请求地址 3是否异步
+			// get请求存在缓存问题 解决方案：在地址后面拼随机数(时间戳)
+			xmlHttp.open('GET', 'get.php?name=dyx&age=18&time='+new Date().getTime(), true);
+			// send get请求下没有参数
+			xmlHttp.send();
+		}
+	</script>
+</html>

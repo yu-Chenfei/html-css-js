@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.one{
+				background-color: yellow;
+				/* 层级: 如果不设置默认是0 层级越大元素就在上边 */
+				/* z-index: 1; */
+			}
+			
+			.two{
+				/* position: fixed; */
+				background-color: #9370DB;
+				/* z-index: 2; */
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 只有定位的元素有层级 -->
+		<div class="one"></div>
+		<div class="two"></div>
+	</body>
+</html>

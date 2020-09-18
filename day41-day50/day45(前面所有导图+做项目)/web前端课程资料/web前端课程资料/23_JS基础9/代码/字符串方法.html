@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var str = 'helloworldo';
+		// 通过位置取出相应字符：参数-从0开始的位置(类似于索引) 拿出相应字符
+		// var cha = str.charAt(7);
+		var cha = str[7];
+		console.log(cha);
+		
+		// 拼接字符串
+		// var newStr = str.concat('!!!');
+		var newStr = str + '!!!';
+		console.log(newStr);
+		
+		// 截取字符串: 第一个参数开始位置的索引 第二个参数结束位置索引
+		// 不包括结束位置
+		var newStr = str.slice(2, 5);
+		console.log(newStr);
+		
+		// 返回字符位置: 返回位置(类似于索引) 没有此元素返回-1
+		// indexOf lastIndexOf
+		// var index = str.indexOf('o');// 4
+		var index = str.lastIndexOf('o');// 6
+		console.log(index);
+		
+		// 删除字符串前后空格: 返回值是去掉空格后的新字符串
+		var str1 = ' h Ello ';
+		var newStr = str1.trim();
+		console.log(newStr + '1');
+		
+		// 字符串大小写转化
+		// 小写转化为大写
+		var newStr = str1.toUpperCase();
+		console.log(newStr);
+		// 大写转化为小写
+		var str3 = 'DOnG';
+		var newStr = str3.toLowerCase();
+		console.log(newStr);
+		
+		// 字符串转化为数组
+		var str2 = 'banana';
+		// 参数：分割数组的字符串
+		var arr = str2.split('');	
+		console.log(arr);
+		
+		
+	</script>
+</html>

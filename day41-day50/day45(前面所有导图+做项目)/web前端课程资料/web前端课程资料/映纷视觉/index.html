@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>INFINI | 映纷视觉</title>
+		<style type="text/css">
+			html,body{
+				margin: 0;
+				padding: 0;
+			}
+			.main{
+				padding-top: 110px;
+				background-color: rgb(242,242,242);
+			}
+			.nav{
+				/* 定位元素要给宽度 */
+				width: 100%;
+				height: 100px;
+				background-color: rgba(0,0,0,0.7);
+				position: fixed;
+				left: 0;
+				top: 0;
+				padding-top: 10px;
+				padding-bottom: 5px;
+				z-index: 1;
+			}
+			.nav .nav_top{
+				text-align: center;
+			}
+			.nav_bottom .nav_bar{
+				width: 50%;
+				display: flex;
+				justify-content: space-between;
+				margin: 25px auto;
+			}
+			.nav_bar a{
+				color: #898989;
+				text-decoration: none;
+			}
+			
+			.nav_bar .active_a{
+				color: white;
+			}
+			
+			.main .content{
+				width: 94%;
+				margin-left: 3%;
+			}
+			.img_show{
+				overflow: hidden;
+				position: relative;
+			}
+			.img_show .wrap{
+				width: 400%;
+				height: 100%;
+				animation: move 7s linear infinite;
+			}
+			
+			.img_show .wrap img{
+				width: 25%;
+				float: left;
+				vertical-align: middle;
+			}
+			
+			.img_show .wrap_title{
+				width: 100%;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				color: white;
+				background-color: rgba(0,0,0,.7);
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			
+			.progress{
+				height: 22px;
+			}
+			
+			.progress .progress_dot{
+				width: 80px;
+				height: 22px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 0 auto;
+			}
+			
+			.progress .progress_dot span{
+				display: inline-block;
+				width: 6px;
+				height: 6px;
+				border-radius: 4px;
+				background-color: darkgray;
+			}
+			
+			.progress .progress_dot .active_dot{
+				background-color: white;
+				border: 1px solid #A9A9A9;
+			}
+			
+			.content .compony_info{
+				font-size: 20px;
+				padding: 20px 0;
+				color: rgb(109,109,109);
+				font-family: STKaiti;
+				border-top: 1px solid rgb(232,232,232);
+				border-bottom: 1px solid rgb(232,232,232);
+				/* 首行缩进 */
+				text-indent: 40px;
+				line-height: 25px;
+			}
+			.content .add{
+				overflow: hidden;
+				width: 96%;
+				margin-left: 3%;
+				padding: 30px 0;
+			}
+			.content .add img{
+				float: left;
+				width: 6.14%;
+				margin-left: 1%;
+			}
+			
+			.content_center{
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				padding-bottom: 100px;
+			}
+			.content_center .item{
+				width: 31%;
+				margin-top: 20px;
+				border-radius: 5px;
+				overflow: hidden;
+				box-shadow: 2px 2px 2px #e3e3e3;
+			}
+			
+			.content_center .item .item_bottom{
+				text-align: center;
+				margin: 0;
+				background-color: white;
+				height: 35px;
+				line-height: 35px;
+			}
+			
+			.content_center .item .item_top p{
+				text-align: center;
+				margin: 0;
+				color: white;
+			}
+			.content_center .item .item_top .des{
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+			
+			.content_center .item .item_top .des .des_first{
+				font-size: 30px;
+			}
+			
+			.content_center .item .item_top .des .des_second{
+				font-size: 14px;
+			}
+			
+			.content_center .item img{
+				width: 100%;
+				vertical-align: middle;
+			}
+			.content_center .item  .item_top{
+				position: relative;
+			}
+			.content_center .item .black_div{
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.6);
+				opacity: 0;
+				transition: all 0.7s linear;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.content_center .item .black_div:hover{
+				opacity: 1;
+			}
+			
+			.footer{
+				height: 175px;
+				padding: 10px 0;
+				background-color: rgb(224,224,224);
+			}
+			
+			.footer div{
+				width: 50%;
+				float: left;
+			}
+			
+			.footer .left{
+				box-sizing: border-box;
+				padding-right: 20px;
+				height: 100%;
+				border-right: 1px solid rgb(188,188,188);
+			}
+			
+			.footer .left img{
+				width: 40px;
+				float: right;
+			}
+			
+			.footer .right img{
+				width: 110px;
+			}
+			
+			.footer .right ul{
+				list-style: none;
+				font-size: 10px;
+				padding-left:15px;
+				color: rgb(102,102,102);
+			}
+			.footer .right ul li{
+				margin-top: 3px;
+			}
+			
+			@keyframes move{
+				/* translateX的百分比相对于自己的宽度 */
+				/* translateY的百分比相对于自己的高度 */
+				0%{
+					transform: translateX(0%);
+				}
+				28.4%{
+					transform: translateX(-25%);
+				}
+				33.4%{
+					transform: translateX(-25%);
+				}
+				61.7%{
+					transform: translateX(-50%);
+				}
+				66.7%{
+					transform: translateX(-50%);
+				}
+				95%{
+					transform: translateX(-75%);
+				}
+				100%{
+					transform: translateX(-75%);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<!-- 导航栏 -->
+			<div class="nav">
+				<div class="nav_top">
+					<img src="img/title.png" >
+				</div>
+				<div class="nav_bottom">
+					<div class="nav_bar">
+						<a href="###" class="active_a">HOME</a>
+						<a href="###">WORK</a>
+						<a href="###">CONTACT</a>
+						<a href="###">JOIN US</a>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 内容区域 -->
+			<div class="content">
+				<div class="img_show">
+					<div class="wrap">
+						<img src="img/s1.jpg" >
+						<img src="img/s2.jpg" >
+						<img src="img/s3.jpg" >
+						<img src="img/s1.jpg" >
+					</div>
+					<div class="wrap_title">
+						头条号标题
+					</div>
+				</div>
+				<div class="progress">
+					<div class="progress_dot">
+						<span class="active_dot"></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				
+				<div class="compony_info">
+					INFINI （映纷创意）是一家独立创新营销公司，致力于创造会流动的美好创意。我们从策略与洞察出发，不断探索营销和创意的多元表达，用创作精神为品牌提供更具生命力的跨媒体整合营销服务。
+				</div>
+				<!-- 广告区域 -->
+				<div class="add">
+					<img src="img/1.jpg" >
+					<img src="img/10.jpg" >
+					<img src="img/11.jpg" >
+					<img src="img/2.jpg" >
+					<img src="img/3.jpg" >
+					<img src="img/4.jpg" >
+					<img src="img/5.jpg" >
+					<img src="img/6.jpg" >
+					<img src="img/7.jpg" >
+					<img src="img/8.jpg" >
+					<img src="img/9.jpg" >
+					<img src="img/2.jpg" >
+					<img src="img/3.jpg" >
+					<img src="img/4.jpg" >
+				</div>
+				<!--  -->
+				<div class="content_center">
+					<div class="item">
+						<a href="http://www.baidu.com">
+							<div class="item_top">
+								<img src="img/con_%20(1).jpg" >
+								<div class="black_div">
+									<!-- 文字 -->
+									<div class="des">
+										<p class="des_first">小米</p>
+										<p class="des_second">小米全新【MIUI for watch】表里大有玄机</p>
+									</div>
+								</div>
+							</div>
+						</a>
+						<p class="item_bottom">
+							小米MIUI for watch
+						</p>
+					</div>
+					
+					<div class="item">
+						<div class="item_top">
+							<img src="img/con_%20(1).jpg" >
+							<div class="black_div">
+								<!-- 文字 -->
+								<div class="des">
+									<p class="des_first">小米</p>
+									<p class="des_second">小米全新【MIUI for watch】表里大有玄机</p>
+								</div>
+							</div>
+						</div>
+						<p class="item_bottom">
+							小米MIUI for watch
+						</p>
+					</div>
+					
+					<div class="item">
+						<div class="item_top">
+							<img src="img/con_%20(1).jpg" >
+							<div class="black_div">
+								<!-- 文字 -->
+								<div class="des">
+									<p class="des_first">小米</p>
+									<p class="des_second">小米全新【MIUI for watch】表里大有玄机</p>
+								</div>
+							</div>
+						</div>
+						<p class="item_bottom">
+							小米MIUI for watch
+						</p>
+					</div>
+					
+					<div class="item">
+						<div class="item_top">
+							<img src="img/con_%20(1).jpg" >
+							<div class="black_div">
+								<!-- 文字 -->
+								<div class="des">
+									<p class="des_first">小米</p>
+									<p class="des_second">小米全新【MIUI for watch】表里大有玄机</p>
+								</div>
+							</div>
+						</div>
+						<p class="item_bottom">
+							小米MIUI for watch
+						</p>
+					</div>
+					
+					<div class="item">
+						<div class="item_top">
+							<img src="img/con_%20(1).jpg" >
+							<div class="black_div">
+								<!-- 文字 -->
+								<div class="des">
+									<p class="des_first">小米</p>
+									<p class="des_second">小米全新【MIUI for watch】表里大有玄机</p>
+								</div>
+							</div>
+						</div>
+						<p class="item_bottom">
+							小米MIUI for watch
+						</p>
+					</div>
+					
+					<div class="item">
+						<div class="item_top">
+							<img src="img/con_%20(1).jpg" >
+							<div class="black_div">
+								<!-- 文字 -->
+								<div class="des">
+									<p class="des_first">小米</p>
+									<p class="des_second">小米全新【MIUI for watch】表里大有玄机</p>
+								</div>
+							</div>
+						</div>
+						<p class="item_bottom">
+							小米MIUI for watch
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer">
+				<div class="left">
+					<img src="img/contact1.jpg" >
+					<img src="img/contact2.jpg" >
+					<img src="img/contact3.jpg" >
+				</div>
+				<div class="right">
+					<ul>
+						<li>
+							<img src="img/footer_logo.jpg" >
+						</li>
+						<li>INFINI | 映纷创意</li>
+						<li>北京市朝阳区懋隆创意园</li>
+						<li>TEL : 010-85394331</li>
+						<li>QQ : 7585917</li>
+						<li>Email : infinistudio@foxmail.com</li>
+						<li>weibo : @InfiniStudio</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

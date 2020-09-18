@@ -1,0 +1,23 @@
+.out {
+  background-color: indianred;
+}
+.out .in {
+  width: 100px;
+  height: 100px;
+  background-color: seagreen;
+}
+.out:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.out_2 {
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+}
+@media screen and (min-width: 600px) {
+  .out {
+    background-color: darkgray;
+  }
+}

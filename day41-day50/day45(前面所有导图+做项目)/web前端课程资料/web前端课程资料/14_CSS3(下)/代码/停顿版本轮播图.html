@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.show{
+				width: 300px;
+				height: 300px;
+				border: 3px solid darkred;
+				overflow: hidden;
+			}
+			.show .scroll{
+				width: 1500px;
+				height: 300px;
+				animation: move 10s linear infinite;
+			}
+			.show .scroll img{
+				float: left;
+				width: 300px;
+				height: 300px;
+			}
+			
+			@keyframes move{
+				/* 0s */
+				0%{
+					transform: translateX(0);
+				}
+				/* 2s */
+				20%{
+					transform: translateX(-300px);
+				}
+				/* 2.5s */
+				25%{
+					transform: translateX(-300px);
+				}
+				/* 4.5s */
+				45%{
+					transform: translateX(-600px);
+				}
+				/* 5s */
+				50%{
+					transform: translateX(-600px);
+				}
+				/* 7s */
+				70%{
+					transform: translateX(-900px);
+				}
+				/* 7.5s */
+				75%{
+					transform: translateX(-900px);
+				}
+				/* 9.5s */
+				95%{
+					transform: translateX(-1200px);
+				}
+				/* 10s */
+				100%{
+					transform: translateX(-1200px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="show">
+			<div class="scroll">
+				<img src="1.jpg" >
+				<img src="2.jpg" >
+				<img src="3.jpg" >
+				<img src="4.jpg" >
+				<img src="1.jpg" >
+			</div>
+		</div>
+	</body>
+</html>

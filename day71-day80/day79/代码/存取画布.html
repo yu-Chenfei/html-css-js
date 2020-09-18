@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		
+		// 储存画布当前坐标系状态
+		context.save();
+		// 旋转坐标
+		context.rotate(20*Math.PI/180);
+		// 开始绘制
+		context.beginPath();
+		// 绘制矩形
+		context.rect(50,50,100,100);
+		// 设置填充样式
+		context.fillStyle = 'hotpink';
+		// 填充
+		context.fill();
+		
+		
+		// 读取上一次存储的坐标系状态
+		context.restore();
+		// 开始绘制
+		context.beginPath();
+		// 绘制矩形
+		context.rect(150,150,100,100);
+		// 设置填充样式
+		context.fillStyle = 'yellowgreen';
+		// 填充
+		context.fill();
+		
+		
+		
+		
+	</script>
+</html>

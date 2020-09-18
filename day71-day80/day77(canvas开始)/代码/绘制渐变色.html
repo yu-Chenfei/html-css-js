@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas style="border: 2px solid gray;" id="can" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 绘制上下文
+		var context = can.getContext('2d');
+		
+		// 创建一个渐变对象
+		// 四个参数 前两个是开始坐标 后两个是结束坐标
+		var gradient = context.createLinearGradient(100,100,200,100);
+		// 定义渐变样式
+		// 第一个参数是渐变的阶段(百分比) 值为0-1
+		// 第二个参数是渐变的颜色
+		gradient.addColorStop(0,'yellow');
+		gradient.addColorStop(0.2,'blue');
+		gradient.addColorStop(0.4,'red');
+		gradient.addColorStop(1,'green');
+		
+		// 开始绘制
+		context.beginPath();
+		//开始点
+		context.moveTo(100,100);
+		//下一个点
+		context.lineTo(200,100);
+		//下一个点
+		context.lineTo(0,0);
+		// 设置填充样式
+		// context.fillStyle = gradient;
+		// 填充
+		// context.fill();
+		// 设置绘制样式
+		context.strokeStyle = gradient;
+		// 设置线宽
+		context.lineWidth = 5;
+		// 绘制
+		context.stroke();
+	</script>
+</html>

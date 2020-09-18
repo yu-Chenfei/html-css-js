@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动：float</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: #ADFF2F;
+				/* float：left/right */
+				float: left;
+				
+				/* 为什么不使用 display: inline-block; */
+				/* 
+				1 代码换行会有空隙
+				2 默认文本下对齐
+				3 一个元素移动 另一个元素会随着移动
+				 */
+				
+				/* 一般让单个行属性元素支持设置宽高使用display: inline-block; */
+			}
+			.one{
+				/* margin-top: 120px; */
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 一般让块属性元素排成一行使用浮动 -->
+		<!-- 浮动遇到父元素边缘或者相邻浮动元素会停下来 -->
+		<div class="one">一般让块属性元素排成一行使用浮动</div>
+		<div>2</div>
+	</body>
+</html>

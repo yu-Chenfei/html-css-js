@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.delBtn{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		书名：<input type="text"/>
+		价格：<input type="text"/>
+		<button type="button">添加</button>
+		<table>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 使用jq动态渲染 可以删除 可以添加
+		var bookData = [{name: '三国志', price: '$490'}, {name: '水浒传', price: '$190'}, {name: '金瓶梅', price: '$290'}];
+		
+		// 循环遍历数组
+		$.each(bookData, function(index, item){
+			// 没遍历一次创建一个tr标签 并设置内容把创建好的tr放进tbody
+			$('tbody').append($('<tr><td>'+item.name+'</td><td>'+item.price+'</td><td class="delBtn">删除</td></tr>'));
+		});
+		
+		// 删除的方法
+		function delFun(){
+			// 给删除按钮绑定点击事件
+			$('.delBtn').on('click', function(){
+				// 获取点击的当前行 并删除当前行
+				$(this).parents('tr').remove();
+			});
+		}
+		
+		// 给添加按钮绑定事件
+		$('button').on('click', function(){
+			// 添加tr 并设置tr中的内容
+			$('tbody').append('<tr><td>'+$('input').eq(0).val()+'</td><td>$'+$('input').eq(1).val()+'</td><td class="delBtn">删除</td></tr>');
+			delFun();
+		});
+	</script>
+</html>

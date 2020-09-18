@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.son{
+				width: 300px;
+				height: 300px;
+				background-color: #CD5C5C;
+				/* position: absolute;
+				left: 100px;
+				top: 100px; */
+			}
+			.father{
+				/* position: relative; */
+				width: 100px;
+				height: 100px;
+				background-color: cornflowerblue;
+				border: 5px solid greenyellow;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">111</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// css() 方法
+		// $('div').css('background', 'yellow');
+		// $('div').css({'background': 'yellow', 'font-size': '20px'});
+		
+		// width() height()
+		// 获取宽高
+		// console.log($('div').width());
+		// console.log($('div').height());
+		
+		// offset() 获取相对于文档的位置
+		// var offset = $('div').offset();
+		// console.log(offset);
+		
+		// $('div').offset().left 相当于没有定位情况的 offsetLeft
+		// $('div').offset().top 相当于没有定位情况的 offsetTop
+		
+		// position() 定位后 相对于定位参照元素的位置
+		var sonPosition = $('.son').position();
+		
+		console.log(sonPosition);
+		
+		// $('div').position().left 相当于有定位情况的 offsetLeft
+		// $('div').position().top 相当于有定位情况的 offsetTop
+		
+		// scrollLeft() 相当于js原生中的 scrollLeft
+		// scrollTop() 相当于js原生中的 scrollTop
+		// $('.father').scrollTop(100);
+		$('.father').scrollLeft(100);
+		
+	</script>
+</html>

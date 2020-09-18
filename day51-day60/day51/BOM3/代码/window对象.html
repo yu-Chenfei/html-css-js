@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn" type="button">打开百度</button>
+		
+		<button id="closeBtn" type="button">关闭页面</button>
+	</body>
+	<script type="text/javascript">
+		// 窗口位置
+		// console.log(window.screenLeft);
+		// console.log(window.screenTop);	
+		// console.log(window.screenX);
+		// console.log(window.screenY);
+		var sLeft = window.screenLeft || window.screenX;
+		var sTop = window.screenTop || window.screenY;
+		// console.log(sLeft);
+		// console.log(sTop);
+		
+		// 窗口大小
+		// 不包含工具栏等
+		console.log(window.innerWidth);
+		console.log(window.innerHeight);
+		// 包含工具栏等
+		console.log(window.outerWidth);
+		console.log(window.outerHeight);
+		
+		
+		// 打开窗口
+		// 参数：1.打开的地址 2.打开方式(_self在当前页面打开, _blank(默认)打开新窗口)
+		//      3.窗口大小和位置参数
+		// window.open 地址写服务器资源的地址(图片,视频,文档,压缩包) 可以实现下载资源
+		document.getElementById('btn').onclick = function(){
+			window.open('', '_blank', 'width=500,height=300,top=100,left=100');
+		}
+		
+		document.getElementById('closeBtn').onclick = function(){
+			// 关闭当前页面
+			window.close();
+		};
+	</script>
+</html>

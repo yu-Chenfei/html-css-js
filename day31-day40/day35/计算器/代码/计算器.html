@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				background-color: rgb(93,101,108);
+				color: white;
+				border-radius: 5px;
+			}
+			td{
+				width: 50px;
+				height: 50px;
+				font-size: 20px;
+				text-align: center;
+			}
+			.oper{
+				background-color: rgb(251,157,43);
+			}
+			.show{
+				text-align: right;
+				background-color: rgb(45,65,79);
+				font-size: 40px;
+				padding: 0 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="show" colspan="4">
+						0
+					</td>
+				</tr>
+				<tr>
+					<td class="reset">AC</td>
+					<td>+/-</td>
+					<td>%</td>
+					<td class="oper">÷</td>
+				</tr>
+				<tr>
+					<td class="num">7</td>
+					<td class="num">8</td>
+					<td class="num">9</td>
+					<td class="oper">×️</td>
+				</tr>
+				<tr>
+					<td class="num">4</td>
+					<td class="num">5</td>
+					<td class="num">6</td>
+					<td class="oper">-</td>
+				</tr>
+				<tr>
+					<td class="num">1</td>
+					<td class="num">2</td>
+					<td class="num">3</td>
+					<td class="oper">+</td>
+				</tr>
+				<tr>
+					<td class="num" colspan="2">0</td>
+					<td>.</td>
+					<td class="oper">=</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var numBtn = document.getElementsByClassName('num');// 数字按钮
+		var operBtn = document.getElementsByClassName('oper'); // 获取运算符按钮
+		var show = document.getElementsByClassName('show')[0];
+		var reset = document.getElementsByClassName('reset')[0] // 获取AC重置按钮
+		
+		// 定义三个变量 分别为上一次点击的数字 运算符 当前数字
+		var prevNum = '';
+		var oper = '';
+		var nowNum = '';
+		// 定义一个布尔值 判断是否点了0 默认false是没有点
+		var bool = false;
+		
+		// 给数字按钮循环添加点击事件
+		for(var i = 0; i < numBtn.length; i++){
+			numBtn[i].onclick = function(){
+				// 把点击的数字赋值给nowNum
+				nowNum += this.innerHTML;
+
+				// 如果nowNum等于0 让它变成空防止 01 02这种类似情况
+				if(nowNum == 0){
+					nowNum = '';
+					// 证明点击了0
+					bool = true;
+					// 把点击的数字展示到show中
+					show.innerHTML = 0;
+				}else{
+					// 把点击的数字展示到show中
+					show.innerHTML = nowNum;
+				}		
+			}
+		}
+		
+		// 循环给运算符按钮添加点击事件
+		for(var j = 0;j < operBtn.length;j++){
+			operBtn[j].onclick = function(){
+				if(nowNum != '' && prevNum != ''){
+					// 如果两个数都点了 进行运算
+					mathFun();
+				}else if(nowNum == '' && bool == true){
+					nowNum = 0;
+					mathFun();
+				}else{
+					// 把nowNum中的值赋值给prevNum
+					prevNum = nowNum;
+				}
+				// 获取运算符
+				oper = this.innerHTML;
+				// 把nowNum清空方便接受下一个值
+				nowNum = '';
+			}
+		}
+		
+		function mathFun(){
+			// 先把拿到的两个数转化为number类型
+			var num1 = Number(prevNum);
+			var num2 = Number(nowNum);
+		
+			// 判断运算符之后进行计算
+			switch(oper){
+				case "+":
+					show.innerHTML = num1 + num2;
+					break;
+				case "-":
+					show.innerHTML = num1 - num2;
+					break;
+				case "×️":
+					show.innerHTML = num1 * num2;
+					break;
+				case "÷":
+					show.innerHTML = num1 / num2;
+					break;			
+			}
+			// 保存上一次计算的结果
+			prevNum = show.innerHTML;
+		}
+		
+		reset.onclick = function(){
+			prevNum = '';
+			oper = '';
+			nowNum = '';
+			bool = false;
+			show.innerHTML = 0;
+		}
+	</script>
+</html>

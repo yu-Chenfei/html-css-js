@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var str = 'ab22abc89dfgabcc_abcccc';
+		// ()代表整组匹配
+		// g是全局匹配 如果没有g匹配到第一次就不再向下匹配了
+		// 量词符：
+		// +代表1到多个 比如abc+代表c可以有多个
+		// ?代表0到1个
+		// *代表0到多个
+		var re = /(abc?)/g; // 匹配abc
+		
+		// test方法：使用正则匹配字符串 匹配成功返回true不成功返回false
+		// 语法：正则.test(字符串);
+		// var bool= re.test(str);
+		// console.log(bool); // true
+		
+		// exec方法：返回匹配的数组
+		// 语法：正则.exec(字符串);
+		// 匹配多个情况下需要调整lastIndex(索引位置)
+		// 必须重复调用多次才可以把字符串匹配完全
+		// re.lastIndex = 0;
+		// var arr1 = re.exec(str);
+		// var arr2 = re.exec(str);
+		// console.log(arr1);// 数组的第一项是匹配到的字符串
+		// console.log(arr2);// 数组的第一项是匹配到的字符串
+		
+		// 正则的匹配方法
+		// match方法：返回匹配的数组
+		// 语法：字符串.match(正则表达式);
+		var arr = str.match(re);
+		console.log(arr);
+		
+		// search方法：返回第一次匹配的索引
+		// 语法：字符串.search(正则表达式);
+		var index = str.search(re);
+		console.log(index); // 0
+		
+		// replace方法：替换正则匹配到的字符串(一般用于敏感词替换)
+		// 语法1：字符串.replace(正则表达式, '新字符串');
+		// 语法2：字符串.replace(正则表达式, callback); 把匹配到的字符串替换成函数返回值
+		// var newStr = str.replace(re, '233');
+		var newStr = str.replace(re, function(){
+			return '乔文广' + 666;
+		});
+		console.log(newStr);
+	</script>
+</html>

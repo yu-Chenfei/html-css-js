@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.red{
+				color: orangered;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="red big">biubiubiu</h1>
+	</body>
+	<script type="text/javascript">
+		// 获取html标签: document.documentElement 
+		console.log(document.documentElement);
+		
+		// 获取body: document.body
+		console.log(document.body);
+		
+		// 设置title
+		document.title = '大牡丹婚庆网';
+		
+		// 返回当前页面的网址 document.URL
+		// console.log(document.URL);
+		
+		// 返回域名 document.domain
+		console.log(document.domain);
+		
+		// 文档写入
+		document.write('hello');
+		
+		
+		// 练习: 获取另一个页面传过来的值(get请求/把参数拼在网址后面)
+		var url = document.URL;
+		
+		function getDataFun(key){
+			// 截取url
+			var data = url.slice(url.indexOf('?')+1);
+			// 分割成数组
+			var dataArray = data.split('&');
+			// 遍历数组
+			for(var i = 0;i < dataArray.length;i++){
+				var newArray = dataArray[i].split('=');
+				if(newArray[0] == key){
+					return newArray[1];
+				}
+			}
+		}
+		var n = getDataFun('name');
+		
+		document.write(n);
+		
+		// 设置、获取、移除属性
+		var myH1 = document.getElementsByTagName('h1')[0];
+		
+		// 设置属性
+		// myH1.setAttribute('class', 'red big aaa');
+		
+		// myH1.setAttribute('class', 'red big');
+		// 获取属性
+		// var myClass = myH1.getAttribute('class');
+		// console.log(myClass);
+		// 移除属性
+		// myH1.removeAttribute('class');
+		
+		// 设置属性我们一般使用点语法 元素.属性名
+		// 当属性是一个变量的时候 不能使用点语法 使用 元素[变量名]
+		var bc = 'backgroundColor';
+		myH1.style[bc] = 'indianred';
+		
+		
+		// 封装一个方法 setStyleFun 三个参数: 第一个参数是需要设置样式的元素
+		// 第二个参数是 样式名 第三个参数是样式值
+		function setStyleFun(el, key, value){
+			el.style[key] = value;
+		}
+		setStyleFun(myH1, 'color', 'purple');
+		setStyleFun(myH1, 'backgroundColor', 'yellow');
+		
+		
+		// myH1.className = 'red big aaa';
+		// 'big red' + ' aaa';
+		myH1.className += ' aaa';
+	</script>
+</html>

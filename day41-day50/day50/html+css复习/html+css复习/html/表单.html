@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 强制Chromium内核，作用于360浏览器、QQ浏览器等国产双核浏览器： -->	
+		<meta name="renderer" content="webkit"/>
+		<!-- 强制Chromium内核，作用于其他双核浏览器： -->
+		<meta name="force-rendering" content="webkit"/>
+		<!-- 如果有安装 Google Chrome Frame 插件则强制为Chromium内核，否则强制本机支持的最高版本IE内核，作用于IE浏览器： -->
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+		<title></title>
+		<style type="text/css">
+			textarea{
+				resize: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		action后台地址 method请求方式：get/post
+		get: 更方便快捷，但是不安全，会把传值显示在网址上，传递的数据没有post大
+		post：更安全，传递数据更大
+		-->
+		<form action="" method="post">
+			<!-- 
+			name属性：给后台传值的key
+			value属性：表单元素的默认值
+			placeholder属性：提示
+			 -->
+			 
+			 <!--label的for属性写表单元素的id 点击label此表单元素也会获取焦点  -->
+			 <label for="user">用户名：</label>
+			<input id="user" placeholder="请输入用户名" type="text" name="" value="" />
+			<input type="password" name="" value="" />
+			<input type="button" name="" value="" />
+			<input type="file" name="" value="" />
+			<input type="checkbox" name="" value="" />
+			<!-- 单选框name值相同 -->
+			<input type="radio" name="sex" value="" />
+			<input type="radio" name="sex" value="" />
+			
+			<!--reset必须在表单标签里才能起作用  -->
+			<input type="reset" name="" />
+			<input type="submit" value=""/>
+			<textarea rows="" cols="">
+				
+			</textarea>
+			
+			<button type="button"></button>
+			
+			<select>
+				<!-- js获取value的时候 有value属性就获取属性值 没有就获取文本 -->
+				<option value="">1111</option>
+			</select>
+			
+			<!-- 隐藏域 -->
+			<input type="hidden" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,269 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+}
+.main{
+	height: 100%;
+	background-image: url(../img/word_bg.jpg);
+	background-size: 100% 100%;
+	div{
+		height: 100%;
+		position: relative;
+	}
+	// loading页面
+	.load_div{
+		img{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform:translateX(-50%)  translateY(-50%) scale(0.5, 0.5) ;
+		}
+		.loading_txt{
+			animation: txt_rotate 4s linear infinite;
+		}
+	}
+	
+	@keyframes txt_rotate{
+		0%{
+			transform:translateX(-50%)  translateY(-50%) scale(0.5, 0.5) rotateZ(0deg);
+		}
+		100%{
+			transform:translateX(-50%)  translateY(-50%) scale(0.5, 0.5) rotateZ(360deg);
+		}
+	}
+	// word页面
+	.word_div{
+		display: none;
+		overflow: hidden;
+		div{
+			margin: 70px auto;
+			width: 240px;
+			height: 300px;
+			text-align: center;
+			color: white;
+			p{
+				margin-top: 10px;
+			}
+		}
+	}
+	
+	// surper页面
+	.surper_div{
+		display: none;
+		overflow: hidden;
+		div{
+			width: 70%;
+			height: 70%;
+			position: relative;
+			top: 70%;
+			left: 120%;
+			animation: super_move 4s linear forwards;
+		}
+		img{
+			position: absolute;
+		}
+		.surper_head{
+			left: 33%;
+			top: 17%;
+			width: 40%;
+		}
+		.surper_body{
+			width: 100%;
+			left: 15%;
+			top: 27%;
+		}
+		@keyframes super_move{
+			0%{
+				top: 70%;
+				left: 120%;
+			}
+			50%{
+				top: 20%;
+				left: 10%;
+			}
+			80%{
+				top: 20%;
+				left: 10%;
+			}
+			100%{
+				top: -100%;
+				left: -100%;
+			}
+		}
+	}
+	.vivo_div{
+		display: none;
+		overflow: hidden;
+		span{
+			position: absolute;
+			opacity: 0;
+			.head{
+				position: absolute;
+				left: 30%;
+				top: 30%;
+				width: 40%;
+				opacity: 0;
+				animation: head_show 1s linear 5.3s forwards;
+			}
+			// 头部动画
+			@keyframes head_show{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+		}
+		.vivo{	
+			opacity: 1;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			&>img{
+				// 手机动画效果
+				opacity: 0;
+				transform: rotate(0) scale(0);
+				animation: vivo_move 5s linear forwards;
+			}
+		}
+		// 手机动画关键帧
+		@keyframes vivo_move{
+			0%{opacity: 0;transform: rotate(0) scale(0);}
+			50%{opacity: 1;transform: rotate(360deg) scale(1);}
+			90%{opacity: 1;transform: rotate(360deg) scale(1);}
+			100%{opacity: 0;transform: rotate(360deg) scale(1);}
+		}
+		
+		// 碎片动画关键帧的方法
+		.chip(@name,@x,@y,@deg,@endx,@endy){
+			@keyframes @name{
+				0%{opacity: 0;}
+				15%{opacity: 1;}
+				35%{opacity: 1;transform: translate(0) rotate(0) scale(1);}
+				38%{opacity: 1;transform: translate(@x,@y) rotate(@deg) scale(0.5);}
+				55%{opacity: 1;transform: translate(@x,@y) rotate(@deg) scale(0.5);}
+				100%{opacity: 1;transform: translate(@endx,@endy) rotate(0) scale(0);}
+			}
+		}	
+		
+		.chip(chip1_move,50px,-50px,60deg,120px,0px);
+		.chip(chip2_move,-60px,-50px,30deg,20px,-70px);
+		.chip(chip3_move,-20px,-70px,0deg,-30px,-20px);
+		.chip(chip4_move,-60px,10px,20deg,-110px,-50px);
+		.chip(chip5_move,-10px,10px,0deg,-50px,50px);
+		.chip(chip6_move,70px,-50px,0deg,100px,-70px);
+		.chip(chip7_move,-40px,50px,0deg,10px,70px);
+		.chip(chip8_move,60px,50px,0deg,90px,100px);
+		
+		// 碎片动画方法
+		.animate(@name){
+			animation: @name 6s linear 3s forwards;
+		}
+		
+		.chip1{
+			right: -7px;
+			top: -7px;
+			.animate(chip1_move);
+		}
+		.chip2{
+			left: -7px;
+			top: -7px;
+			.animate(chip2_move);
+		}
+		.chip3{
+			right: -7px;
+			top: 48px;
+			.animate(chip3_move);
+		}
+		.chip4{
+			left: -7px;
+			top: 94px;
+			.animate(chip4_move);
+		}
+		.chip5{
+			right: 25px;
+			top: 100px;
+			.animate(chip5_move);
+		}
+		.chip6{
+			right: -9px;
+			top: 185px;
+			.animate(chip6_move);
+		}
+		.chip7{
+			left: -9px;
+			top: 250px;
+			.animate(chip7_move);
+		}
+		.chip8{
+			right: -7px;
+			top: 292px;
+			.animate(chip8_move);
+		}
+		.star_div{
+			height: 50%;
+			width: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			img{
+				width: 35%;
+			}
+		    .star_position(@l,@t){
+				position: absolute;
+				left: @l;
+				top: @t;
+			}
+			.star1{
+				.star_position(110%,-10%);
+			}
+			.star2{
+				.star_position(15%,-10%);
+			}
+			.star3{
+				.star_position(-40%,30%);
+			}
+			.star4{
+				.star_position(20%,20%);
+			}
+			.star5{
+				.star_position(100%,40%);
+			}
+			.star6{
+				.star_position(90%,110%);
+			}
+			.star7{
+				.star_position(20%,100%);
+			}
+			.star8{
+				.star_position(20%,60%);
+			}
+		}
+		.start_btn{
+			opacity: 0;
+			width: 100%;
+			height: 40px;
+			text-align: center;
+			position: absolute;
+			left: 0;
+			bottom: 10px;
+			&>p{
+				color: white;
+				font-size: 14px;
+				padding-bottom: 10px;
+			}
+			&>img{
+				width: 30px;
+			}
+			animation: btn_animate 3s linear 9s infinite;
+		}
+		
+		// 按钮动画
+		@keyframes btn_animate{
+			0%{opacity: 0;}
+			50%{opacity: 1;}
+			100%{opacity: 0;}
+		}
+	}
+}

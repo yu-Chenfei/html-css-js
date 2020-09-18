@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+		<style type="text/css">
+			.left_div{
+				height: 800px;
+			}
+			.right_div{
+				height: 800px;
+				background-color: yellowgreen;
+			}
+			.form-inline .form-group{
+				margin-top: 10px;
+			}
+			
+			.form-inline .form-group label{
+				width: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 left_div table-responsive">
+					<div class="table-responsive">
+						<table style="width: 700px;" class="table">
+							<tbody>
+								<tr class="danger">
+									<td>好运来</td>
+									<td>好日子</td>
+									<td>好媳妇</td>
+								</tr>
+								<tr class="success">
+									<td>好运来</td>
+									<td>好日子</td>
+									<td>好媳妇</td>
+								</tr>
+								<tr class="info">
+									<td>好运来</td>
+									<td>好日子</td>
+									<td>好媳妇</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<form class="form-inline">
+						<div class="form-group">
+							<label>用户名：</label>
+							<!-- disabled禁用 readonly:只读 -->
+							<input readonly type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>密码：</label>
+							<input type="text" class="form-control" />
+						</div>
+						
+						<div>
+							<span disabled class="btn btn-success btn-xs">登录</span>
+							<span class="btn btn-primary">注册</span>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-9 right_div"></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <canvas id="can" width="600" height="400"></canvas>
+</body>
+<script type="text/javascript">
+  // 获取元素
+  var can = document.getElementById('can');
+  // 获取上下文
+  var context = can.getContext('2d');
+
+  context.save();
+
+  // 开始绘制
+  context.beginPath();
+  // 设置阴影
+  // 设置阴影样式
+  context.shadowColor = 'blueviolet';
+  // 设置阴影范围
+  context.shadowBlur = 10;
+  // 设置阴影偏移量
+  context.shadowOffsetX = 50;
+  context.shadowOffsetY = 50;
+
+  // 绘制矩形
+  // context.rect(100,100,100,100);
+  // context.strokeStyle = 'indianred';
+  // context.stroke();
+  // 绘制圆形
+  context.arc(100, 100, 100, 0, Math.PI * 2, false);
+  context.fillStyle = 'hotpink';
+  context.fill();
+
+  context.restore();
+  // 绘制矩形
+  context.rect(200, 200, 100, 100);
+  context.strokeStyle = 'indianred';
+  context.stroke();
+</script>
+
+</html>

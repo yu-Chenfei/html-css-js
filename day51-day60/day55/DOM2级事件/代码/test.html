@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="background-color: red;">
+			<div style="background-color: green;">
+				<div style="background-color: yellow;">
+					<div style="background-color: black;"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var divs = document.getElementsByTagName('div');
+		
+		for(var i = 0;i < divs.length;i++){
+			divs[i].addEventListener('click',function(){
+				alert(this.style.backgroundColor);
+			},false);
+		}
+	</script>
+</html>

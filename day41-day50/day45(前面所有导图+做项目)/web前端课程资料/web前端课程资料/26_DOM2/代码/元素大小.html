@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 800px;
+				background-color: #FF4500;
+				/* margin: 10px; */
+				/* position: absolute;
+				left: 20px;
+				top: 20px; */
+			}
+			.big{
+				width: 200px;
+				height: 200px;
+				background-color: yellow;
+				position: relative;
+				padding: 5px;
+				border: 5px solid darkgray;
+				overflow: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">biu</button>
+		<div class="big">
+			<div class="box">hello</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var box = document.getElementsByClassName('box')[0];
+		var big = document.getElementsByClassName('big')[0];
+		// 偏移量：左边offsetLeft和上面offsetTop的偏移量
+		// 没有定位情况下 是距离文档边缘的大小
+		// 相对于父元素定位情况下 是距离父元素边缘的大小
+		// console.log(box.offsetLeft);
+		// console.log(box.offsetTop);
+		
+		// 元素大小：
+		// offsetWidth offsetHeight
+		// width/height + padding + border
+		// 和子元素大小没有关系
+		// console.log(big.offsetWidth);
+		// console.log(big.offsetHeight);
+		
+		// clientWidth clientHeight
+		// width/height + padding
+		// 和子元素大小没有关系
+		console.log(big.clientWidth);
+		console.log(big.clientHeight);
+		
+		// scrollWidth scrollHeight
+		// width/height + padding
+		// 如果子元素超出父元素大小 除去border之外 内部区域所占大小
+		console.log(big.scrollWidth);
+		console.log(big.scrollHeight);
+		
+		// 偏移量：
+		// scrollTop scrollLeft
+		// 在有滚动条的情况下 设置向上滚动和向左滚动的距离
+        document.getElementsByTagName('button')[0].onclick = function(){
+			big.scrollTop = 300;
+		}
+		
+		
+	</script>
+</html>

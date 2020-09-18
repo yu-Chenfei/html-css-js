@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 浏览器存储：在浏览器里存一个值，各个页面共享这个值或者重新打开页面以后能保存之前的结果。
+		// localStorage sessionStorage cookie
+		// 1.localStorage sessionStorage大小5mb左右，cookie大概4kb
+		// 2.localStorage不删除一直在，sessionStorage关闭浏览器就删除，cookie可以设置过期时间不设置情况下关闭浏览器自动删除
+		// 3.都有同源限制策略(不能跨域，协议、域名、端口相同)
+		
+		// localStorage sessionStorage的操作比较方便
+		// 设置 setItem('key', 'value') 获取 getItem('key') 删除 removeItem('key') 清空 clear()
+		
+		// cookie是document对象下的属性(字符串)
+		// 设置
+		// var expiresDate = new Date(2020,3,29);
+		// document.cookie = 'name=dong;expires=' + expiresDate.toUTCString();
+		
+		// 获取
+		// var myCookie = document.cookie;
+		// console.log(myCookie);
+		
+		// 封装设置cookie
+		function setCookie(key, value, day){
+			// 初始化一个时间对象
+			var nowDate = new Date();
+			// 更改时间对象的日期
+			nowDate.setDate(nowDate.getDate() + day);
+			// 设置cookie
+			document.cookie = key+'='+value+';expires=' + nowDate.toUTCString();
+		}
+		
+		setCookie('name', '塔谈村吴彦祖', 1);
+		
+		console.log(document.cookie);
+		
+		function getCookie(key){
+			// 获取cookie
+			var myCookie = document.cookie;
+			// 使用; 分割字符串
+			var cookieArray = myCookie.split('; ');
+			// 遍历数组
+			for(var i = 0;i < cookieArray.length;i++){
+				// 把每组字符串使用=分割
+				var cookieItem = cookieArray[i].split('=');
+				// 判断分割后数组的第一项是你要的key那第二项就是你要的value
+				if(cookieItem[0] == key){
+					return cookieItem[1];
+				}
+			}
+		}
+		
+		console.log(getCookie('name'));
+	</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style: none;
+			}
+			
+			li::before{
+				content: '▼';
+				color: #FF0000;
+				/* font-size: 20px; */
+			}
+			/* .one:hover{
+				color: green;
+			} */
+			ul:hover .one{
+				color: green;
+			}
+			
+			a:link{
+				/* background-color: yellow; */
+			}
+			a:visited{
+				/* background-color: gray; */
+				color: gray;
+			}
+			a:hover{
+				/* background-color: pink; */
+				color: pink;
+			}
+			a:active{
+				/* background-color: greenyellow; */
+				color: #9ACD32;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 伪元素：:after、:before -->
+		<ul>
+			<li class="one">李伟</li>
+			<li>张雪</li>
+			<li>李莹莹</li>
+		</ul>
+		<!-- 
+		link: 未访问的样式
+		visited: 访问后
+		hover: 鼠标移入
+		active: 鼠标按下
+		 -->
+		<a href="http://www.baidu.com?name=dong">baidu</a>
+	</body>
+</html>

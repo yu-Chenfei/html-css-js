@@ -1,0 +1,13 @@
+.swiper img{
+	width: 100%;
+}
+.pubu{
+	overflow: hidden;
+}
+.pubu>div{
+	width: 25%;
+	float: left;
+}
+.pubu img{
+	width: 100%;
+}

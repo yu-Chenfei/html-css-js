@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		
+		// 绘制方块的函数
+		function drawRect(){
+			// 开始绘制
+			context.beginPath();
+			// 绘制矩形
+			context.rect(0,0,100,100);
+			// 填充样式
+			context.fillStyle = 'pink';
+			// 填充
+			context.fill();
+		}
+		// 调用函数绘制初始的矩形
+		drawRect();
+		
+		// 使用定时器让矩形动起来
+		var timer = setInterval(function(){
+			// 每次先清除一下画布
+			context.clearRect(0,0,600,400);
+			// 移动画布坐标
+			context.translate(1,0);
+			// 重新调用绘制函数
+			drawRect();
+		},10);
+	</script>
+</html>

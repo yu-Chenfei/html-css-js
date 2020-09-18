@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+}
+.main{
+	height: 100%;
+	background-image: url(../img/word_bg.jpg);
+	background-size: 100% 100%;
+	div{
+		height: 100%;
+		position: relative;
+	}
+	// loading页面
+	.load_div{
+		img{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform:translateX(-50%)  translateY(-50%) scale(0.5, 0.5) ;
+		}
+		.loading_txt{
+			animation: txt_rotate 4s linear infinite;
+		}
+	}
+	
+	@keyframes txt_rotate{
+		0%{
+			transform:translateX(-50%)  translateY(-50%) scale(0.5, 0.5) rotateZ(0deg);
+		}
+		100%{
+			transform:translateX(-50%)  translateY(-50%) scale(0.5, 0.5) rotateZ(360deg);
+		}
+	}
+	// word页面
+	.word_div{
+		display: none;
+		overflow: hidden;
+		div{
+			margin: 70px auto;
+			width: 240px;
+			height: 300px;
+			text-align: center;
+			color: white;
+			p{
+				margin-top: 10px;
+			}
+		}
+	}
+	
+	// surper页面
+	.surper_div{
+		display: none;
+		overflow: hidden;
+		div{
+			width: 70%;
+			height: 70%;
+			position: relative;
+			top: 70%;
+			left: 120%;
+			animation: super_move 4s linear forwards;
+		}
+		img{
+			position: absolute;
+		}
+		.surper_head{
+			left: 33%;
+			top: 17%;
+			width: 40%;
+		}
+		.surper_body{
+			width: 100%;
+			left: 15%;
+			top: 27%;
+		}
+		@keyframes super_move{
+			0%{
+				top: 70%;
+				left: 120%;
+			}
+			50%{
+				top: 20%;
+				left: 10%;
+			}
+			80%{
+				top: 20%;
+				left: 10%;
+			}
+			100%{
+				top: -100%;
+				left: -100%;
+			}
+		}
+	}
+}

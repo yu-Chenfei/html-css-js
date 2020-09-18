@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var myH1 = document.getElementsByTagName('h1')[0];
+		// 使用js更改/设置标签中内容: 设置标签的innerHTML属性
+		// myH1.innerHTML = 'hello';
+		
+		// 每隔固定时间执行一次: 第一个参数是函数(定时器执行的代码) 第二个参数是时间单位是毫秒
+		var i = 100;
+		// 定义定时器
+		var timer1 = setInterval(function(){
+			myH1.innerHTML = i;
+			i--;
+		}, 1000);
+		// 清除定时器
+		// clearInterval(timer1);
+		// 变量不再使用可以清空
+		// timer1 = null;
+		
+		// 延迟固定时间执行(执行一次): 第一个参数是函数(定时器执行的代码) 第二个参数是时间单位是毫秒
+		var timer2 = setTimeout(function(){
+			console.log(666);
+		}, 2000);
+		
+		// 清除定时器
+		clearTimeout(timer2);
+		// 变量不再使用可以清空
+		timer2 = null;
+	</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 400px;
+				height: 400px;
+				position: relative;
+			}
+			div img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.pointer{
+				width: 35%;
+				height: 58%;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img class="bg" src="img/bg.png" >
+			<img class="prize" src="img/prize.png" >
+			<img class="pointer" src="img/pointer.png" >
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var pointer = document.getElementsByClassName('pointer')[0];
+		var prize = document.getElementsByClassName('prize')[0];
+		
+		// 定义一个变量(锁) 不允许重复点击
+		var lock = true;
+		// 定义一个变量(接收点击的次数)
+		var count = 0;
+		
+		// 封装一个函数取随机整数
+		function randNum(min, max){
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+		
+		// 定义一个数组储存奖项
+		var prizeArr =  ['20闪币','20M免费流量包','10M免费流量包','5闪币','谢谢参与','10闪币','50M免费流量包','2闪币','100M免费流量包','30M免费流量包'];
+		
+		// 绑定点击事件
+		pointer.onclick = function(){
+			// 判断是否允许点击(转盘还在转)
+			if(!lock){
+				// 正在锁的情况下(转盘在转) 后面代码都不执行
+				return false;
+			}else{
+				lock = false;
+			}
+			// 获取本地存储
+			count = localStorage.getItem('count');
+			if(count){
+				// 如果有count(已经存过了)
+				if(count == 3){
+					alert('次数已经用完');
+					lock = true;
+					return false;
+				}else{
+					count++;
+				}
+			}else{
+				// 如果没有(没存过)
+				count = 1;
+			}
+			// 把count存起来
+			localStorage.setItem('count', count);
+			
+			// 点击以后取一个随机数
+			var rand = randNum(1, 10);
+			// 确定要改变的属性(transform:rotateZ())
+			// 定义一个初始值
+			var num = 0;
+			// 定义一个定时器不断改变这个初始值
+			var timer = setInterval(function(){
+				num++;
+				
+				// 判断取到随机的角度就停止定时器
+				if(num == rand * 36 + 360){
+					clearInterval(timer);
+					
+				    setTimeout(function(){
+						// 弹出中奖信息
+						alert(prizeArr[rand - 1]);
+					},100);
+					// 每次抽奖完毕打开锁
+					lock = true;
+				}
+				
+				// 每次再把初始值赋值给要改变的属性
+				prize.style.transform = 'rotateZ('+num+'deg)';
+				
+			},5);
+		}
+	</script>
+</html>

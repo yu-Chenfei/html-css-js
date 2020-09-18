@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<span>姓名：</span>
+		<input type="text" name="username">
+		<br>
+		<span>年龄：</span>
+		<input type="text" name="userage">
+		
+		<input type="button" value="提交">
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('input[type=button]').on('click', function(){
+			// 调用ajax
+			// $.ajax()方法参数是一个对象
+			$.ajax({
+				// 后台地址
+				url: 'insert.php',
+				// 请求方式
+				type: 'get',
+				// 可选参数：是否异步 默认是true
+				async: true,
+				// 可选参数：后台传过来的数据格式
+				dataType: 'json',
+				// 可选参数：设置content-type 默认是application/x-www-form-urlencoded
+				contentType: 'application/x-www-form-urlencoded',
+				// 给后台传递的数据
+				data:{username: $('input').eq(0).val(), userage: $('input').eq(1).val()},
+				// 后台传过来的数据
+				// 函数的参数就是后台传过来的数据
+				success: function(res){
+					console.log(res);
+				}
+			});
+		});
+	</script>
+</html>

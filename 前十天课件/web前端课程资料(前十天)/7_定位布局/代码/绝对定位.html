@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.one{
+				width: 100px;
+				height: 100px;
+				background-color: greenyellow;
+				/* 绝对定位 */
+				position: absolute;
+				/* 定位位置: 
+				相对于拥有定位的父元素或祖先元素 如果都没有定位就相对于body */
+				left: 50px;
+				top: 50px;
+			}
+			.two{
+				width: 80px;
+				height: 80px;
+				background-color: yellow;
+				position: fixed;
+				left: 50px;
+				top: 50px;
+			}
+			
+			.gf{
+				width: 300px;
+				height: 300px;
+				background-color: #9370DB;
+				/* 一般情况下 父元素限制子元素定位位置
+				使用position: relative; 因为它不影响布局
+				 */
+				position: relative;
+			}
+			.fa{
+				width: 200px;
+				height: 200px;
+				background-color: #ADFF2F;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				position: absolute;
+				right: 20px;
+				bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 定位会提高层级(盖在没定位元素的上边) -->
+		<!-- 当元素定位在一个位置的时候 文档后面的会覆盖文档前面的元素 -->
+		<div class="one"></div>
+		<div class="two"></div>
+		<!-- 一般情况下position: absolute;配合父元素设置的position: relative;使用 -->
+		<!-- <div class="gf">
+			<div class="fa">
+				<div class="son"></div>
+			</div>
+		</div> -->
+	</body>
+</html>

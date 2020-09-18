@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Animal(name, color){
+			this.name = name;
+			this.color = color;
+		}
+		Animal.prototype.eat = function(food){
+			console.log(food);
+		}
+		Animal.prototype.leg = 5;
+		
+		// 定义一个Cat类
+		function Cat(name,color){
+			// 使用call实现继承
+			Animal.call(this,name,color);
+		}
+		
+		Cat.prototype = new Animal();
+		
+		Cat.prototype.leg = 4;
+	</script>
+</html>

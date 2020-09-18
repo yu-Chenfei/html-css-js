@@ -1,0 +1,28 @@
+body{text-align: center;}
+.content{width: 800px;height: 500px;display: inline-block;overflow: hidden;}
+.content figure{width: 100%;height: 150px;border-bottom: solid 1px rgb(225,225,225);margin: 0;text-align: left;}
+.content figure .noColor{width: 65%;height:150px;float: left;}
+.content figure .hasColor{width: 65%;height:150px;float: left;display: none;}
+.content figure .space{width: 2%;height: 150px;background: rgb(204,204,204);float: left;}
+.content figure .word{width: 32%;height: 150px;background: white;float: left;line-height: 10px;padding-left: 1%;}
+.content figure .word p{font-size: 14px;margin-top: 3%;line-height: 110%;}
+.content figure .word h3{font-family: arial;font-size: 25px;margin-top: 5%;}  
+.content figure .second{text-align: right;padding-right: 1%;padding-left: 0;}
+.content .middle_figure .noColor{float: right;}
+.content .middle_figure .hasColor{float: right;}
+.content .middle_figure .word{float: right;}
+.content .middle_figure .space{float: right;}
+
+@media only screen and (min-width:0px ) and (max-width:800px) {
+	 nav ul{display: none;}
+	.content{width: 80%;height: 100%;margin-left: 10%;}
+	.content figure{height: 30%;} 
+	.content figure img{width: 100%;height: 100%;}
+	.content figure .word{width: 100%;height: 100%;}
+	.content figure .word p{margin-top: 3%;}
+	.content figure .space{width: 0;}
+	.content figure .noColor{float: left;}
+    .content figure .hasColor{float: left;}
+    .content figure .word{float: left;}
+    .content figure .space{float: left;}
+}

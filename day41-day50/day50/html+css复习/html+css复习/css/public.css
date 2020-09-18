@@ -1,0 +1,12 @@
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.over{
+	overflow: hidden;
+}
+.r_borer:hover{
+	border-bottom-color: white;
+}

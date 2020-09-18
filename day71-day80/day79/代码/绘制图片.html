@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取上下文
+		var context = can.getContext('2d');
+		
+		// 创建图片对象
+		var image = new Image();
+		
+		// 监听图片加载
+		image.onload = function(){
+			// 图片处理
+			// 绘制图片
+			// 三个参数：1图片对象 2和3开始坐标
+			// context.drawImage(image,0,0);
+			// 五个参数：1图片对象 2和3画布绘制的开始坐标 4和5画布绘制图片的大小
+			// context.drawImage(image,0,0,600,400);
+			// 九个参数的情况：1图片对象 2和3截取图片的开始位置 4和5是截取图片的大小 6和7画布绘制的开始坐标 8和9画布绘制图片的大小
+			context.drawImage(image,50,50,700,600,0,0,600,400);
+		}
+		
+		// 为图片路径赋值
+		image.src = '1.jpg';
+	</script>
+</html>

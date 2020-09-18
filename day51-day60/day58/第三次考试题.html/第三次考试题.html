@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 1.请分别描述cookie,localStorage,sessionStorage的特点
+		// 答:(1)localStorage不删除一直都在、sessionStorage关闭浏览器自动删除
+		//       cookie可以设置过期时间,不设置情况下和sessionStorage相同
+		//    (2)localStorage,sessionStorage大小大概5mb,cookie大小4kb左右
+		//    (3)都有同源限制策略,同源指的是协议、域名、端口都相同
+		
+		
+		// 2.请写出增、删、替换节点、获取第一个子节点、最后一个子节点、所有子节点、上一个同级元素和下一个同级元素)的方法
+		// 答: 增加->appendChild insertBefore 删除->removeChild 替换节点->replaceChild
+		//     获取-> firstElmentChild lastElmentChild children previousElmentSibling nextElmentSibling
+		
+		// 3.请描述事件冒泡并说出其应用
+		// 答: 事件冒泡->当子元素触发事件,这个动作会一直向上传递,直到顶层标签,如果有祖先元素也有这个事件也会被触发。
+		//     事件委托是根据事件冒泡原理,原本需要绑定给子元素的事件,委托给父元素触发,使用event.target或者event.srcElement判断是哪个子元素接受的动作
+		
+		
+		// 4.请写出常见的鼠标事件
+		// 答: click dblclick mousemove mouseover mouseout mouseleave mouseenter mouseup mousedown contextmenu
+		
+		
+		// 5.请写出常见的ui事件、键盘事件、表单事件
+		// 答: scroll resize load keydown keyup keypress change input blur focus submit
+		
+		// 6.请写出dom2级事件(包括兼容)并说明和dom0级事件的区别
+		// 答: (1)dom0级事件重复绑定会覆盖 dom2级事件会重复执行
+		// 	   (2)dom0级事件只有事件冒泡 dom2级事件可以冒泡可以捕获
+		//     (3)有一些事件只能通过2级事件绑定,比如滚轮事件兼容
+		//     addEventListener('事件名', callback, bool)  removeEventListener('事件名', callback)
+		//     attachEvent('on事件名', callback) detachEvent('on事件名', callback)		
+		
+		// 7.请写出滚轮事件兼容
+		//7题答案：
+		// 判断是不是火狐浏览器
+		if(navigator.userAgent.indexOf('fireFox') != -1){
+			window.addEventListener('DOMMouseScroll', wheelFun, false);
+		}else{
+			window.onmousewheel = wheelFun;
+		}
+		
+		function wheelFun(event){
+			// 给事件对象写兼容
+			var event = event || window.event;
+			
+			if(event.wheelDelta){
+				// 非火狐浏览器
+				if(event.wheelDelta > 0){
+					// 向上
+				}else if(event.wheelDelta < 0){
+					// 向下
+				}
+			}else if(event.detail){
+				// 火狐浏览器
+				if(event.detail < 0){
+					// 向上
+				}else if(event.detail > 0){
+					// 向下
+				}
+			}
+		}
+		
+		// 8.请描述事件对象(event)以及其常见应用,写出代码
+		// 8题答案:
+		document.onclick = function(event){
+			// 给事件对象写兼容
+			var event = event || window.event;
+			// 事件类型
+			// event.type
+			// 动作执行的元素(目标元素)
+			// var target = event.target || event.srcElement;
+			// 鼠标坐标
+			// event.clientX event.pageX event.screenX
+			// 键盘的键值
+			// event.keyCode
+			
+			// 阻止冒泡
+			if(event.stopPropagation){
+				event.stopPropagation();
+			}else{
+				event.cancelBubble = true;
+			}
+			
+			// 阻止系统默认
+			if(event.preventDefault){
+				event.preventDefault();
+			}else{
+				event.returnValue = false;
+			}
+		}
+		
+		// 9.请写出如何设置、删除、获取cookie(多个cookie情况下截取一个),写出代码
+		// 9题答案:
+		// 创建时间对象
+		var expiresDate = new Date(2020,4,15);
+		// 设置cookie
+		document.cookie = 'name=dong;expires=' + expiresDate.toUTCString();
+		document.cookie = 'age=18;expires=' + expiresDate.toUTCString();
+		
+		// 获取cookie
+		function getCookieFun(key){
+			// 获取cookie
+			var myCookie = document.cookie;
+			// 使用; 把获取的字符串截取成数组
+			var cookieArray = myCookie.split('; ');
+			// 遍历数组拿出每一项
+			for(var i = 0;i < cookieArray.length;i++){
+				var itemArray = cookieArray[i].split('=');
+				if(itemArray[0] == key){
+					return itemArray[1];
+				}
+			}
+		}
+		
+		var myName = getCookieFun('name');
+		var myAge = getCookieFun('age');
+		
+		console.log(myAge);
+		
+		// 10.请描述offset、client、scroll开头的元素大小并写出整个页面的内容大小、浏览器窗口大小、整个页面的scrollTop兼容
+		// 答: offsetWidth width+padding+border 和子元素大小无关
+		//     clientWidth width+padding 和子元素大小无关
+		//     scrollWidth 子元素比父元素小->width+padding, 子元素比父元素大->子元素大小+padding
+		
+		// 浏览器窗口大小
+		// document.documentElement.clientWidth;
+		// 整个文档大小(整个页面内容大小)
+		// document.documentElement.offsetWidth;
+		// scrollTop兼容
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+		
+		
+		
+	</script>
+</html>

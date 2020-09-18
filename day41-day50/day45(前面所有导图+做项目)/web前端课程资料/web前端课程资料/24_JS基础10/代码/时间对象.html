@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+	</body>
+	<script type="text/javascript">
+		// 创建一个时间对象
+		var now = new Date();
+		//var now = new Date(2021,0,1); // 获取其他时间点的时间对象
+		
+		// 所有方法加上UTC就是获取世界时间(0时区)
+		// 所有的get方法都有set方法可以设置时间
+		// 获取当前的年份
+		var nowYear = now.getFullYear();
+		// var nowYear = now.getUTCFullYear(); 获取世界时间的年份
+		console.log(nowYear);
+		
+		// 获取当前月份
+		var nowMonth = now.getMonth();
+		console.log(nowMonth);// 月份的取值范围是 0-11
+		
+		// 获取当前的日期
+		var nowDate = now.getDate();
+		console.log(nowDate);
+		
+		// 获取当前的星期
+		var nowDay = now.getDay();
+		console.log(nowDay);
+		
+		// 获取当前的小时
+		var nowHours = now.getHours();
+		var nowUTCHours = now.getUTCHours();// 获取0时区的小时
+		console.log(nowHours);
+		console.log(nowUTCHours);
+		
+		// 获取当前的分钟
+		var nowMinutes = now.getMinutes();
+		console.log(nowMinutes);
+		
+		// 获取当前的秒数
+		var nowSeconds = now.getSeconds();
+		console.log(nowSeconds);
+		
+		// 获取当前的时间戳(距离1970年1月1日的毫秒数)
+		var nowTime = now.getTime();
+		console.log(nowTime);
+		
+		
+		// 设置时间一般用来设置过期时间(获取当前日期 + 几天后过期)
+		// 设置当前日期 
+		now.setDate(now.getDate() + 5);
+		
+		console.log(now.getDate());
+		
+		
+		
+		
+	</script>
+</html>

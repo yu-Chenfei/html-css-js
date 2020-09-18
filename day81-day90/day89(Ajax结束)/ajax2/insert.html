@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<span>姓名：</span>
+		<input type="text" name="username">
+		<br>
+		<span>年龄：</span>
+		<input type="text" name="userage">
+		
+		<input type="button" value="提交">
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var btn = document.getElementsByTagName('input')[2];
+		var username = document.getElementsByTagName('input')[0];
+		var userage = document.getElementsByTagName('input')[1];
+		
+		// 点击button发送ajax请求
+		btn.onclick = function(){
+			// 创建XMLHTTPRequest实例
+			var xmlhttp = new XMLHttpRequest();
+			
+			// 绑定监听的方法 获取后台返回的数据
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+					console.log(xmlhttp.responseText);
+				}
+			}
+			
+			// 调用open和send方法
+			xmlhttp.open('GET', 'insert.php?username='+username.value+'&userage='+userage.value+'&t='+new Date().getTime(), true);
+			xmlhttp.send();	
+		}
+	</script>
+</html>

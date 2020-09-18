@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <div id="box">qwer</div> -->
+		<canvas style="border: 2px saddlebrown solid;" id="can" width="500" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 请描述this关键字(函数内部) 在jQuery中是$(this)
+		// 1.谁调用指向谁 没有对象调用就指向window(严格模式指向undefined)
+		// 2.在事件中，this指向绑定事件的对象
+		// 3.在构造函数中this指向创建的实例
+		// function test(){
+		// 	console.log(this.name);
+		// }
+		// var obj = {fun: test, name: 'dyx'}
+		// obj.fun();
+		
+		// 'use strict';
+		// function test(){
+		// 	console.log(this);
+		// }
+		// test();
+		
+		// document.getElementById('box').onclick = function(){
+		// 	console.log(this);
+		// }
+		
+		// function Cat(name){
+		// 	this.name = name;
+		// }
+		
+		// var cat1 = new Cat('哆啦A梦');
+		// console.log(cat1.name);
+		
+		// 如何改变this指向
+		// bind() call() apply()
+		// 区别：1.call和apply直接调用了函数 bind需要手动调用
+		//      2.bind和call分别传参，apply把所有参数放在数组里
+		// function test(msg){
+		// 	console.log(this.name);
+		// 	console.log(msg);
+		// }	
+		// var obj = {name: 'dyx'};	
+		// var newTest = test.bind(obj, 'hello');
+		// newTest();		
+		// test.apply(obj, ['hello']);
+		
+		// 请任意封装一个拥有属性和方法的类，说明一般公共的属性和方法赋值位置并说出为什么
+		// 封装一个类
+		// function Cat(name, color){
+		// 	this.name = name;
+		// 	this.color = color;
+		// }
+		// 把公共的或者固定的属性和方法写在类的原型(prototype)上
+		// 这样每次实例化就指向同一块内存，节省内存空间
+		// Cat.prototype.leg = 4;
+		// Cat.prototype.speak =  function(){
+		// 	console.log('喵喵喵');
+		// };
+		
+		// 实例化类
+		// var cat1 = new Cat();
+		// var cat2 = new Cat();
+		// console.log(cat1.speak == cat2.speak);
+		// console.log(cat1.__proto__ == Cat.prototype);
+		// console.log(Cat.prototype.__proto__ == Object.prototype);
+		// console.log(Object.prototype.__proto__ == null);
+		
+		// 请描述什么是原型和原型链
+		// 原型：显式原型prototype，只有函数有prototype
+		//      隐式原型__proto__，所有对象都有__proto__
+		// 原型链：每个实例对象的__proto__都指向创建它的类的prototype
+		// 如果获取实例对象的属性，它本身没有这个属性，就会通过__proto__到类的prototype上去找
+		// 如果还没有，就继续向上查找，直到null
+		
+		
+		// 请说出面向对象中继承的三种方法以及区别
+		function Animal(name,color){
+			this.name = name;
+			this.color = color;
+			this.leg = 4;
+		}
+		Animal.prototype.eat = function(){
+			console.log('食物');
+		}
+		
+		function Cat(name,color){
+			// 通过call或者apply继承 无法继承原型上的属性和方法
+			Animal.call(this,name,color);
+			// Animal.call(this,[name,color]);
+		}
+		// 原型继承: 缺点无法传参
+		Cat.prototype = new Animal();
+		
+		// 实例化Cat
+		// var cat1 = new Cat('哆啦A梦', 'blue');
+		// cat1.eat();
+		// console.log(cat1.leg);
+		// console.log(cat1.name);
+		
+	
+		// 为数组类添加一个sum方法可以用来计算数组各元素相加
+		// new Array()
+		// Array.prototype.sum = function(){
+		// 	var count = 0;
+		// 	for(var i = 0;i < this.length;i++){
+		// 		count+=this[i];
+		// 	}
+		// 	return count;
+		// }
+		
+		// var arr = [1, 4, 5];
+		// var num = arr.sum();
+		// console.log(num);
+		
+		// 请使用canvas绘制一个上半圆，线条为red填充为yellow
+		// 获取绘制上下文
+		var context = document.getElementById('can').getContext('2d');
+		context.beginPath();
+		context.strokeStyle = 'palevioletred';
+		context.fillStyle = 'yellow';
+		context.arc(100,100,100,0,Math.PI,true);
+		context.fill();
+		context.stroke();
+		
+		// 请使用canvas绘制图片，并说明可以传几个参数分别是什么
+		// 3 context.drawImage(图片对象, 绘制开始x, 绘制开始y);
+		// 5 context.drawImage(图片对象, 绘制开始x, 绘制开始y, 绘制width, 绘制height);
+		// 9 context.drawImage(图片对象, 截取图片的x, 截取图片的y, 截取图片的width, 截取图片的height, 绘制开始x, 绘制开始y, 绘制width, 绘制height);
+		
+		
+		// 如何使用请求动画帧(requestAnimationFrame)绘制视频，写出代码
+		// function playFun(){
+		// 	context.drawImage(vedio, 0, 0, 500, 400);	
+		// 	requestAnimationFrame(playFun);
+		// }
+		// playFun();
+		
+		// 写出canvas变形的方法，并描述其参数
+		// context.tanslate() 移动
+		// context.rotate(Math.PI) 旋转 度数需要使用Math.PI(180度)计算
+		// context.scale() 缩放
+	</script>
+</html>

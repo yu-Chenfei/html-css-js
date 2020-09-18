@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+		<style type="text/css">
+			.swiper-container{
+			    width: 600px;
+			    height: 300px;
+			} 
+			.swiper-container img{
+				width: 100%;
+				height: 100%;
+			} 
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+					<img src="img/1.jpg" >
+				</div>
+		        <div class="swiper-slide">
+					<img src="img/2.jpg" >
+				</div>
+		        <div class="swiper-slide">
+					<img src="img/3.jpg" >
+				</div>
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <div class="swiper-pagination"></div>
+		    
+		    <!-- 如果需要导航按钮 -->
+		    <div class="swiper-button-prev"></div>
+		    <div class="swiper-button-next"></div>
+		    
+		    <!-- 如果需要滚动条 -->
+		    <!-- <div class="swiper-scrollbar"></div> -->
+		</div>
+	</body>
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script type="text/javascript">
+		var mySwiper = new Swiper ('.swiper-container', {
+			// 渐隐渐现
+			// effect : 'fade',
+			// 立方体效果
+			// effect : 'cube',
+			// 折页效果
+			// effect : 'coverflow',
+			// slidesPerView: 2,
+			// centeredSlides: true,
+			// 翻转效果
+			// effect : 'flip',
+			
+			// 方向vertical垂直
+		    direction: 'horizontal',
+		    loop: true, // 循环模式选项
+			// 自动播放
+			// autoplay: true,
+			speed: 1000,
+			autoplay: {
+				delay: 2000
+			},
+		    
+		    // 如果需要分页器
+		    pagination: {
+		      el: '.swiper-pagination',
+		    },
+		    
+		    // 如果需要前进后退按钮
+		    navigation: {
+		      nextEl: '.swiper-button-next',
+		      prevEl: '.swiper-button-prev',
+		    },
+		    
+		    // 如果需要滚动条
+		    // scrollbar: {
+		    //   el: '.swiper-scrollbar',
+		    // },
+		  }); 
+	</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 620px;
+				overflow: hidden;
+			}
+			ul{
+				width: 200px;
+				float: left;
+				list-style: none;
+				margin-left: 5px;
+			}
+			ul li{
+				background-color: indianred;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var list = document.getElementsByTagName('ul');
+		// 生成随机整数的函数
+		function randFun(min, max){
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+		
+		// 创建li的函数
+		function createLiFun(){
+			// 循环生成10个li标签
+			for(var i = 0;i < 10;i++){
+				// 创建li标签
+				var newLi = document.createElement('li');
+				// 设置li标签高度
+				newLi.style.height = randFun(200, 400) + 'px';
+				// 设置li标签里面的数字
+				newLi.innerHTML = i + 1;
+				
+				// 假设第一个ul标签的高度是最小高度(用来和其他ul标签比较)
+				var minHeight = list[0].offsetHeight;
+				var minIndex = 0;
+				
+				// 循环比较ul标签的高度 
+				for(var j = 1;j < list.length;j++){
+					// 判断如果第一个ul的高度大于其他ul 就把较小的赋值给minHeight
+					if(minHeight > list[j].offsetHeight){
+						minHeight = list[j].offsetHeight;
+						minIndex = j;
+					}
+				}
+				// 把新建li标签放在最小高度的ul里
+				list[minIndex].appendChild(newLi);
+			}
+		}
+		
+		createLiFun();
+		
+		// 文档内容的高度 document.documentElement.offsetHeight
+		// 浏览器可视窗口的高度 document.documentElement.clientHeight
+		window.onscroll = function(){
+			// scrollTop兼容
+			var _top = document.documentElement.scrollTop || document.body.scrollTop;
+			
+			if(document.documentElement.offsetHeight - document.documentElement.clientHeight <= _top + 10){
+				createLiFun();
+			}
+		}
+		
+		
+	</script>
+</html>

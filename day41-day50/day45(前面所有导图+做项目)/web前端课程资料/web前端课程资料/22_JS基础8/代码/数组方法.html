@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var arr = ['red', 'yellow', 'pink', 'black'];
+		// 数组转化成字符串 返回值是生成的新字符串
+		// 参数：数组转化为字符串以后 元素用什么分割(不传参默认是逗号分割)
+		var str = arr.join('|');
+		console.log(str); // 'red|yellow|pink|black'
+		
+		// 向数组中添加元素：返回值是添加元素后数组长度
+		// 向数组最后添加: 参数是添加的项 会改变原数组
+		arr.push('purple', 'gray');
+		console.log(arr);// ['red', 'yellow', 'pink', 'black', 'purple', 'gray']
+		// 向数组最前面添加: 参数是添加的项 会改变原数组
+		arr.unshift('blue');
+		console.log(arr);// ['blue' ,'red', 'yellow', 'pink', 'black', 'purple', 'gray']
+
+		// 在数组中删除元素：返回值是被删除的元素
+		// 在数组最后面删除一个元素：没有参数 会改变原数组
+		arr.pop();
+		console.log(arr);
+		// 在数组最前面删除一个元素：没有参数 会改变原数组
+		arr.shift();
+		console.log(arr);
+		
+		// 给数组排序
+		// 给数组正序排序(从小到大) 会改变原数组
+		// 默认情况下是按ascii码排序 传一个比较函数当参数就会正常排序
+		var numArray = [1,4,2,19,5];
+		var x = numArray.sort(compare);
+		// 比较函数
+		function compare(value1, value2){
+			// 内部比较：数组元素两两排序 一旦相减是正数 交换位置 负数位置不变
+			return value1 - value2;
+		}
+		
+		console.log(numArray);// [1,2,4,5,19]
+		
+		// 反转数组：颠倒数组元素位置
+		// 从大到小排序：先使用sort方法从小到大排序 再使用reverse方法反转数组
+		numArray.reverse();
+		console.log(numArray);
+		
+		// 拼接数组：可以写多个参数 不改变原数组 返回值是拼接后的数组
+		var nameArray = ['小青龙', '哆啦A梦'];
+		var newArray = nameArray.concat(['喜洋洋','懒洋洋'], ['蓝兔']);
+		console.log(newArray);
+		
+		// 截取数组：参数是截取位置的索引 不改变原数组 返回截取后的新数组
+		// 一个参数情况：从该索引位置一直截取到最后
+		// 两个参数情况：截取的索引范围 但是不包括最后一个
+		var newArr = newArray.slice(2, 4);
+		console.log(newArr);
+		
+		// 删除、增加、替换数组中元素：会改变原数组 返回值是数组删除的部分
+		// 删除元素：两个参数第一个是删除的开始位置(索引) 第二个是删除个数
+		// 增加元素：第一个参数是增加的位置(索引) 第二个参数是0 后面是要增加的元素
+		// 替换元素：第一个参数是替换的位置(索引) 第二个参数是被替换的元素个数 后面是要增加的元素
+		var bookArray = ['文化苦旅', '白夜行', '文化苦旅', '围城', '活着'];
+		// bookArray.splice(1, 1);
+		// bookArray.splice(1, 0, '易经', '道德经');
+		// bookArray.splice(1, 2, '易经', '道德经');
+		console.log(bookArray);
+		console.log(x);
+		
+		// 查找元素的索引位置：返回值是当前元素的索引 
+		// 如果数组中没有此元素返回-1(可以判断数组中是否有某元素)
+		// 两个参数情况：第二个参数是开始检索位置
+		// var index = bookArray.indexOf('文化苦旅', 1);
+		
+		// 从后向前查找 其他和indexOf相同
+		var index = bookArray.lastIndexOf('文化苦旅');
+		console.log(index);
+		
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas style="border: 3px solid black;" id="can" width="600" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制画布的上下文
+		var context = can.getContext('2d');
+		
+		// 绘制起点
+		context.moveTo(100,100);
+		// 绘制下一个点
+		context.lineTo(200,100);
+		// 绘制下一个点
+		context.lineTo(200,200);
+		// 绘制下一个点
+		// context.lineTo(100,200);
+		
+		// 闭合(连接起点和终点)
+		// context.closePath();
+		
+		// 填充样式
+		context.fillStyle = 'aqua';
+		// 填充
+		context.fill();
+		
+		// 绘制的样式
+		// context.strokeStyle = 'darkred';
+		// 绘制
+		// context.stroke();
+	</script>
+</html>

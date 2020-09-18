@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 向元素内部最前面加东西 */
+			span:before{
+				/* 内容 */
+				content: '*';
+				font-size: 20px;
+				color: red;
+			}
+			/* 向元素内部最后面加东西 */
+			span:after{
+				content: '$';
+				font-size: 20px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<span>大郎</span>
+		<span>金莲</span>
+	</body>
+</html>

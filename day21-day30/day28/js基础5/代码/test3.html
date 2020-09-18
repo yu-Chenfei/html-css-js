@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				display: inline-block;
+				width: 80px;
+				text-align: center;
+				background-color: yellow;
+			}
+			div{
+				width: 250px;
+				height: 245px;
+				background-color: steelblue;
+				font-size: 20px;
+				color: whitesmoke;
+				font-weight: 900;
+				display: none;
+			}
+			.show{
+				display: block;
+			}
+			.red{
+				background-color: darkred;
+			}
+		</style>
+	</head>
+	<body>
+		<span class="red">按钮1</span>
+		<span>按钮2</span>
+		<span>按钮3</span>
+		
+		<div class="show">选项卡1</div>
+		<div>选项卡2</div>
+		<div>选项卡3</div>
+	</body>
+	<script type="text/javascript">
+		// this关键字：点谁this就代表谁(this指向执行事件的元素)
+		// 一组元素(数组)都需要绑定事件的时候 可以使用for循环绑定
+		// 问题：只要是循环绑定事件 事件中不能使用i(循环中的变量) 因为每次执行事件的时候
+		// i 已经走到最后一个值了 没有保存下来
+		// 解决：1 改变、操作执行事件的元素 在事件中使用this即可
+		// 2 如果改变、操作其他元素 使用自定义属性把每次的i值保存下来(保存在执行事件的元素上)
+		// 每次使用this.属性名拿出相应的值使用
+		
+		
+		// 获取元素
+		var spans = document.getElementsByTagName('span');
+		var cards = document.getElementsByTagName('div');
+		
+		// 循环绑定事件
+		for(var i = 0;i < spans.length;i++){
+			// 给每个按钮自定义是属性保存i值
+			spans[i].index = i;
+			// 绑定事件
+			spans[i].onclick = function(){
+				// 每次点击先循环初始化一下样式
+				for(var j = 0;j < spans.length;j++){
+					// 让所有的都变成黄色
+					spans[j].style.backgroundColor = 'yellow';
+					// 让所有card都隐藏
+					cards[j].style.display = 'none';
+				}
+				// 点击谁就让谁变红
+				this.style.backgroundColor = 'darkred';
+				// 点击后让相同索引的div显示
+				cards[this.index].style.display = 'block';
+			}
+		}
+
+	
+	</script>
+</html>

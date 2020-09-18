@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#out{
+				width: 200px;
+				height: 200px;
+				background-color: #FFFF00;
+				overflow: scroll;
+			}
+			#in{
+				width: 200px;
+				height: 800px;
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn" type="button">向上滚</button>
+		<div id="out">
+			<div id="in">
+				我吃饱了
+				我吃饱了
+				我吃饱了
+				我吃饱了
+				我吃饱了
+				我吃饱了
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var out = document.getElementById('out');
+		
+		// 1.确定要改变的属性 scrollTop
+		// 2.定义一个变量作为初始值 
+		var num = 0;
+		
+		btn.onclick = function(){
+			// 3.使用定时器不断改变这个初始值
+			var timer = setInterval(function(){
+				num++;
+				// 4.每次把改变后的值 赋值给需要改变的属性
+				out.scrollTop = num;
+				
+				// 判断到一定大小清除定时器
+				if(num > 300){
+					clearInterval(timer);
+				}
+			},10);
+		}
+	</script>
+</html>

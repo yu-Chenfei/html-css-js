@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.big{
+				width: 300px;
+				height: 400px;
+				background-color: yellowgreen;
+			}
+			
+			.small{
+				/* 正常：bigWidth*20% 定位：参照物Width*20% */
+				width: 20%;
+				/* 正常：bigHeight*20% 定位：参照物Height*20%  */
+				height: 20%;
+				background-color: red;
+				/* 正常：bigWidth*20% 定位：参照物Width*20% */
+				margin: 20%;
+				/* 正常：bigWidth*20% 定位：参照物Width*20% */
+				padding: 20%;
+				
+				
+				/* 定位 */
+				position: absolute;
+				/* left和right 参照物width*20% */
+				left: 20%;
+				/* top和bottom 参照物Height*20% */
+				top: 20%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big">
+			<div class="small"></div>
+		</div>
+	</body>
+</html>

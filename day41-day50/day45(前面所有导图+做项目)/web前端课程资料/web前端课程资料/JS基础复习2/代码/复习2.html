@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 事件：
+		// 绑定事件：元素.事件名 = function(){ 执行的代码 }
+		// 事件：onclick onmouseover onmouseout
+		
+		// this关键字：
+		// 1.在事件中谁触发事件this就指向谁 2.谁调用函数this就指向谁 3.没有元素调用函数this指向window 严格模式下是undefined
+		
+		// 定时器
+		// 定义定时器：var timer1 = setInterval(callback, 毫秒数) 每隔固定时间执行callback函数中的代码
+		// var timer2 = setTimeout(callback, 毫秒数) 延迟固定时间执行callback函数中的代码
+		// 清除定时器：clearInterval(timer1) clearTimeout(var timer2)
+		// js动画：
+		// 1.判断要改变的属性 并定义变量作为初始值
+		// 2.使用定时器不断改变这个变量
+		// 3.把改变后的变量值赋值给需要改变的属性
+		
+		// 时间对象
+		// 定义时间对象：
+		// var nowDate = new Date('可以传参 获取其他日期的时间对象');
+		// 时间对象有set方法(设置时间)和get方法(获取时间)
+		
+		// DOM
+		
+		// 属性：
+		// 设置属性：元素.属性名 = 属性值
+		// 获取属性：元素.属性名
+		// 注意：1.属性名可以是系统内置 也可以自定义属性
+		//      2.属性名为变量的时候 设置->元素[变量] = 属性值 获取->元素[变量]
+		// getAttribute('属性名') 获取属性值 setAttribute('属性名', '属性值') 设置属性
+		
+		// 节点操作
+		// firstElementChild 获取第一个子节点 lastElementChild 获取第一个子节点
+		// previousElementSibling 获取上一个同级元素 nextElementSibling 获取下一个同级元素
+		// parentNode 获取父元素 children获取所有子元素组成的数组
+		// innerHTML 获取、设置元素内容 innerText 获取、设置元素文本内容  outerHTML获取、设置元素内容(包括本身)
+		
+		// DOM操作方法
+		// hasChildNodes() 是否含有子节点返回值是布尔值
+		// appendChild() 向元素后面添加子元素
+		// insertBefore(新元素, 参照元素) 向元素前面添加同级元素 
+		// removeChild() 移除子元素
+		// replaceChild(新元素, 被替换的元素) 替换子元素
+		// cloneNode(boolean) 复制元素 参数是true：内容一起复制 false：不复制内容
+		
+		// document对象
+		// document.createElement('标签名') 创建元素
+		// document.title 设置title内容
+		// document.write() 向页面写入文本
+		// document.body 获取body标签 document.documentElement 获取整个文本标签(html元素)
+		// document.URL 获取当前页面地址
+		
+		// 获取元素：
+		// document.getElementById('元素id') 通过id名获取元素
+		// document.getElementsByTagName('标签名') 通过标签名获取元素
+		// ***上边两个没有兼容问题 下面低版本ie浏览器不兼容***
+		
+		// document.getElementsByClassName('class名') 通过class名获取元素
+		// document.getElementsByName('name属性名') 通过name属性名获取元素
+		// document.querySelector('选择器') 获取拥有此选择器的第一个元素
+		// document.querySelectorAll('选择器') 获取拥有此选择器的所有元素
+		// ***除了getElementById和querySelector获取到的都是数组***
+		
+		// 元素大小
+		// offsetWidth offsetHeight->width、height+padding+border 和子元素大小无关
+		// clientWidth clientHeight->width、height+padding 和子元素大小无关
+		// scrollWidth scrollHeight->子元素小于父元素情况下和client相同
+		// 子元素大于父元素 子元素大小+ padding-top padding-left
+		
+		// 偏移量
+		// offsetLeft offsetTop 没有定位情况下相对于文档边缘 定位情况下相对于定位的元素
+		// scrollLeft scrollTop 有滚动条情况下 上面和左面滚动进去的大小(可以设置或者获取)
+		
+		// 可视窗口大小
+		// document.documentElement.clientWidth
+		// document.documentElement.clientHeight\
+		
+		
+		
+		
+	</script>
+</html>

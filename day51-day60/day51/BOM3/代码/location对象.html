@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		console.log(location.host);
+		console.log(location.hostname);
+		console.log(location.port);
+		console.log(location.pathname);
+		console.log(location.protocol);
+		
+		// 返回当前网址
+		console.log(location.href);
+		// 跳转地址
+		// location.href = 'http://www.baidu.com';
+		
+		// 返回get请求传过来的值(?后面的内容 包括?)
+		console.log(location.search);
+		
+		// 可以返回(有历史记录)
+		// location.assign('http://www.baidu.com');
+		
+		// 不可以返回 没有历史记录
+		// location.replace('http://www.baidu.com');
+		
+		// 重新加载当前页面
+		// location.reload();
+			
+		// 浏览器嗅探: 设备信息和浏览器信息
+		console.log(navigator.userAgent);
+	</script>
+</html>

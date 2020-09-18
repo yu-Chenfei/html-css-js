@@ -1,0 +1,31 @@
+// ~对字符串进行转义 转义成代码原本的意思
+@min800: ~'screen and (min-width: 800px)';
+
+.out{
+	// 变量遵循就近原则
+	@min800: ~'screen and (min-width: 600px)';
+	background-color: indianred;
+	.in{
+		width: 100px;
+		height: 100px;
+		background-color: seagreen;
+		// float: left;
+	}
+	// &代表父元素(上一层元素) &:after等于.out:after
+	&:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	// &_2等于.out_2
+	&_2{
+		width: 100px;
+		height: 100px;
+		background-color: skyblue;
+	}
+	// 媒体查询
+	@media @min800{
+		background-color: darkgray;
+	}
+}
+

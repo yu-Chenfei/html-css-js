@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">随机点名</button>
+	</body>
+	<script type="text/javascript">
+		//获取元素
+		var btn = document.getElementsByTagName('button')[0];
+
+		// 取数组里的值(通过索引)
+		var nameArray = ['陈嘉豪', '王钰茹', '张雪', '乔文广', '杨玉玺'];
+		
+		// 绑定点击事件
+		btn.onclick = function(){
+			// 随机取一个索引(索引范围0到nameArray.length-1)
+			var index = Math.floor(Math.random() * (nameArray.length));
+			
+			alert(nameArray[index]);
+		}
+		
+		
+	</script>
+</html>

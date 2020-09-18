@@ -1,0 +1,63 @@
+// 定义变量
+@color: indianred;
+@bc: background-color;
+@s: .small;
+@imgUrl: 'static/img';
+@bigStyle: {width: 300px;height: 300px;background-color: darkgray;}
+@fl: {float: left;}
+@w50: 50px;
+@m800: ~'screen and (min-width: 800px)';
+
+// 定义函数
+// .styleFun(){
+// 	width: 100px;
+// 	height: 100px;
+// 	background-color: red;
+// }
+
+#styleFun(@w: 200px, @h, @bc) when (@w > 50px){
+	width: @w;
+	height: @h;
+	background-color: @bc;
+}
+
+// #borderFun(...){
+// 	border: @arguments;
+// }
+
+#borderFun(left,@c){
+	border-left: 5px solid @c;
+}
+
+#borderFun(right,@c){
+	border-right: 5px solid @c;
+}
+p{
+	// .styleFun();
+	#styleFun(100px,200px,blue);
+	// #borderFun(5px,solid,black);
+	
+	#borderFun(left, green);
+}
+
+// 样式嵌套 
+.big{
+	// 变量有就近原则
+	@color: black;
+	@bigStyle();
+	@{s}{
+		width: 100px - @w50;
+		height: 100px;
+		@{bc}: @color;
+		background-image: url('@{imgUrl}/cat.jpg');
+		background-size: 100% 100%;
+	}
+	
+	&:hover{
+		background-color: yellowgreen;
+	}
+	
+	@media @m800{
+		background-color: skyblue;
+	}
+}

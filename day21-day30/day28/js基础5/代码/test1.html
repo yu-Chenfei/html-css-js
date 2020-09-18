@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				/* 更改鼠标效果(变成小手) */
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>美少女战士</li>
+			<li>飞天小女警</li>
+			<li>猫眼三姐妹</li>
+			<li>巴拉巴拉小魔仙</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var lis = document.getElementsByTagName('li');
+		
+		// 葛云飞 徐豪 陈嘉豪 王钰茹
+		var nameArray = ['葛云飞','徐豪','陈嘉豪','王钰茹']
+		
+		// 循环设置样式
+		for(var i = 0;i < 4;i++){
+			// 每次使用自定义属性保存i值
+			lis[i].title = i;
+			// lis[i].style.backgroundColor = 'pink';
+			// 循环绑定事件
+			lis[i].onclick = function(){
+				// this点哪个属性 this就代表哪个这个元素的哪个属性
+				// alert(this.title);
+				// 事件里面的代码 在没有点击之前 相当于没写(没运行)
+				alert(nameArray[this.title]);
+			}
+		}
+		
+		
+			
+	</script>
+</html>

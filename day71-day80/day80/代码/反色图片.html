@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="400">
+			您的浏览器不支持canvas画布
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制画布的上下文
+		var context = can.getContext('2d');
+		
+		// 创建一个图片对象
+		var image = new Image();
+		
+		// 监听图片是否加载成功
+		image.onload = function(){
+			// 绘制图片
+			context.drawImage(image,0,0,can.width,can.height);
+			// 获取像素点对象
+			var imageData = context.getImageData(0,0,can.width,can.height);
+			//  获取像素点组成的数组(四个是一组)
+			var imageDataArr = imageData.data;
+			console.log(imageData.data);
+			
+			// 循环遍历像素点数组
+			for(var i = 0;i < imageDataArr.length;i+=4){
+				// 拿到初始的rgb值
+				var r = imageDataArr[i];
+				var g = imageDataArr[i+1];
+				var b = imageDataArr[i+2];
+				
+				// 使用255分别减初始的r、g、b值 再赋值回去
+				imageDataArr[i] = 255 - r;
+				imageDataArr[i+1] = 255 - g;
+				imageDataArr[i+2] = 255 - b;
+			}
+			// 绘制像素点
+			context.putImageData(imageData,0,0);
+		}
+		
+		// 把图片路径赋值给src属性
+		image.src = '1.jpg';
+	</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 定义一个类
+		function Lover(name, age){
+			// 定义属性
+			this.name = name;
+			this.age = age;
+			// this.leg = 2;
+			// 定义方法
+			this.kiss = function(){
+				console.log('用嘴');
+			}
+		}
+		
+		// 公共的方法或者属性一般定义在类的原型(prototype)上
+		Lover.prototype.like = function(){
+			console.log('shopping');
+		}
+		Lover.prototype.leg = 2;
+		
+		// 实例化对象
+		var lover1 = new Lover('陈老板的对象', 15);
+		var lover2 = new Lover('阿旺对象', 51);
+		
+		console.log(lover1.leg);
+		lover2.like();
+		
+		// 内存地址不同
+		console.log(lover1.kiss == lover2.kiss);// false
+		// 内存地址相同
+		console.log(lover1.like == lover2.like);// true
+	</script>
+</html>

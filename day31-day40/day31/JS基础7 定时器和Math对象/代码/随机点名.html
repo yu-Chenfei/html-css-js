@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h1{
+				color: deeppink;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>开始点名</h3>
+		<h1>看看是哪个幸运的小宝贝呢...</h1>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var btn = document.getElementsByTagName('h3')[0];
+		var show = document.getElementsByTagName('h1')[0];
+		// 定义人名的数组
+		var nameArray = ['徐豪', '李伟', '文广小宝贝', '陈晓通', '彭天宇', '张猛', '张旺', '王钰莹'];
+		// 定义一个变量 在定时器运行过程中不允许再点(锁)
+		var lock = true;
+		// 定义一个索引
+		var index= '';
+		// 绑定点击事件
+		btn.onclick = function(){
+			if(lock){
+				// 锁上
+				lock = false;
+				var timer = setInterval(function(){
+					// 随机一个索引
+					index = Math.floor(Math.random() * nameArray.length);
+					// 根据索引拿到数组里的值
+					var selectName = nameArray[index];
+					// 把这个值展示到页面上
+					show.innerHTML = selectName;
+				},100);
+				
+				setTimeout(function(){
+					clearInterval(timer);
+					nameArray.splice(index, 1);
+					// 锁打开
+					lock = true;
+				},3000);
+			}
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+			}
+			#box{
+				width: 80%;
+				margin-left:10% ;
+			}
+			#box>div{
+				width: 20%;
+				height: 150px;
+				float: left;
+				position: relative;
+				margin-left: 4%;
+				margin-top: 10px;
+			}
+			#box>div>img{
+				width: 100%;
+				height: 100%;
+			}
+			#box .black_div{
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.7);
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all .5s linear;
+				text-align: center;
+				opacity: 0;
+			}
+			#box .black_div:hover{
+				opacity: 1;
+			}
+			
+			#box .black_div>img{
+				width: 20px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-10px);
+			}
+			.show{
+				width: 60%;
+				position: fixed;
+				left: 20%;
+				top: 100px;
+				display: none;
+				z-index: 2;
+				padding: 10px;
+				background-color: black;
+			}
+			.show img{
+				width: 100%;
+				vertical-align: middle;
+			}
+			#big{
+				width: 100%;
+				height: 100%;
+				background-color: #000000;
+				opacity: 0.7;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big"></div>
+		<div class="show">
+			<!-- 展示图片的div -->
+			<img src="" >
+		</div>
+		<div id="box">
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd1.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd2.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd3.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd4.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd5.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd6.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd7.jpg" >
+			</div>
+			<div>
+				<div class="black_div">
+					<img src="img/fangda.png" >
+				</div>
+				<img src="img/rd8.jpg" >
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var blackDiv = document.getElementsByClassName('black_div');
+		var showDiv = document.getElementsByClassName('show')[0];
+		var showImg = document.querySelector('.show img');
+		var big = document.getElementById('big');
+		
+		// 循环绑定事件
+		for(var i = 0;i < blackDiv.length;i++){
+			// 给所有黑色的div添加点击事件
+			blackDiv[i].onclick = function(){
+				// 获取父元素
+				var parentDiv = this.parentNode;
+				// 获取img标签（父元素的第二个子元素）
+				var nowImg = parentDiv.children[1];
+				// 让show这个div显示
+				showDiv.style.display = 'block';
+				// 把当前图片的路径赋值给show里边的img标签
+				showImg.src = nowImg.src;
+				// 让黑色的遮罩显示
+				big.style.display = 'block';
+			}
+		}
+		
+		// 点击放大后的图片 让div消失
+		showDiv.onclick = function(){
+			showDiv.style.display = 'none';
+			// 让黑色的遮罩隐藏
+			big.style.display = 'none';
+		}
+		
+	
+		
+	</script>
+</html>

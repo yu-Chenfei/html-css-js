@@ -1,0 +1,48 @@
+// 定义一个函数 函数可以用.或者#开头
+// 1.可以传参可以不传
+// 2.参数可以定义多个
+// 3.参数可以设置默认值
+// 4.可以使用when 后面写限制条件
+#style(@w: 100px, @h: 100px,@c: yellow) when (@w < 400px) and (@w > 100px){
+	width: @w;
+	height: @h;
+	background-color: @c
+}
+
+// 不写形式参数可以使用...代替
+// 函数内部使用@arguments代替传过来的实参
+// #borderStyle(...){
+// 	border: @arguments; // black, 5px, solid
+// }
+
+// 参数个数不固定情况
+// #margin(...){
+// 	margin: @arguments;
+// }
+
+// 同名方法可以通过传递的第一参数进行匹配
+#border(left,@c){
+	border-left: 5px solid @c;
+}
+#border(right,@c){
+	border-right: 5px solid @c;
+}
+#border(top,@c){
+	border-top: 5px solid @c;
+}
+
+.one{
+	#style(150px);
+	// #borderStyle(black, 5px, solid);
+	#border(left, black);
+}
+
+.two{
+	#style(200px,200px);
+	#border(right, gray);
+}
+
+.three{
+	#style(300px,100px,blue);	
+	#border(top, red);
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				background-color: yellow;
+				float: left;
+				width: 300px;
+				height: 300px;
+				color: red;
+				font-size: 20px;
+				/* 默认200-900 正常是600 */
+				font-weight: 900;
+				/* 取值范围0-1 */
+				opacity: 0.7;
+				/* 字体 */
+				font-family: "agency fb";
+				
+				background-image: url(../img/1.jpg);
+				/* 背景图片大小 */
+				/* background-size: 100px 100px; */
+				/* 背景图片是否重复 默认是重复 不重复是no-repeat */
+				background-repeat: no-repeat;
+				/* 背景图片位置 */
+				/* background-position: 100px 100px; */
+				/* x轴和y轴方向都可以写left right center、top bottom center */
+				background-position: right center;
+				/* 首行缩进 */
+				text-indent: 32px;
+			}
+			
+			ul{
+				/* 去除列表默认样式 */
+				list-style: none;
+			}
+			a{
+				/* a标签去除下划线 */
+				text-decoration: none;
+			}
+			p{
+				/* text-decoration 给文本设置装饰线 */
+				/* 删除线 */
+				/* text-decoration: line-through; */
+				/* 鼠标样式(小手) */
+				cursor: pointer;
+			}
+			
+			
+			.one{
+				width: 235px;
+				height: 235px;
+				background-image: url(../img/1.jpg);
+			}
+			.two{
+				width: 235px;
+				height: 235px;
+				background-image: url(../img/1.jpg);
+				background-position: -235px -235px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 标签 -->
+		<!-- 
+		块属性标签：
+		特点：1.支持设置宽高，如果不设置情况下，高度内容撑开，宽度自动撑满父元素(定位情况下例外宽度内容撑开)。
+			 2.独占一行
+		代表标签：div p h1-h6 ul>li ol>li table form
+				 
+		行属性标签：
+		特点：1.不支持设置宽高，宽高内容撑开(浮动和定位例外 可以使行属性标签支持宽高)
+			 2.不支持上下的margin和padding	
+		     3.自动排成一行
+		代表标签：span a 	
+				  
+		行块属性标签：
+		特点：1.既支持设置宽高，又可以排成一行。
+			 2.默认文本下对齐	
+		代表标签：img input等表单元素	
+			  
+		标签属性相互转化：display: inline(行) block(块) inline-block(行块属性)
+		注意：1.行属性标签最好不要嵌套块属性标签(a标签是特例)
+			 2.在标签里 xx=”“ 这样xx就叫做标签的属性，比如所有标签都有style属性、class属性、id属性等
+			 3.a标签的href属性中什么都不写会刷新页面，如果点击以后不想有作用可以写href="###"
+		-->
+		<!-- ../返回上一级文件夹 -->
+		<!-- <img src="../img/1.jpg" alt="图片加载失败"> -->
+		<!-- <a href="相对路径、网络路径"></a> -->
+		<!-- <span>hello</span> -->
+		
+		<!-- <ul>
+			<li>七龙珠</li>
+			<li>海贼王</li>
+			<li>名侦探小五郎</li>
+		</ul>
+		
+		<a href="###">18岁以下禁止访问</a>
+		<p>性感荷官在线发牌</p> -->
+		
+		
+		<!-- 
+		雪碧图(图片精灵)：在项目中需要展示多个图标或者图片、可以把这些图标放在一个图片中
+		通过设置背景图片的方式展示，使用background-position调整图片位置来显示不同图标
+		-->
+		
+		<div class="one"></div>
+		<div class="two"></div>
+	</body>
+</html>

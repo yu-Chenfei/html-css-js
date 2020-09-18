@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 原型继承：缺点->不能传参
+		// 定义一个Animal类
+		function Animal(name, color){
+			this.name = name;
+			this.color = color;
+			this.leg = 4;
+		}
+		Animal.prototype.eat = function(food){
+			console.log(food);
+		}
+		
+		// 定义一个Cat类
+		function Cat(){}
+		
+		// 让Cat类继承Animal类
+		Cat.prototype = new Animal();
+		
+		// 实例化Cat类
+		var cat1 = new Cat();
+		console.log(cat1.name);// undefind
+		console.log(cat1.leg);// 4
+		cat1.eat('小鱼干');// 小鱼干
+		
+	</script>
+</html>

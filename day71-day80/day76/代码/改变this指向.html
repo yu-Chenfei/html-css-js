@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 如何改变this指向
+		// 1.call() 2.apply() 3.bind()
+		
+		function test(x, y, like){
+			console.log(this.name);
+			console.log(x);
+			console.log(y);
+			this.like = like;
+		}
+		var boy = {name: '乔文广', age: 20};
+		// 使用call改变this指向 
+		// call第一个参数是this改变后的指向 
+		// 后面参数是向函数内传递的实参
+		// test.call(boy, 'hello', 'world', '壮汉');
+		// console.log(boy); // {name: '乔文广', age: 20, like: '壮汉'};
+		 
+		// 使用apply改变this指向
+		// apply第一个参数是this改变后的指向
+		// 第二个参数是传递的实参组成的数组
+		// test.apply(boy, ['hello', 'world', '壮汉']);
+		
+		// 使用bind改变this指向
+		// bind第一个参数是this改变后的指向 
+		// 后面参数是向函数内传递的实参
+		// call和apply会直接调用函数 bind不会调用函数
+		// 返回值是改变this指向后的新函数 需要自己再调用一次
+		var newTest = test.bind(boy, 'hello', 'world', '壮汉');
+		newTest();
+		// console.log(boy.like);
+	</script>
+</html>

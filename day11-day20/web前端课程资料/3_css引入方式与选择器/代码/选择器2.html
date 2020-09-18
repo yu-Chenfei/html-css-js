@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择器</title>
+		<style type="text/css">
+			/* 
+			后代选择器
+			语法：祖先元素 子元素{样式}
+			权重：所有选择器的权重相加
+			 */
+			.one span{
+				background-color: yellow;
+			}
+			.two span{
+				background-color: red;
+			}
+			
+			div .first{
+				background-color: aqua;
+			}
+			/* 子代选择器
+			   语法：父元素>子元素{样式}
+			   权重：父子选择器的权重相加
+			 */
+			ul>span{
+				background-color: #FFFF00;
+			}
+			
+			ul>li>span{
+				background-color: pink;
+			}
+			.first_p{
+				font-size: 20px;
+			}
+			/* 
+			通配符：选择页面中 所有标签
+			权重为：1
+			项目中最好不用
+			 */
+			/* 
+			*{
+				font-size: 10px;
+			} 
+			*/
+			
+			/* 组合选择器
+			语法：选择器1，选择器2...{样式}
+			权重分别计算
+			 */
+			.first_p,div,span{
+				font-size: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <div class="one">
+			<div>
+				<span class="first">电影</span>
+				<span>电视剧</span>
+				<span>花絮</span>
+				<span>娱乐</span>
+			</div>
+		</div>
+		
+		<div class="two">
+			<span>日剧</span>
+			<span>韩剧</span>
+			<span>美剧</span>
+			<span>泰剧</span>
+		</div> -->
+		
+		<!-- <ul>
+			<span>以下纯属虚构</span>
+			<li>
+				<span>李佳杰和小寡妇的二三事</span>
+			</li>
+		</ul> -->
+		
+		<p class="first_p">嗨 美女</p>
+		<span>嗨 帅哥</span>
+		<div>
+			嗨 大郎又该吃药了
+		</div>
+	</body>
+</html>

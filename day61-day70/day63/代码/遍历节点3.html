@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li class="one">羊肉串</li>
+			<li>烤乳鸽</li>
+			<li class="three">烤猪蹄</li>
+			<li class="four">
+				<span>烤鸡爪</span>
+			</li>
+		</ul>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// find('选择器') 获取后代元素 由选择器筛选
+		
+		// first() last() 匹配集合中第一个和最后一个元素
+		// $('li').first().css('color', 'red'); 
+		// $('li').last().css('color', 'pink');
+		
+		// has() 包含某选择器的集合
+		// $('li').has('span').css('background', 'yellow');
+		 
+		// 根据选择器匹配 如果匹配返回true
+		console.log($('.four').is('li')); // true 
+		
+		// map遍历jquery对象
+		$('li').map(function(index, item){
+			console.log(item);
+		});
+		
+		// map也可以遍历数组和对象
+		// map有返回值
+		var arr = [10, 20 ,30];
+		var newArr = $.map(arr, function(item, index){
+			// console.log(item);
+			return item + 1;
+		});
+		
+		console.log(newArr); // [11, 21 ,31]
+		
+		// next() 获取相邻的同辈元素
+		// $('.one').next().css('font-size', '20px');
+		
+		// nextAll() 获取后面所有的同辈元素
+		// $('.three').nextAll().css('color', 'green');
+		
+		// nextUntil如果不传参数和nextAll
+		// 传选择器作为参数 匹配到当前选择器为止 不包含当前选择器(不包括.one和.four)
+		$('.one').nextUntil('.four').css('color', 'red');
+		
+		
+	</script>
+</html>

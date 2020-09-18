@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 在html中写一个图片就会自动创建一个图片对象
+		
+		// 在js中创建图片对象
+		// 1.创建一个图片标签
+		// var myImage = document.createElement('img');
+		// myImage.src = '';
+		
+		// 2.使用 new Image();
+		var myImage = new Image();
+		
+		// onload：当图片对象加载完毕(成功时触发)
+		myImage.onload = function(){
+			console.log('加载成功');
+		}
+			
+	    // onerror：图片对象加载失败时触发
+		myImage.onerror = function(){
+			console.log('加载失败');
+		}
+		
+		// 一般src赋值写在load和error事件后面
+		// 避免图片加载过快 事件还没绑定(检测不到加载成功失败)
+		myImage.src = 'img?image&quality=80&size=b9999_10000&sec=1589254710991&di=8ba2aeeaa54c1bafdfd2801d11ce668f&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fzhidao%2Fwh%253D680%252C800%2Fsign%3Dbb541c4377f40ad115b1cfe56f1c3de7%2F50da81cb39dbb6fde349ce5d0524ab18972b37be.jpg';
+		
+		document.body.appendChild(myImage);
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html{
+				font-size: 10px;
+			}
+			.big{
+				/* font-size有继承 */
+				font-size: 1rem;
+			}
+			.big span{
+				/* 
+				em相对于父元素的font-size
+				父元素的font-size是多大 1em就是多大
+				*/
+				font-size: 2em;
+				
+				/*
+				rem相对于html标签的font-size
+				html标签的font-size是多大 1rem就是多大
+				一般用于移动端屏幕适配
+				*/
+				/* font-size: 1rem; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big">
+			你好
+			<span>
+				昨天的火锅太辣了
+			</span>
+		</div>
+	</body>
+</html>

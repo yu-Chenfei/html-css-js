@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		Array.prototype.sum = function(){
+			// 在类中 this指向实例化的对象(this代表arr)
+			var num = 0;
+			// 循环遍历数组
+			for(var i = 0;i < this.length;i++){
+				num+=this[i];
+			}	
+			return num;
+		}
+		
+		// 为数组添加一个叫sum的方法 用来求和
+		var arr = new Array(10, 2, 5);
+		
+		var count = arr.sum();
+		console.log(count);
+		
+	</script>
+</html>

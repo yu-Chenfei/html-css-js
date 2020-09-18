@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- viewport：应用于移动端 width=device-width页面宽度设备宽度 initial-scale=1, maximum-scale=1缩放是1 user-scalable=no不允许用户缩放 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	</head>
+	<body>
+		<!-- 
+		响应式布局：项目在不同屏幕大小都能展示想要的效果
+		实现响应式布局：使用百分比布局 媒体查询等实现响应式效果
+		
+		为什么要用bootstrap
+		1 自带响应式效果
+		2 自带样式(避免自己设置繁琐)
+		3 自带reset.css(normalize.css)
+		4 兼容性好(内部进行了一些IE兼容)
+		-->
+		<div style="height: 800px;background-color: #90EE90;" class="container">
+			<!-- 
+			1 必须写在row里
+			2 把页面等分12份
+			3 可以针对不同屏幕大小 设置多种布局方式
+			 -->
+			<div class="row">
+				<div class="col-lg-6 col-md-4" style="background-color: #E4E4E4;height: 200px;"></div>
+				<div class="col-lg-6 col-md-4" style="background-color: aqua;height: 200px;"></div>
+				<div class="col-lg-6 col-md-4" style="background-color: yellowgreen;height: 200px;"></div>
+			</div>
+		</div>
+	</body>
+</html>

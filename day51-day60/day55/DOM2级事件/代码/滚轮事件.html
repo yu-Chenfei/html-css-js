@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 滚轮事件需要进行火狐浏览器兼容
+		if(navigator.userAgent.indexOf('Firefox') != -1){
+			// 火狐浏览器
+			document.addEventListener('DOMMouseScroll', wheelFun, false);
+		}else{
+			// 非火狐
+			document.onmousewheel = wheelFun;
+		}
+		
+		function wheelFun(event){
+			// 定义一个变量判断向上还是向下 false向下 true向上
+			var up = false;
+			// 事件对象兼容
+			var event = window.event || event;
+			// 判断滚轮向上或者向下
+			// 非火狐下：判断event.wheelDelta大于0向上 小于0向下
+			// 火狐下：判断event.detail大于0向下 小于0向上
+			
+			if(event.detail){
+				// 在火狐下
+				if(event.detail > 0){
+					// console.log('向下');
+					up = false;
+				}else{
+					// console.log('向上');
+					up = true;
+				}
+			}else if(event.wheelDelta){
+				if(event.wheelDelta > 0){
+					// console.log('向上');
+					up = true;
+				}else{
+					// console.log('向下');
+					up = false;
+				}
+			}
+			
+			if(up){
+				// 滚轮向上要执行的代码
+			}else{
+				// 滚轮向下要执行的代码
+			}
+		}
+	</script>
+</html>

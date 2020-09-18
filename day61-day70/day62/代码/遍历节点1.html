@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>略略略</li>
+			<li>biubiubiu</li>
+			<li class="three">巴拉巴拉小魔仙</li>
+			<li>嘤嘤嘤</li>
+			<p>哈哈哈</p>
+		</ul>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 获取所有子元素
+		// 原生js：children
+		// console.log($('ul').children());
+		
+		// 获取上一个同级元素
+		// 原生js：previousElementSibling
+		// $('.three').prev().css('color', 'red');
+		
+		// 获取下一个同级元素
+		// 原生js：nextElementSibling
+		// $('.three').next().css('color', 'blue');
+		
+		// 获取所有的同级元素(不包含自身)
+		// $('.three').siblings().css('background-color', 'yellow');
+		
+		// 返回匹配的父元素
+		// 原生js：parentNode
+		// $('.three').parent().css('font-size', '30px');
+		
+		// 匹配符合参数选择器每一个子元素 find('选择器')
+		$('ul').find('.three').css('color', 'red');
+	</script>
+</html>

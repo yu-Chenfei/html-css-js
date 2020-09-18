@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.main{
+				width: 500px;
+				height: 200px;
+				background-color: greenyellow;
+				/* 父元素 */
+				display: flex;
+				/*
+				主轴方向：
+				row  横轴从左开始（默认）
+				row-reverse 横轴从右开始
+				column 纵轴从上开始
+				column-reverse 纵轴从下开始
+				*/
+				/* flex-direction: column-reverse; */
+				
+				/* 主轴对齐方式 */
+				/* 
+				flex-start: 轴起点开始(默认)
+				flex-end: 轴终点开始(默认)
+				center: 居中
+				space-between: 两端对齐
+				space-around: 每个元素两边有相同大小的margin
+				*/
+				/* justify-content: space-around; */
+				
+				/* 交叉轴对齐方式 */
+				/* 
+				flex-start: 轴起点开始(默认)
+				flex-end: 轴终点开始(默认)
+				center: 居中
+				baseline: 按照文字的基准线 下对齐
+				 */
+				align-items: center;
+				
+				/* 
+				主轴元素是否换行
+				nowrap: 不换行(默认)
+				wrap: 换行(第一行在上)
+				wrap-reverse: 换行(第一行在下)
+				 */
+				/* flex-wrap: wrap-reverse; */
+			}
+			.main div{
+				width: 100px;
+				height: 100px;
+				background-color: #9ACD32;
+			}
+			.main .three{
+				background-color: #DB7093;
+				/* 不被压缩大小 */
+				flex-shrink: 0;
+				/* 单独设置交叉轴的对齐方式 */
+				align-self: flex-start;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div>1</div>
+			<div>2</div>
+			<div class="three">3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</body>
+</html>

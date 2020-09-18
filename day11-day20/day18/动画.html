@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: #9ACD32;
+				/* 
+				播放动画
+				动画名称(关键帧名称)
+				播放时间
+				速率曲线(默认是ease 慢到快)
+				延迟时间(可以不写)
+				
+				播放次数（默认是1 infinite）
+				往复执行：alternate
+				
+				播放/暂停 running（默认） puased
+				
+				动画执行后状态: 
+				forwards 保持动画执行后 最后一帧
+				backwards 保持动画执行后 第一帧
+				
+				 */
+				/* animation: myAnimation 2s linear backwards; */
+				
+				
+				/* animation-name: myAnimation;
+				animation-duration: 2s;
+				animation-timing-function: linear;
+				animation-delay: 1s;
+				animation-iteration-count: infinite; */
+			}
+			
+			/* 关键帧 */
+			/* 最少有两帧 */
+			@keyframes myAnimation{
+				/* from{}
+				to{} */
+				0%{
+					transform: translateX(0);
+				}
+				40%{
+					transform: translateX(100px) translateY(-10px);
+					background-color: orangered;
+				}
+				60%{
+					transform: translateX(120px) translateY(0px);
+					background-color: #9ACD32;
+				}
+				100%{
+					transform: translateX(200px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>自己动</div>
+	</body>
+</html>

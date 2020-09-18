@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>我是一个按钮</div>
+	</body>
+	<script type="text/javascript">
+		// 事件监听：为同一个对象的同一个事件绑定多个事件处理程序
+		// document.querySelector('选择器') 获取拥有此选择器的第一个元素
+		var btn = document.querySelector('div');
+		// DOM0级事件
+		// 绑定事件
+		// btn.onclick = function(){
+		// 	console.log('执行事件测试1');
+		// }
+		// btn.onclick = function(){
+		// 	console.log('执行事件测试2');
+		// }
+		// 移除事件
+		// btn.onclick = null;
+		
+		// 事件监听(DOM2级事件)
+		// 绑定事件 addEventListener('事件名', callback, true/false)
+		// 第二个参数是回调函数 第三个参数false 事件冒泡 true事件捕获
+		// function clickFun1(){
+		// 	console.log('2级事件测试1');
+		// }
+		// function clickFun2(){
+		// 	console.log('2级事件测试2');
+		// }
+		// btn.addEventListener('click', clickFun1, false);
+		// btn.addEventListener('click', clickFun2, false);
+		// 移除事件 
+		// btn.removeEventListener('click', clickFun);
+		
+		// 兼容IE 8 及更早 IE 版本
+		// 绑定事件
+		// btn.attachEvent('onclick', clickFun);
+		// 移除事件
+		// btn.detachEvent('onclick', clickFun);
+		
+		// 0级事件和2级事件的区别：
+		// 1、DOM0级事件重复绑定会覆盖，DOM2级事件重复绑定都会执行
+		// 2、DOM0级事件只有事件冒泡，DOM2级事件可以选择事件捕获和事件冒泡
+		// 3、有个别事件只能通过2级事件进行绑定(比如鼠标滚轮事件)
+		
+		
+		// 封装一个对象：支持addEventListener的情况下就调用addEventListener方法
+		// 不支持情况下就调用attachEvent方法
+		// eventHandle.add(el, type, callback, bool)
+		// eventHandle.remove(el, type, callback)
+		
+		var eventHandle = {
+			add: function(el, type, callback, bool){
+				if(el.addEventListener){
+					// 所有主流浏览器，除了 IE 8 及更早 IE版本
+					el.addEventListener(type, callback, bool);
+				}else if(el.attachEvent){
+					// 兼容IE 8 及更早 IE 版本
+					el.attachEvent('on' + type, callback);
+				}else{
+					// 如果都不支持
+					el['on'+type] = callback;
+				}
+			},
+			remove: function(el, type, callback){
+				if(el.addEventListener){
+					// 所有主流浏览器，除了 IE 8 及更早 IE版本
+					el.removeEventListener(type, callback);
+				}else if(el.attachEvent){
+					// 兼容IE 8 及更早 IE 版本
+					el.detachEvent('on'+ type, callback);
+				}else{
+					// 如果都不支持
+					el['on'+type] = null;
+				}
+			}
+		};
+		
+		function testFun(){
+			console.log('测试');
+		}
+		eventHandle.add(btn,'click',testFun,false);
+		eventHandle.remove(btn,'click',testFun);
+		
+		
+	</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 什么是对象
+		// 什么是面向对象 为什么学习面向对象
+		
+		// 定义类(定义模板、面向对象的封装)
+		function Cat(name,color){
+			// 属性
+			this.name = name;
+			this.color = color;
+			// cat1.name = '哆啦A梦' cat1.color = 'yellow'
+		}
+		// 固定的(公共的属性和方法定义在原型上)
+		Cat.prototype.leg = 4;
+		Cat.prototype.eat = function(){
+			console.log('小鱼干');
+		};
+		
+		// 实例化对象
+		var cat1 = new Cat('哆啦A梦', 'blue');
+		
+		// 原型链
+		// __proto__ 隐式原型，所有对象都有隐式原型
+		// 实例的__proto__指向类的prototype
+		console.log(cat1.__proto__ == Cat.prototype);//true
+		
+		var num = 10;
+		console.log(num.__proto__ == Number.prototype);
+		
+		// this指向
+		// 谁调用函数this就指向谁，没人调用this指向window
+		// 在事件中，this指向调用事件的对象
+		// 在类中，this指向类创建的实例对象
+	</script>
+</html>

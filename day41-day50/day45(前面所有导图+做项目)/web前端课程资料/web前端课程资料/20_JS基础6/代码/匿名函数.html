@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 匿名函数 自调用函数
+		// 一般用来分割作用域
+		
+		// 没有参数情况
+		(function(){
+			console.log('我是匿名函数内的代码');
+		})();
+		
+		// 有参数情况
+		(function(x){
+			console.log(x);
+		})('你好');
+	</script>
+</html>

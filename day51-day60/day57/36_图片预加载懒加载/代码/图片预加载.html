@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 加载页 -->
+		<div>
+			<h1></h1>
+		</div>
+		<!-- 项目页 -->
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var myH1 = document.querySelector('h1');
+		
+		// 图片预加载(一般用于移动端)：当项目中有大量的图片，打开页面再加载会影响用户体验，所以要提前加载
+		// 先把所有图片路径都放在一个数组里
+		var imgArray = ['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589256433099&di=0ede196a3ba80f53ac3f57d5aa8e7b25&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170224%2Fbfbb90d6e0c1439d8492a27bd4952be8_th.png','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589256403882&di=a7bd73fd10e60ddcbc86148a9dc26deb&imgtype=0&src=http%3A%2F%2Fdingyue.nosdn.127.net%2F81sbsfEVJzBu2ryITYUQBo2TfYwA7boeZhVhfcriDMdEH1528774891456compressflag.jpg','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589256330938&di=718c7271bd92ecc4616bb4aac2b28379&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F31%2F20180731094055_cwurc.jpg','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589256372737&di=4bc0e7e9fc4ec001dfd11dacbfd94aa7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F02%2F20180802205411_ydqft.jpg'];
+		
+		// 定义一个变量对加载图片计数
+		var count = 0;
+		
+		// 循环遍历这个数组
+		for(var i = 0;i < imgArray.length;i++){
+			// 每次创建一个图片对象
+			var myImage = new Image();
+			// 使用load事件监测是否加载成功
+			myImage.onload = function(){
+				count++;
+				// 判断加载的百分比
+				var per = count / imgArray.length * 100;
+				myH1.innerHTML = per + '%';
+				
+				if(count == imgArray.length){
+					console.log('加载完毕'); // 跳转到项目页面
+				}
+			}
+			// 把数组中的每一项赋值给图片对象的src属性
+			myImage.src = imgArray[i];
+			
+		}
+		
+	</script>
+</html>

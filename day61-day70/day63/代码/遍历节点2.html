@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<span>烤土豆</span>
+			<li class="one">羊肉串</li>
+			<li>烤乳鸽</li>
+			<li>烤猪蹄</li>
+			<li class="four">
+				<span class="last_span">烤鸡爪</span>
+			</li>
+		</ul>
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// add()将元素添加到某个集合中
+		// $('li').add('span').css('color', 'red');
+		
+		// closest('选择器') 根据选择器 向上寻找最近的祖先元素
+		// $('.last_span').closest('ul').css('font-size', '20px');
+		
+		// 获取内容(包括文本 元素 注释) 作为了解
+		// var contents = $('.four').contents();
+		
+		// 遍历jquery对象 each(callback)
+		// callback的参数 第一个是索引 第二个遍历的元素
+		// $('li').each(function(index, item){
+		// 	console.log(item);
+		// });
+		
+		// 使用each遍历数组
+		// var arr = [233, 666, 999];
+		// $.each(arr, function(index, item){
+		// 	console.log(index);
+		// });
+		
+		// 使用each遍历对象
+		// var obj = {name: 'dong', age: 18};
+		// $.each(obj, function(key, value){
+		// 	console.log(value);
+		// });
+		
+		// eq(index) 匹配索引为index的jquery对象
+		// $('li').eq(1).css('color', 'blue'); 
+		
+		// end() 结束最近一次筛选
+		// $('ul').find('.one').css('color', 'red').end().find('.four').css('color', 'yellow');
+		
+		// filter 过滤器
+		// $('li').filter('.four').css('color', 'red');
+		// 参数可以写一个回调函数
+		// 返回值为true就匹配 false就不匹配
+		$('li,span').filter(function(){
+			return $(this).html().indexOf('烤') != -1;
+		}).css('color', 'red');
+		
+		
+	</script>
+</html>

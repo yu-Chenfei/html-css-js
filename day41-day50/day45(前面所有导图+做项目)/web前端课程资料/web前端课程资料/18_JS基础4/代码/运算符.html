@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 算数运算符 +加 -减 *乘 /除 %取余数
+		var num = 5 % 2;
+		console.log(num);// 1
+		
+		// 比较运算符 比较结果是布尔值
+		// >大于 <小于 >=大于等于 <=小于等于 ==等于 ===绝对等于 !=不等于
+		var num1 = 10;
+		var str1 = '10';
+		console.log(num1 < 5);// false
+		
+		// ===绝对等于 必须保证数据类型相同
+		console.log(num1 == str1); // true
+		console.log(num1 === str1); // false
+		
+		// 逻辑运算符 
+		// &&并且: 只要有一个条件为假都为假 
+		// ||或者: 只要有一个条件为真就都为真 
+		// !非(取反): true取反为false 反之同理
+		var num2 = 10;
+		var num3 = 20;
+		
+		console.log(num2 > 0 && num3 < 10);// false
+		console.log(num2 > 0 || num3 < 10);// true
+		console.log(!(num2 > 0));// false
+		
+		
+		// 补充 += -= *= /= ++ --
+		var i = 0;
+		// var j = i + 1;
+		// i = j;
+		
+		// i = i + 1;
+		
+		// i += 1; // i += n 相当于 i = i + n 然后-= *= /=同理
+			
+		// i++ // 相当于 i += 1
+		// i-- // 相当于 i -= 1
+		
+		
+		
+		// i++ i--(先运算再++或--) 和 ++i --i(先++或--再运算)
+		var n = 2;
+		var m = 2;
+		
+		//var k = (n++) + m;// 4
+		var w = (++n) + m;// 5
+		
+	    console.log(w);
+		console.log(n); // 3
+		
+		
+	</script>
+</html>

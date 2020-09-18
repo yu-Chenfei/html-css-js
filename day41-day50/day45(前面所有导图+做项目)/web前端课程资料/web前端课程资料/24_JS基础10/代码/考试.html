@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.red{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		// id和tagName没有兼容问题其他低版本IE不兼容
+		// Id和querySelector获取到的不是数组 其他获取到的都是数组
+		// document.getElementById()
+		// document.getElementsByClassName()
+		// document.getElementsByTagName()
+		// document.getElementsByName() //表单元素使用的多
+		// document.querySelector()
+		// document.querySelectorAll()
+		
+		
+		// 数组方法
+		// join('')
+		// push pop unshift shift -改变原数组
+		// sort(compare) reverse() -改变原数组
+		// function compare(value1, value2){
+		// 	return value1 - value2;
+		// }
+		// concat()
+		// slice() 一个参数情况从参数位置截取到最后 
+		// 两参数 第一是开始位置第二个是结束位置但是不包括第二个位置
+		
+		// splice(删除位置, 删除个数, '添加1', '添加2...')-改变原数组
+		// indexOf() 有的话返回索引 没有的的话返回-1
+		
+		// 字符串方法
+		// 字符串[0]
+		// slice() 
+		// concat() 一般使用+拼接字符串
+		// indexOf()
+		// split() 字符串分割成数组
+		// toUpperCase toLowerCase
+		// trim()
+		
+		// 创建时间对象 
+		// 加UTC都是0时区时间 所有的get方法都有set方法
+		// var now = new Date();
+		// now.getFullYear()
+		// now.getMonth()
+		// now.getDate()
+		// now.getDay()
+		// now.getHours()
+		// now.getMinutes()
+		// now.getSeconds()
+		// now.getTime()
+		
+		
+		// Math.max()
+		// Math.min()
+		// Math.ceil()
+		// Math.floor()
+		// Math.round()
+		// Math.random() 0-1直接的随机数 不包括1 
+		
+		// function randFun(min, max){
+		// 	return Math.floor(Math.random() * (max - min  + 1)) + min;
+		// }
+		// var num = randFun(3, 5);
+		// console.log(num);
+		
+		// this: 1.在事件里指向事件的执行对象 
+		// 2.如果有元素调用函数this就谁调用指向谁 
+		// 3.如果没有元素调用指向window 严格模式下为undefined
+		// var obj = {name: '文广小宝贝', f: function(){ console.log(this.name) }};
+		// obj.f();
+		// 'use strict'
+		// function test(){
+		// 	console.log(this);
+		// }
+		// test();
+		
+		// var cityArray = [{city:'首尔', from: '韩国'}, {city:'东京', from: '日本'}, {city:'巴黎', from: '法国'}, {city:'北京', from: '中国'}];
+		// var arr = ['北京','东京','首尔','巴黎'];
+		
+		// cityArray.sort(compare);
+		
+		// function compare(value1, value2){
+		// 	var index1 = arr.indexOf(value1.city);
+		// 	var index2 = arr.indexOf(value2.city);
+			
+		// 	return index1 - index2;
+		// }
+		
+		// console.log(cityArray);
+		
+		// var arr = [12, 3, 2, 3, 2, 12];
+		// var newArr = [];
+		
+		// for(var i = 0;i < arr.length;i++){
+		// 	if(newArr.indexOf(arr[i]) == -1){
+		// 		newArr.push(arr[i]);
+		// 	}	
+		// }
+		// console.log(newArr);
+		
+		var myDiv = document.getElementsByTagName('div')[0];
+		
+		myDiv.innerHTML = '<h2 class="red">hello</h2>';
+		
+		
+	</script>
+</html>

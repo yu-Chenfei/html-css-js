@@ -1,0 +1,16 @@
+.swiper img{
+	width: 100%;
+}
+.vedio_div{
+	overflow: hidden;
+}
+.vedio_div>div{
+	width: 31%;
+	margin-left: 1%;
+	float: left;
+	margin-top: 10px;
+	text-align: center;
+}
+.vedio_div>div>img{
+	width: 100%;
+}

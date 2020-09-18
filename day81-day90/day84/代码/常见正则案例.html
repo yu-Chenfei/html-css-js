@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 匹配手机号
+		var phoneNum = '18519702014';
+		var re = /^1[345789]\d{9}$/;
+		console.log(re.test(phoneNum));
+		
+		// 匹配邮箱
+		var email = 'dongyuxinweb@163.com';
+		var re = /^\w+@[a-z0-9]+(\.[a-z]+){1,2}$/;
+		console.log(re.test(email));
+		
+		// 匹配网址
+		var web = 'http://www.baidu.com';
+		var re = /^[a-zA-Z]+:\/\/[a-z0-9]+\.[a-z]+\.[a-z]+$/;
+		console.log(re.test(web));
+	</script>
+</html>

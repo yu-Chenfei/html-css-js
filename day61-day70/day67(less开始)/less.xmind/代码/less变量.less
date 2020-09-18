@@ -1,0 +1,49 @@
+/* 
+定义变量：@变量名: 变量值
+属性值可以定义成变量
+*/
+@myColor: yellow;
+@myWidth: 150px;
+
+/* 
+css属性可以定义成变量
+属性使用的时候需要加大括号
+*/
+@bc: background-color; 
+
+/* 
+选择器可以定义成变量 
+选择器使用的时候需要加大括号
+*/
+@o: .one;
+
+/* 
+url可以定义成变量
+*/
+@imgUrl: 'static/img';
+
+/*
+ 申明变量: 样式整体可以定义成一个变量
+*/
+@fl:{float: left;}
+@fr:{float: right;}
+@oh:{overflow: hidden;}
+@bigStyle:{width: @myWidth + 100px;height: 100px;@{bc}: @myColor;@fl();}
+
+div{
+	/* 变量可以进行运算 运算的时候带单位 */
+	@bigStyle();
+}
+
+p{
+	width: @myWidth;
+	height: 100px;
+	@{bc}: @myColor;
+}
+
+@{o}{
+	height: 200px;
+	background-color: aquamarine;
+	background-image: url('@{imgUrl}/cat.jpg');
+	background-size: 100% 100%;
+}

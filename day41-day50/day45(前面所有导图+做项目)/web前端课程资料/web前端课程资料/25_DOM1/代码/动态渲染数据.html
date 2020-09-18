@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			th,td{
+				width: 80px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			书名：<input type="text"/>
+		</div>
+		<div>
+			作者：<input type="text"/>
+		</div>
+		<div>
+			价格：<input type="text"/>
+		</div>
+		<div>
+			<button type="button">添加</button>
+		</div>
+		<table border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th>书名</th>
+					<th>作者</th>
+					<th>价格</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</body>
+	<script type="text/javascript">
+		// var num = 10;
+		// var str = '数字为' + num + '个';
+		// console.log(str);
+	
+		// 获取元素
+		var myTbody = document.getElementsByTagName('tbody')[0];
+		
+		var data = [{name: '白夜行', autor: '东野圭吾', price: '￥20'} ,{name: '水浒传', autor: '施耐庵', price: '￥190'} ,{name: '金瓶梅', autor: '兰陵笑笑生', price: '￥200'}];
+		
+		// 有几条数据就需要几行
+		for(var i = 0;i < data.length;i++){
+			// 循环遍历数组 有几条数据就创建几个tr标签
+			var newTr = document.createElement('tr');
+			
+			// 设置每个tr的内容
+			newTr.innerHTML = '<td>'+data[i].name+'</td><td>'+data[i].autor+'</td><td>'+data[i].price+'</td><td>删除/编辑</td>';
+			
+			// 把新创建的tr放进tbody里面
+			myTbody.appendChild(newTr);
+		}
+		
+		
+	</script>
+</html>

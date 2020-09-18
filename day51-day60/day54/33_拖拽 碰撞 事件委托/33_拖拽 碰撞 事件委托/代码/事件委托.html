@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li id="one">郭梦竹</li>
+			<li id="two">陈诗浩</li>
+			<li id="three">张旺</li>
+			<li id="four">葛云飞</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		// 利用事件冒泡原理 把本应该绑定给子元素的事件 绑定给父元素 操作子元素后触发父元素事件
+		// 在通过target确定操作的是哪个子元素
+		
+		// 一般情况下：子元素动态生成，dom加载需要时间，有时候事件会绑定不上
+		// 就把事件绑定给父元素，这样也能触发事件
+		
+		// 获取元素
+		var list = document.querySelector('ul');
+		
+		list.onclick = function(event){
+			// event(事件对象)
+			var event = event || window.event;
+			// target(判断动作、操作执行的元素)
+			var target = event.target || event.srcElement;
+			
+			switch(target.id){
+				case 'one':
+					alert('第1个li');
+					break;
+				case 'two':
+					alert('第2个li');
+					break;
+				case 'three':
+					alert('第3个li');
+					break;
+				case 'four':
+					alert('第4个li');
+					break;	
+				default:
+					break;
+			}
+		}
+	</script>
+</html>

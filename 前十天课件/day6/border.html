@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>border：边框</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: #9ACD32;
+				/* 边框: solid-实线 dashed-虚线 dotted-点线*/
+				/* border-left right top bottom 分方向设置*/
+				/* border-bottom: 5px solid #00FFFF; */
+				
+				/* 分属性设置边框 */
+				/* 边框样式 */
+				/* border-style: solid; */
+				/* 边框颜色 */
+				/* border-color: red; */
+				/* 边框宽度 */
+				/* border-width: 5px; */
+				
+				
+				/* 分属性和分方向设置 */
+				/* border-bottom-color: red;
+				border-bottom-style: solid;
+				border-bottom-width: 5px; */
+				
+				padding: 20px;
+				/* border: 2px solid red; */
+				/* 把盒模型设置成IE（怪异）盒模型 */
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div>hello</div>
+		
+		<!-- 
+		盒模型包括width height padding border margin
+		正常盒模型的大小：width+左右的padding+左右的border
+		                 height+上下的padding+上下的border
+						 
+		IE盒模型的大小：横向：width 纵向：height （设置padding和border会压缩内容区域整体大小不变）
+		 -->
+	</body>
+</html>

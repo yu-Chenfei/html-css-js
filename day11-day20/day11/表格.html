@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.second_table td{
+				border-left: 1px solid darkred;
+				border-top: 1px solid darkred;
+			}
+			
+			.second_table{
+				margin-top: 50px;
+				border-bottom: 1px solid darkred;
+				border-right: 1px solid darkred;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- border:设置表格边框 cellspacing设置表格空隙大小 -->
+		<table border="1" cellspacing="0">
+			<!-- 表头 -->
+			<thead>
+				<!-- tr：表格中的行 -->
+				<tr>
+					<!-- th：表头中的列 -->
+					<th>日韩</th>
+					<th>欧美</th>
+					<th>国产</th>
+				</tr>
+			</thead>
+			<!-- 表的身体 -->
+			<tbody>
+				<tr>
+					<!-- 合并行： rowspan="行数" -->
+					<td rowspan="2">小栗旬</td>
+					<td colspan="2">尼古拉斯·赵四</td>
+					<!-- <td>蔡徐坤</td> -->
+				</tr>
+				<tr>
+					<!-- <td>小栗旬</td> -->
+					<td>约翰尼德普</td>
+					<td>蔡徐坤</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		<table cellspacing="0" class="second_table">
+			<tbody>
+				<tr>
+					<td>李伟</td>
+					<td>徐豪</td>
+					<td>乔文广</td>
+				</tr>
+				<tr>
+					<td>刘圣贤</td>
+					<td>李佳杰</td>
+					<td>李莹莹</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

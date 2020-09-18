@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<span>按钮1</span>
+			<span>按钮2</span>
+			<span>按钮3</span>
+		</div>
+		
+		<div class="show">
+			<div>第一块</div>
+			<div>第二块</div>
+			<div>第三块</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// jq使用on方法绑定事件 on('事件名', callback)
+		$('span').on('click', function(){
+			$(this).css('background-color', 'yellow').siblings().css('background-color', 'white');
+			
+			$('.show div').eq($(this).index()).css('display', 'block').siblings().css('display', 'none');
+		});
+		
+	</script>
+</html>

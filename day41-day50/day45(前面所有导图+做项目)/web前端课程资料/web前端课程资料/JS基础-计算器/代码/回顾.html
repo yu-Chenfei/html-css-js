@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 定时器 参数：第一个参数是回调函数 第二个参数是时间(单位是毫秒)
+		// 每隔固定时间执行  
+		// setInterval(function(){},100);
+		// 延迟固定时间执行
+		// setTimeout(function(){},100);
+		
+		
+		// parseInt(); // 取整(向下取整)
+		// Math对象下的方法
+		// Math.floor(); // 向下取整
+		// Math.ceil(); // 向上取整
+		// Math.random(); // 0-1之间的随机数(不包括1)
+		// 取min-max之间随机整数
+		// function randFun(min, max){
+		// 	return Math.floor(Math.random() * (max - min + 1) + min);
+		// }
+		
+		// 数组方法
+		// join('')
+		// push pop unshift shift->会改变原数组
+		// concat
+		// sort(compare) reverse->会改变原数组
+		// function compare(value1, value2){
+		// 	return value1 - value2;
+		// }
+		
+		// silce
+		// splice(删除位置, 删除个数, 添加元素1, 添加元素2...)->会改变原数组
+		// indeOf lastIndexOf
+		
+		// 字符串方法
+		// var str = 'hello';
+		// 取字符串中的一个字符 str[1] // e
+		// 拼接字符串 使用+
+		// silce
+		// indeOf lastIndexOf
+		// split('参数') 把字符串分割成数组
+		// trim
+		// toUpperCase toLowerCase
+		
+		
+		// 时间对象
+		var now = new Date();
+		// get/set
+		// now.getFullYear();
+		// now.getUTCFullYear();// 0时区
+		// now.setFullYear();
+		var nowDate = now.getDate(); //获取当前日期
+		now.setDate(nowDate + 5);
+
+		// console.log(now);
+		
+		// 给数组中的对象按某个key排序
+		// var obj = [{city :'北京', country: '中国'}, {city :'巴黎', country: '法国'} ,{city :'东京', country: '日本'}];
+		// var arr = ['北京', '东京', '巴黎'];
+		
+		// obj.sort(compare);
+		// function compare(val1, val2){
+		// 	var index1 = arr.indexOf(val1.city);
+		// 	var index2 = arr.indexOf(val2.city);
+			
+		// 	return index1 - index2;
+		// }
+		// console.log(obj);
+		
+		var wordArray = ['apple', 'color', 'banana', 'yellow', 'amy'];
+		console.log(wordArray.sort());
+		
+		
+		// var arr = [12, 4, 12, 5, 4, 9];
+		// var newArr = [];
+		
+		// for(var i = 0;i < arr.length;i++){
+		// 	if(newArr.indexOf(arr[i]) == -1){
+		// 		newArr.push(arr[i]);
+		// 	}
+		// }
+		// console.log(newArr);
+		
+		var url = 'http://www.baidu.com?name=dong&age=18&like=book';
+		
+		function getDataFun(key){
+			// 问号位置的索引
+			var index = url.indexOf('?');
+			// 从索引位置往后截取字符串
+			var data = url.slice(index + 1);
+			console.log(data);
+			// 把每一组传过来的值分割成数组
+			var dataArray = data.split('&');// ['name=dong', 'age=18', 'like=book']
+			// 循环遍历数组
+			for(var i = 0;i < dataArray.length;i++){
+				var dataStr = dataArray[i];// 1.name=dong 2.age=18 3.like=book
+				// 使用=再次分割
+				var newArray = dataStr.split('='); // 1.['name', 'dong'] 2.['age', '18'] 3.['like', 'book']
+				
+				// 判断每次新数组的第一项 如果是想要的key 那么数组的第二项就是先要的value
+				if(newArray[0] == key){
+					return newArray[1];
+				}
+			}
+		}
+	</script>
+</html>

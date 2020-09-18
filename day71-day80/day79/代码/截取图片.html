@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取上下文
+		var context = can.getContext('2d');
+		
+		// 创建图片对象
+		var image = new Image();
+		// 监听图片加载
+		image.onload = function(){
+			context.drawImage(image,0,0,600,400);
+		}
+		// 设置图片路径
+		image.src = '1.jpg';
+		
+		// 绘制截取图片的形状
+		context.arc(300,200,200,0,Math.PI*2,false);
+		
+		context.rect(300,200,200,200);
+		
+		// 截取图片
+		context.clip();
+	</script>
+</html>

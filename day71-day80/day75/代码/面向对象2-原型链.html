@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 定义一个类
+		function Dog(name){
+			this.name = name;
+		}
+		// 在原型上定义固定的属性
+		Dog.prototype.leg = 4;
+		// 实例化一个对象
+		var dog1 = new Dog('史努比');
+		console.log(dog1.name);// 史努比 通过this赋值
+		console.log(dog1.leg);// 4
+		
+		// 原型：一般情况下我们说的原型指的是prototype，也叫显示原型
+		// 		只有函数有prototype
+		//      __proto__叫隐式原型，只要是对象就有隐式原型
+		// 原型链：在实例对象查找属性的时候，如果自身没有这个属性，就会通过__proto__
+		//        向上到创建它的类的prototype上去寻找(实例__proto__等于类的prototype)，如果还没有就会一直向上寻找直到null为止
+		
+		console.log(dog1.__proto__ == Dog.prototype);// true
+		console.log(Dog.prototype.__proto__ == Object.prototype);// true
+		console.log(Object.prototype.__proto__);// null
+	</script>
+</html>

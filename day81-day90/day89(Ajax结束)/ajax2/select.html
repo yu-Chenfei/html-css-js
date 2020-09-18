@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 创建XMLHTTPRequest实例
+		var xmlhttp = new XMLHttpRequest();
+		
+		// 绑定监听的方法 获取后台返回的数据
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				console.log(xmlhttp.responseText);
+				// 把json形式字符串转化为数组或者对象
+				var data = JSON.parse(xmlhttp.responseText);
+				
+				console.log(data[1].name);
+			}
+		}
+		
+		// 调用open和send方法
+		xmlhttp.open('GET', 'select.php', true);
+		xmlhttp.send();
+	</script>
+</html>

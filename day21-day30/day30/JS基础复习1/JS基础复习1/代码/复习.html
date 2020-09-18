@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="one">111</div>
+		<div class="one">222</div>
+		<div class="one">333</div>
+	</body>
+	<!-- 外部引入方式 -->
+	<!-- <script src="js文件的路径(相对路径 服务器路径)"></script> -->
+	<script type="text/javascript">
+		// 内部引入方式
+		function test(){
+			// 不使用var定义变量 变量自动是全局变量
+			num = 10;
+		}
+		// test();
+		// console.log(num);
+		
+		// 变量的数据类型：number string(字符串 相加会拼接在一起) boolean(false/true)
+		// object(null object array) undefined function
+		// null(不占内存) undefined(占固定内存 未定义 错误写法)
+		// 引用数据类型：object array function
+		// function x(){} 
+		var x = function(){}
+		
+		console.log(typeof(x));
+		
+		// 引用数据类型举例
+		// var obj1 = {name: 'tony'};
+		// var obj2 = obj1;
+		// obj1.name = 'tom';	
+		// console.log(obj2.name);//tom
+		
+		// var arr = [1,3,7,12];
+		// console.log(arr[3]);
+		
+		// 数据类型转化
+		// 转化成字符串类型
+		// var num = 1;
+		// num.toString();
+		// String(num);
+		// num + '';
+		
+		// 转化成数字类型
+		// var str = '11';
+		// Number(str);
+		// str * 1;
+		
+		// 不能转化为数字类型
+		var str = 'qwer';
+		console.log(Number(str));// NaN本身是nubmer类型 NaN不等NaN
+				
+
+		// 判断语句 
+		// if(){} 
+		// if(){}else{}
+		// if(){}else if(){}else{} 有一个条件符合后面就不再判断
+		var num = 10;
+		switch (num){
+			case 10:
+				console.log('111');
+				break;
+			case 20:
+				console.log('222');
+				break;	
+			default:
+				console.log('都不符合');
+				break;
+		}
+			
+		// 循环：while(){} do{}while() for循环
+		// 数组长度 数组名.length
+		// i是全局变量 最后能走到5
+		for(var i = 0;i < 5;i++){
+			// 执行的代码
+		}
+		
+		// 获取元素
+		// document.getElementById() 非数组
+		// document.getElementsByClassName()
+		// document.getElementsByTagName()
+		// document.getElementsByName() 使用name属性获取
+		// document.querySelector() 非数组
+		// document.querySelectorAll()
+		
+		// var one = document.querySelector('.one');
+		// console.log(one);
+		
+		// var ones = document.querySelectorAll('.one');
+		// ones[1].style.color = 'red';
+		
+		// 设置属性 元素.属性名(可以是自定义一般保存值) = 属性值
+		// 获取属性 元素.属性名 => 设置样式也是设置属性的一种(设置style属性)
+		
+		// 绑定事件 元素.on事件名 = function(){ //执行的代码 }
+		// 比如点击事件 onclick
+		
+		// 循环配合数组使用(带有元素的数组)	
+		// 循环绑定事件 循环设置样式
+		// 循环绑定事件的情况下 在事件内部没法直接使用i(循环的初始变量) 
+		// 因为循环结束执行事件时 i已经走到最后一个值
+		// 解决：操作自己使用this 如果操作其他元素 使用自定义属性保存值 
+		// 或者用一个函数把点击事件包起来 把i传递进去 进而转化为局部变量保存起来
+		
+		// 函数
+		// 作用：1 提高代码利用率 2 分割作用域(保存值、防止命名冲突)
+		// 作用域：全局变量(整个文档都可以有) 
+		// 局部变量：(只有函数内部可以用) 函数调用后内存释放 除非函数内部还有一个函数应用了这个变量
+		
+		
+	</script>
+</html>

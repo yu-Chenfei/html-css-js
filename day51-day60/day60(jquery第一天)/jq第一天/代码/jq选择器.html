@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li id="one">锄禾日当午</li>
+			<li>我是花瓶</li>
+			<li class="two">两个黄鹂鸣翠柳</li>
+			<li>谁知盘中餐</li>
+			<li>一行白鹭上青天</li>
+		</ul>
+	</body>
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript">
+		// 注意：使用jq的方法获取元素 获取到的是一个jq对象 不能使用原生的js方法
+		// 把jq对象转化为原生js对象 1.get(index) 获取索引为index的原生对象
+		//                       2.也可以使用[index] 获取索引为index的原生对象
+		// $('li').get(0).style.color = 'red';
+		// $('li')[0].style.color = 'yellowgreen';
+		
+		// for(var i = 0;i < 4;i++){
+		// 	$('li').get(i).style.color = 'red';
+		// }
+		
+		// $('li')所有li标签
+		// $('li').css('background-color', 'red');
+		// eq(index) 获取索引为index的元素
+		// $('li').eq(0).css('color', 'red');
+		
+		// console.log($('li')[0]);
+		
+		// 使用id获取元素
+		// $('#one').css('background-color', 'yellow');
+		
+		// 使用class获取元素
+		// $('.two').css('background-color', 'pink');
+		
+		// 使用后代选择器获取元素
+		// $('ul .two').css('color', 'green');
+		
+		// 使用子代选择器获取元素
+		// $('ul>.two').css('font-size', '30px');
+		
+		// 使用组合选择器
+		// $('#one,.two').css('height', '100px');
+		
+		// * 选择器
+		// $('*').css('margin', '0');
+		
+		// 获取下一个同级元素
+		// $('#one+li').css('color', 'red');
+		
+		// 获取后面所有同级元素
+		$('#one~li').css('color', 'red');
+	</script>
+</html>

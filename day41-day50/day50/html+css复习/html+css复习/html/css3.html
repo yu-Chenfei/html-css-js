@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: indianred;
+				/* border-radius: 50px; */
+				/* css3属性兼容各个浏览器 */
+				/* -webkit-border-radius: 50px;
+				-moz-border-radius: 50px;
+				-o-border-radius: 50px;
+				-ms-radius: 50px; */
+				/* 元素阴影 */
+				/* 颜色 x反向偏移量 y反向偏移量 阴影宽度 */
+				/* box-shadow: #9ACD32 20px 20px 20px, #9ACD32 -20px -20px 20px; */
+				/* 文字阴影 */
+				/* text-shadow: ; */
+				
+				/* 
+				变形
+				只能看见变形后的结果 没有变形的过程
+				 */
+				/* 移动：translate() */
+				/* 旋转：rotate() 注意：元素旋转后坐标轴跟着旋转 单位是deg */
+				/* 缩放：scale() 应用：比如谷歌浏览器最小字体是8px 如果再缩小可以使用scale() */
+				/* 扭曲：skew() */
+				/* transform: rotateZ(30deg); */
+				/* 变形的基准点 默认是中心点 */
+				/* transform-origin: 100% 100%; */
+				/* 让子元素以3D的形式展示 */
+				/* transform-style: preserve-3d; */
+				/* transform: scale(0.5, 0.5); */
+				/* transform: rotateZ(30deg); */
+				/* 
+				动画名称 执行时间 速率曲线 延迟时间
+				infinite(无限的) alternate(往复的) 
+				forwards(保持最后一帧效果) 默认是backwards(保持第一帧效果)
+				paused(暂停的) 默认是running
+				 */
+				animation: move 2s linear 0s paused;
+			}
+			
+			
+			/* 关键帧：至少有两帧 以0%开始 以100%结尾 */
+			/* @-ms-keyframes @-moz-keyframes */
+			@keyframes move{
+				0%{
+					transform: translateX(0px);
+				}
+				
+				100%{
+					transform: translateX(100px);
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

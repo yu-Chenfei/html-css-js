@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function test(){
+			var x = 1;
+			// return后面的就是调用这个函数的返回值
+			// 在函数内部return后面的代码不会再执行(阻断函数)
+			// 不要写多个return
+			return x;
+			alert(666);
+		}
+		
+		var num = test();
+		
+		console.log(num);
+		
+		// 求和的函数
+		function addFun(a, b){
+			return a + b;
+		}
+		
+		var num1 = addFun(2, 4);
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 外部样式：在head中使用link引入css样式 link标签的href属性中写css文件地址 -->
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<style type="text/css">
+			/* 选中所有标签 权重最低 */
+			*{
+				background-color: yellow;
+			}
+		   /* 内部引入方式：在head中写style标签 在style中写样式 */
+		   /* 标签选择器 标签名{} 权重是1 */
+		   div{}
+		   
+		   /* 
+		   class选择器 .class名{} 权重是10
+		   特点：1 不同标签可以使用相同class名 2 一个标签可以有多个class名 
+			*/
+		   .one{}
+		   
+		   /* id选择器 #id名{} 权重100 id是唯一的 */
+		   #sui{}
+		   
+		   /* 后代选择器 祖先元素 子元素{} 权重是 所有选择器相加*/
+		   #sui span{
+			   
+		   }
+			
+			/* 子代选择器 父元素>子元素{} 权重是 所有选择器相加*/
+			#sui>span{
+				
+			}
+			  
+			/* 组合选择器 选择器1，选择器2...{} */
+			p{
+				background-color: aqua;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<!-- 
+		行间样式(内联样式) 在标签中写style属性 在style属性中写样式
+		 缺点：不好维护 不能统一设置样式
+		 权重是：1000
+		-->
+		<div id="sui" class="one" style="">
+			<span class="btn">111</span>
+			<div>
+				<span>222</span>
+			</div>
+		</div>
+		
+		<p>你好</p>
+		
+		<ul>
+			<li>我不好</li>
+		</ul>
+	</body>
+</html>

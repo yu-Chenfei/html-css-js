@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas style="border: 3px solid black;" id="can" width="600" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		
+		// 开始绘制
+		context.beginPath();
+		// 设置渐变色
+		var gradient = context.createLinearGradient(100,100,400,200);
+		gradient.addColorStop(0, 'yellow');
+		gradient.addColorStop(0.5, 'green');
+		gradient.addColorStop(1, 'red');
+		
+		// 设置字体: 第一个参数字体大小 第二个参数字体样式
+		context.font = '40px 黑体';
+		
+		// 绘制样式
+		context.strokeStyle = gradient;
+		// 设置线宽
+		context.lineWidth = 0;
+		// 绘制文字: 第一个参数文字内容 第二个和第三个参数绘制位置
+		context.strokeText('巴拉巴拉小魔仙', 100, 100);
+		
+		// 填充样式
+		// context.fillStyle = gradient;
+		
+		// 填充文字: 第一个参数文字内容 第二个和第三个参数绘制位置
+		// context.fillText('巴拉巴拉小魔仙', 100, 100);
+	</script>
+</html>

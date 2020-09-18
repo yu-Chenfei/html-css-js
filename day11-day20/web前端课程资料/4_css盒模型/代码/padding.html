@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>padding：内边距</title>
+		<style type="text/css">
+			div{
+				/* width: 64px; */
+				/* background-color: #9ACD32; */
+				/* 内边距 padding-top bottom left right */
+				/* 设置一个值 两个值 四个值情况 和margin相同 */
+				/* padding-top: 50px; */
+			}
+			
+			.father{
+				width: 200px;
+				height: 200px;
+				background-color: #9ACD32;
+			}
+			.son{
+				height: 50px;
+				padding-top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- padding占背景 不占内容 -->
+		<!-- padding 内容区域距离元素边缘的大小 -->
+		<!-- padding一般用来代替margin使用 -->
+		<!-- <div>苏喂苏喂</div> -->
+		
+		<div class="father">
+			<div class="son">hello</div>
+		</div>
+	</body>
+</html>

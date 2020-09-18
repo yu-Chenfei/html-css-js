@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			按钮
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 严格模式：js不是一门严谨的语言
+		// 严格模式下 不写分号会报错 声明变量不赋值会报错
+		// 'use strict';
+		
+		// 只有函数(function)内部有this
+		// 在事件内部 this指向调用事件的元素(谁执行事件this就代表谁)
+		document.getElementById('box').onclick = function(){
+			console.log(this);// div#box
+		}
+		
+		// 谁调用函数 this就指向谁
+		var obj = {name: 'abc', x: function(){ console.log(this.name); }}
+		obj.x();// abc this指向obj
+		
+		// 如果没有元素调用函数 this就指向window(最顶层对象) 严格模式下this为undefined
+		function test(){
+			console.log(this);// window
+		}
+		test();
+		
+		
+	</script>
+</html>

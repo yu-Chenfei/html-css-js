@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 封装(定义类)
+		
+		// 实例没有关联 代码过于繁琐
+		// var pig = {
+		// 	color: '',
+		// 	name: ''
+		// }
+				
+		// var pig1 = {name: '佩奇', color: 'pink'};
+		// var pig2 = {name: '八戒', color: 'white'};
+		
+		// 工厂模式
+		// 实例没有关联
+		// function pig(name, color){
+		// 	var obj = {};
+		// 	obj.name = name;
+		// 	obj.color = color;
+			
+		// 	return obj;
+		// }
+		
+		// var pig1 = pig('佩奇', 'pink');
+		// var pig2 = pig('八戒', 'white');
+		
+		
+		// 构造函数(定义类)
+		function Dog(color, name){
+			// 属性 this.属性名 = 属性值
+			this.name = name;
+			this.color = color;
+			this.leg = 4;
+			// 定义方法 this.方法名 = function(){}
+			this.speak = function(){
+				console.log('汪汪汪');
+			}
+			this.eat = function(food){
+				console.log(food);
+			}
+		}
+		
+		// 实例化对象(实例对象)
+		var dog1 = new Dog('yellow', '金毛');
+		var dog2 = new Dog('black', '德牧');
+		
+		// console.log(dog1.name);
+		// console.log(dog2.name);
+		
+		// dog1.speak();
+		// dog2.speak();
+		
+		// dog1.eat('骨头');
+		// dog2.eat('粑粑');
+		
+		// 实例都有constructor属性指向实例化它的类
+		console.log(dog1.constructor);
+		console.log(dog2.constructor);
+		
+		console.log(dog1.constructor == dog2.constructor); // true
+		
+	</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: indianred;
+    }
+  </style>
+</head>
+
+<body>
+  <button type="button">stop</button>
+  <div></div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+  // animate({动画执行后的css样式}, 1000, callback)
+  // 延迟时间 delay(2000)
+  // 停止动画执行 stop()
+  // $('div').delay(2000).animate({width: '200px', height: '200px'}, 2000, function(){
+  // 	console.log('动画执行完毕');
+  // });
+
+  // $('button').on('click', function(){
+  // 	$('div').stop();
+  // });
+
+  // show：显示当前元素 hide：隐藏当前元素 toggle：显示或隐藏当前元素
+  // fadeIn：先显示元素，后改变透明度（opacity）逐步提升到100% fadeOut：将当前元素的不透明度逐步降为0%，再隐藏元素 fadeToggle：以逐渐透明或逐渐不透明的方式，折叠显示当前元素
+  // slideDown：以从上向下滑入的方式显示当前元素 slideUp：以从下向上滑出的方式隐藏当前元素 slideToggle：以垂直滑入或滑出的方式，折叠显示当前元素
+  $('button').on('click', function () {
+    // $('div').toggle();
+    // $('div').fadeToggle(2000);
+    $('div').slideToggle(2000);
+  });
+
+
+
+</script>
+
+</html>

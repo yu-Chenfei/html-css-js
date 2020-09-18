@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var myH1 = document.getElementsByTagName('h1')[0];
+		
+		
+		
+		setInterval(function(){
+			// 距离五月一日还有 x天x小时x分钟x秒
+			// 获取当前的时间对象
+			var now = new Date();
+			// 获取五月一日的时间对象
+			var next = new Date(2020,6,18);
+			// 获取当前距离1970年1月1日的毫秒数
+			var nowTime = now.getTime();
+			//  获取5.1距离1970年1月1日的毫秒数
+			var nextTime = next.getTime();
+			
+			// 相减算出当前距离5.1的秒数
+			var s = Math.floor((nextTime - nowTime) / 1000);
+				
+			// 距离5.1还有多少天
+			var d = Math.floor(s / 86400);
+			
+			// 把天数算完还有多少秒
+			s %= 86400;
+			
+			// 除去天数 用剩下的秒换算小时
+			var h = Math.floor(s / 3600);
+			
+			
+			// 把小时算完还有多少秒
+			s %= 3600;
+			
+			// 除去小时 还有多少分钟
+			var m = Math.floor(s / 60);
+			
+			// 把分钟算完还有多少秒
+			s %= 60;
+			
+			myH1.innerHTML = '距离开学还有'+ d +'天'+ h +'小时'+ m +'分钟'+ s +'秒';
+		},100);
+	</script>
+</html>

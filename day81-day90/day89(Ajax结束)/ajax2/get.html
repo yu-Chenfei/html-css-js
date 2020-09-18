@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 实例化一个XMLHttpRequest对象
+		var xmlhttp = new XMLHttpRequest();
+		
+		// 绑定监听事件(监听服务是否连接)
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				// 获取后台传过来的数据(xmlhttp.responseText)
+				console.log(xmlhttp.responseText);
+			}
+		}
+		
+		// 对象有open方法和send方法
+		// open方法：1请求方式 2后台地址 3是否异步 
+		// get请求通过在网址后面拼参数的方式进行传参
+		// get请求存在缓存问题 在网址后面拼随机数或者时间戳解决问题
+		xmlhttp.open('GET', 'get.php?name=小金莲&age=18&t='+new Date().getTime(), true);
+		// send方法
+		xmlhttp.send();
+	</script>
+</html>

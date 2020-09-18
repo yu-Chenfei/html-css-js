@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.big{
+				width: 250px;
+				height: 250px;
+				position: relative;
+				transition: all 18s linear;
+				/* 父元素设置 */
+				/* 里面元素以3D展示 */
+				transform-style: preserve-3d;
+			}
+			.big div{
+				width: 200px;
+				height: 200px;
+				opacity: .5;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.big:hover{
+				transform: rotateZ(3600deg) rotateX(2600deg) rotateY(1600deg);
+			}
+			.one{
+				background-color: red;
+				transform: translateZ(100px);
+			}
+			.two{
+				background-color: yellow;
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			.three{
+				background-color: blue;
+				transform: rotateX(90deg) translateZ(-100px);
+			}
+			.four{
+				background-color: black;
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			.five{
+				background-color: purple;
+				transform: rotateY(90deg) translateZ(-100px);
+			}
+			.six{
+				background-color: peru;
+				transform: translateZ(-100px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big">
+			<div class="one">1</div>
+			<div class="two">2</div>
+			<div class="three">3</div>
+			<div class="four">4</div>
+			<div class="five">5</div>
+			<div class="six">6</div>
+		</div>
+	</body>
+</html>

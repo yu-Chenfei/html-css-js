@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">返回</button>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementsByTagName('button')[0];
+		
+		btn.onclick = function(){
+			// -n上n条历史记录 n下n条历史记录
+			// back() 相当于-1 forward相当于1
+			history.go(-1);
+			
+			// location.href = '1.html';
+		}
+		
+		console.log(history.length);
+	</script>
+</html>

@@ -1,0 +1,38 @@
+		<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 函数的作用2：分割作用域 避免命名冲突
+		
+		// 在js中只有函数是一个封闭的作用域 函数外部不可以使用函数内部定义的变量
+		
+		// 在函数外部定义的变量 叫做全局变量 整个文档都可以使用
+		// 全局变量会一直保存在内存中 不会被释放
+		var num = 10;
+		
+		function test(){
+			var x = 11;
+			// console.log(num);
+			// 函数内部定义的变量 叫做局部变量 只有此函数内部可以使用
+			// 局部变量在函数调用后内存就会被释放(如果变量被其他内函数占用除外)
+			// 在不同作用域(函数)中的局部变量命名可以重复 互不影响
+			var num = 20;
+			// console.log(num);// 全局变量和局部变量名相同情况下函数内部优先使用局部变量
+			console.log(x);
+		}
+		
+		test();
+		// console.log(x);// 报错 not defined
+		
+		function test1(){
+			var x = 10;
+			console.log(x);
+		}
+		test1();
+	</script>
+</html>

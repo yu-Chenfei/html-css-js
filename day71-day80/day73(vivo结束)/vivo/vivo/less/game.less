@@ -1,0 +1,185 @@
+*{margin: 0;padding: 0;}
+html,body,.main{height: 100%;}
+.bcimage(@url){
+	background-image: url(@url);
+	background-size: 100% 100%;
+}
+.main{
+	.bcimage('../img/bg.jpg');
+	overflow: hidden;
+	h2{
+		position: absolute;
+		top: 5%;
+		color: white;
+		text-align: center;
+		width: 100%;
+	}
+	.show{
+		.bcimage('../img/kuang_bg.png');
+		width: 90%;
+		margin-left: 5%;
+		height: 60%;
+		margin-top: 25%;
+		overflow: hidden;
+		&>div{
+			width: 90%;
+			margin-left: 5%;
+			height: 85%;
+			margin-top: 15%;
+			div{
+				text-align: center;
+				float: left;
+				.bcimage('../img/person_kuang.png');
+				img{
+					width: 60%;
+					margin-top: 10%;
+				}
+			}
+		}
+	}
+	
+	.black_div{
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.7);
+		position: fixed;
+		left: 0;
+		top: 0;
+		display: none;
+		.is_prize{
+			position: relative;
+			text-align: center;
+			margin-top: 40%;
+			img{
+				width: 80%;
+			}
+			h4,h3{
+				width: 100%;
+				position: absolute;
+				top: 40%;
+				color: white;
+			}
+			h3{
+				display: none;
+			}
+			&>p{
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				color: white;
+			}
+			&>.reset_game,&>.again_game{
+			    position: absolute;
+				bottom: 20%;
+				left: 50%;
+				display: none;
+				width: 40%;
+				border: 1px solid rgb(81, 171, 198);
+				color: rgb(81, 171, 198);
+				border-radius: 10px;
+				transform: translateX(-50%);
+				padding: 2px;
+			}
+
+			.person_info{
+				width: 40%;
+				position: absolute;
+				top: 65%;
+				left: 30%;
+				color: white;
+				text-align: center;
+				p{
+					text-align: left;
+					border-bottom: dashed 1px dimgray;
+					margin-top: 5px;
+					input{
+						border: none;
+						outline: none;
+						background-color: transparent;
+						width: 50%;
+						color: white;
+					}
+				}
+				span{
+					margin-top: 15px;
+					margin-left: 40%;
+					display: inline-block;
+					width: 70%;
+					border: 1px solid rgb(81, 171, 198);
+					color: rgb(81, 171, 198);
+					border-radius: 10px;
+					transform: translateX(-50%);
+					padding: 2px;
+				}
+			}
+		}
+		.level_up{
+			position: relative;
+			margin-top: 30%;
+			img{
+				width: 70%;
+				margin-left: 15%;
+			}
+			span{
+				position: absolute;
+				top: 5%;
+				left: 20%;
+				color: rgb(58,153,182);
+			}
+			div{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				top: 20%;
+				left: 50%;
+				transform: translateX(-50%);
+				background-image: url(../img/CSSatyr.png);
+				background-size: 500% 200%;
+			}
+			p{
+				position: absolute;
+				bottom: 20%;
+				left: 0;
+				color: white;
+				width: 50%;
+				margin-left: 25%;
+				text-align: center;
+			}
+		}
+	}
+	
+	.success_div{
+		display: none;
+		div{
+			position: relative;
+			text-align: center;
+			margin-top: 25%;
+			img{
+				width: 60%;
+			}
+			&>.msg{
+				text-align: left;
+				color: white;
+				position: absolute;
+				bottom: 40%;
+				left: 25%;
+			}
+			
+			span{
+				display: inline-block;
+				width: 35%;
+				border: 1px solid rgb(81, 171, 198);
+				color: rgb(81, 171, 198);
+				border-radius: 10px;
+				position: absolute;
+				bottom: 15%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 5px;
+			}
+			.game_dis{
+				bottom: 25%;
+			}
+		}
+	}
+}

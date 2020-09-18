@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 使用call或者apply继承 无法继承原型上的方法和属性
+		// 解决方案：原型继承和call或者apply一起使用
+		// 定义一个Animal类
+		function Animal(name, color){
+			this.name = name;
+			this.color = color;
+		}
+		Animal.prototype.eat = function(food){
+			console.log(food);
+		}
+		Animal.prototype.leg = 4;
+		
+		// 定义一个Cat类
+		// function Cat(name,color){
+		// 	// 使用call实现继承
+		// 	Animal.call(this,name,color);
+		// }
+		
+		function Cat(){
+			// 使用apply实现继承
+			// Animal.apply(this,[name,color]);
+			Animal.apply(this,arguments);
+		}
+		
+		Cat.prototype = new Animal();
+		
+		Cat.prototype.speak = function(){
+			console.log('喵喵喵');
+		}
+		
+		// 实例化Cat
+		var cat1 = new Cat('哆啦A梦', 'blue');
+		console.log(cat1.name);
+		console.log(cat1.color);
+		
+		cat1.eat('小鱼干'); // 通过原型继承拿到的
+		
+		cat1.speak();
+	</script>
+</html>

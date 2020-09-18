@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="http://www.baidu.com" method="get">
+			<input type="text" name="name" />
+			<input type="text" name="age" />
+			<input type="submit" />
+		</form>
+	</body>
+	<script type="text/javascript">
+		// 页面之间传值
+		var str = 'http://www.baidu.com?name=dong&age=18&like=book';
+		
+		// 先确定?位置的索引
+		var index = str.indexOf('?');
+		// 把?后面的内容截取下来
+		var data = str.slice(index + 1);// 'name=dong&age=18&like=book'
+		// 把截取到的字符串分割成数组
+		var dataArray = data.split('&');// ['name=dong', 'age=18', 'like=book']
+		
+		// 循环遍历数组
+		for(var i = 0;i < dataArray.length;i++){
+			console.log(dataArray[i]); // 1.name=dong 2.age=18 3.like=book
+			// 再使用 = 把每一项都分割成数组
+			var newArray = dataArray[i].split('=');
+			console.log(newArray);// 1.['name', 'dong'] 2.['age', '18'] 3.['like', 'book']
+			// 判断如果数组的第一项是我们要拿key 数组的第二项就是我们要拿的value
+			if(newArray[0] == 'age'){
+				console.log(newArray[1]);
+				break;
+			}  
+		}
+		
+		
+	</script>
+</html>

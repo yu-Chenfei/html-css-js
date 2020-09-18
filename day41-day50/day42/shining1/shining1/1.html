@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 匿名函数：一般用来分割作用域
+		(function(x){
+			// 执行的代码
+			console.log(x);
+		})('hello');
+		
+		
+		// 闭包
+		// 在函数内部定义的变量 函数调用后就会被销毁
+		// 但是在函数内部再定义一个函数 引用外部函数的变量 这个变量就会被保存起来
+		var inner = null;
+		function test(){
+			var num = 10;
+			inner = function(){
+				num++;
+				console.log(num);
+			}
+		}
+		test();
+		inner();
+		inner();
+		inner();
+		inner();
+		
+	</script>
+</html>

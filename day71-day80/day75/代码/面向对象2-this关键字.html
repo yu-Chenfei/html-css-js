@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 在函数中 谁调用函数this就指向谁 没人调用this指向window
+		// 在事件中this指向触发事件的元素
+		// 在类中this指向每次创建的实例
+		
+		// 定义一个类(模板)
+		function Cat(name, color){
+			// this指向创建的实例
+			this.name = name;
+			this.color = color;
+		}
+		
+		// 实例化(创建实例对象)
+		// 实例化的过程就是创建一个对象 并给他添加属性和方法的过程
+		var cat1 = new Cat('哆啦A梦', 'blue');
+		console.log(cat1.name);// 哆啦A梦
+		
+		var cat2 = new Cat('小叮当', 'yellow');
+		console.log(cat2.name);// 小叮当
+		
+		var cat3 = new Cat('加菲猫', 'orange');
+		console.log(cat3.name);// 加菲猫
+	</script>
+</html>

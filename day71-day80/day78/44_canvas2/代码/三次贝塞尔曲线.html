@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas style="border: 3px solid darkred;" id="can" width="500" height="400">
+			您的浏览器不支持canvas
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		// 获取元素
+		var can = document.getElementById('can');
+		// 获取绘制上下文
+		var context = can.getContext('2d');
+		// 开始绘制
+		context.beginPath();
+		// 绘制起点
+		context.moveTo(265, 144);
+		// 绘制三次贝塞尔曲线
+		// 前四个参数是两个辅助点的坐标
+		// 后两个参数是终点坐标
+		context.bezierCurveTo(450, 265, 136, 223, 261, 374);
+		
+		// 设置绘制样式
+		context.strokeStyle = 'darkred';
+		// 绘制
+		context.stroke();
+	</script>
+</html>

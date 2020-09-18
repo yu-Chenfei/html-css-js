@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.red{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">显示、隐藏</button>
+		<div>
+			杨志森 我爱你.....
+		</div>
+		<input type="text"/>
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 添加、删除指定类名
+		// $('div').addClass('red');
+		// $('div').removeClass('red');
+		
+		// 判断是否有指定类名
+		// var bool = $('div').hasClass('red');
+		// console.log(bool);
+		
+		// toggleClass() 添加或者删除一个类
+		// $('div').toggleClass('red');
+		// $('div').toggleClass('red');
+		
+		// $('button').on('click', function(){
+		// 	$('div').toggleClass('red');
+		// });
+		
+		// attr 设置和获取属性
+		// 第一个参数是属性名 第二个是属性值
+		// 传一个参数就是获取 两个参数就是设置
+		$('div').attr('class', 'red');
+		console.log($('div').attr('class'));
+		
+		// removeAttr('属性名') 移除某个属性
+		$('div').removeAttr('class');
+		
+		// html() 相当于innerHTML
+		// val() 相当于value
+		// 传参是设置 不传参是获取
+		$('div').html('<h3>杨志森是个大傻子</h3>');
+		
+		$('input').val('666');
+	</script>
+</html>

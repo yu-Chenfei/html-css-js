@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var str = 'http://www.baidu.com?name=dong&age=18&like=book';
+		
+		var index = str.indexOf('?');
+		
+		var data = str.slice(index + 1);// 'name=dong&age=18&like=book'
+		
+		var dataArray = data.split('&'); // ['name=dong', 'age=18', 'like=book']
+		
+		for(var i = 0;i < dataArray.length;i++){
+			// 1.'name=dong' 2.'age=18' 3.'like=book'
+			
+			var newArray = dataArray[i].split('='); //1.['name', 'dong'] 2.['age', '18'] 3.['like', 'book'] 
+			
+			if(newArray[0] == 'age'){
+				console.log(newArray[1]);
+				break;
+			}
+			
+		}
+		
+	</script>
+</html>
